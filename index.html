@@ -226,7 +226,7 @@
     <!-- Barra superior -->
     <div class="topbar">
         <button class="menu-toggle">&#9776;</button>
-        <h1 class="menu-title">Meu App</h1>
+        <h1 class="menu-title">Siac App</h1>
     </div>
 
     <!-- Menu lateral -->
@@ -260,6 +260,7 @@
         <a href="#" class="botao">Ação Principal</a>
         <a class="botao" id="btnLoader">Loader</a>
         <a class="botao" id="btnNotifica">Notificação</a>
+        <button id="getTokenBtn">Mostrar Token</button>
 
 
         <button type="button" onclick="aqui()">soma</button>
@@ -269,6 +270,7 @@
     <!-- jQuery + interações -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/math.js"></script>
+       <script src="./js/gerenteToken.js"></script>
 
     <script>
         $(function () {
@@ -382,6 +384,17 @@
         function aqui() {
             alert(soma(2, 3))
         }
+
+        function sendToken() {
+            const savedToken = localStorage.getItem('token');
+            if (savedToken) {
+                alert(`Token salvo: ${savedToken}`);
+            } else {
+                alert('Nenhum token salvo no localStorage.');
+            }
+        }
+
+        document.getElementById('getTokenBtn').addEventListener('click', sendToken);
 
     </script>
 
