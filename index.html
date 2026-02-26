@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- iOS + Android WebApp support -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/img/icon-512.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0A516D" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            max-width: 100vw;
+        }
+
+        html,
+        body,
+        main {
+            width: 100vw;
+            max-width: 100vw;
+            overflow-x: hidden;
+
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #FFFFFF;
+            color: #BACCA4;
+        }
+
+        .topbar {
+            height: 70px;
+            background-color: #0A516D;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+
+        .topbar h1 {
+            font-size: 18px;
+            margin: 0;
+            flex: 1;
+        }
+
+        .menu-toggle {
+            font-size: 26px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            margin-left: 20px !important;
+        }
+
+        .menu-lateral {
+            width: 320px;
+            background-color: #2B2726;
+            color: #BACCA4;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -320px;
+            transition: left 0.3s ease;
+            z-index: 1002;
+        }
+
+        .card-usuario {
+            width: 100%;
+            height: 250px;
+            background-color: #0A516D;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .menu-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-lateral ul li {
+            padding: 16px;
+            border-bottom: 1px solid #018790;
+        }
+
+        .menu-lateral ul li a {
+            color: #BACCA4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 1000;
+        }
+
+        main {
+            padding: 80px 20px 20px;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        a.botao {
+            display: inline-block;
+            background-color: #018790;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        a.botao:hover {
+            background-color: #0A516D;
+        }
+
+        /* Loader centralizado na tela */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.3);
+            /* fundo branco com 50% de transparência */
+            z-index: 2000;
+            display: none;
+            /* começa invisível */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-ring {
+            width: 64px;
+            height: 64px;
+            border: 6px solid #BACCA4;
+            border-top: 6px solid #0A516D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+        /* Telas grandes - desktop (769px em diante)*/
+        @media (min-width: 769px) {
+            .menu-lateral {
+                left: 0 !important;
+            }
+
+            .overlay {
+                display: none !important;
+            }
+
+            main {
+                margin-left: 320px;
+                padding: 80px 20px;
+            }
+
+            .topbar {
+                margin-left: 320px;
+            }
+
+            .menu-toggle,
+            .menu-title {
+                display: none;
+            }
+        }
+
+
+        /* Telas médias - tablet (481px a 768px)  */
+        @media (min-width: 481px) and (max-width: 768px) {}
+
+
+        /* Telas pequenas - celular (até 480px)  */
+        @media (max-width: 480px) {}
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra superior -->
+    <div class="topbar">
+        <button class="menu-toggle">&#9776;</button>
+        <h1 class="menu-title">Meu App</h1>
+    </div>
+
+    <!-- Menu lateral -->
+    <nav class="menu-lateral">
+        <div class="card-usuario">
+            <img src="./img/avatar.png" alt="Foto do usuário" class="avatar" />
+            Administrador
+        </div>
+
+        <ul>
+            <li><a href="#">🏠 Início</a></li>
+            <li><a href="#">📋 Sobre</a></li>
+            <li><a href="#">⚙️ Serviços</a></li>
+            <li><a href="#">📞 Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fundo escurecido -->
+    <div class="overlay"></div>
+
+    <!-- Loader da pagina -->
+    <div id="loader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <h2>Bem-vindo! Versao 1.0</h2>
+        <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
+
+        <a href="#" class="botao">Ação Principal</a>
+        <a class="botao" id="btnLoader">Loader</a>
+        <a class="botao" id="btnNotifica">Notificação</a>
+
+
+        <button type="button" onclick="aqui()">soma</button>
+
+    </main>
+
+    <!-- jQuery + interações -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/math.js"></script>
+
+    <script>
+        $(function () {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            function abrirMenu() {
+                $('.menu-lateral').css('left', '0');
+                $('.overlay').fadeIn();
+            }
+
+            function fecharMenu() {
+                $('.menu-lateral').css('left', '-320px');
+                $('.overlay').fadeOut();
+            }
+
+            $('.menu-toggle').click(abrirMenu);
+            $('.overlay').click(fecharMenu);
+
+            document.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            document.addEventListener('touchend', function (e) {
+                touchEndX = e.changedTouches[0].screenX;
+                let diffX = touchEndX - touchStartX;
+
+                if (touchStartX < 50 && diffX > 50) {
+                    abrirMenu();
+                }
+
+                if (touchStartX > 50 && diffX < -50 && $('.overlay').is(':visible')) {
+                    fecharMenu();
+                }
+            });
+        });
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(reg => {
+                    console.log('✅ Service Worker registrado:', reg.scope);
+
+                    // Verifica se há uma nova versão do SW sendo instalada
+                    reg.onupdatefound = () => {
+                        const newWorker = reg.installing;
+
+                        newWorker.onstatechange = () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('⚠️ Nova versão detectada. Recarregando...');
+                                window.location.reload(); // Atualiza automaticamente
+                            }
+                        };
+                    };
+                })
+                .catch(err => {
+                    console.log('❌ Erro ao registrar SW:', err);
+                });
+        }
+
+        $('#btnLoader').on('click', function () {
+            console.log('click');
+
+            $('#loader')
+                .css('display', 'flex') // força flex antes de animar
+                .hide()                 // esconde imediatamente (caso visível)
+                .fadeIn(200);           // anima a entrada
+
+            setTimeout(() => {
+                $('#loader').fadeOut(300); // Oculta após 5 segundos
+            }, 5000); // corrigido: 500000 seria 8 minutos
+        });
+
+        document.getElementById('btnNotifica').addEventListener('click', function (e) {
+            e.preventDefault(); // Impede navegação
+
+                    console.log("clique novo novo")
+
+            mostrarNotificacao('Mensagem acionada por clique');
+        });
+
+        function mostrarNotificacao(corpo) {
+
+            // Verifica se o navegador suporta
+            if (!('Notification' in window)) {
+                alert('Este navegador não suporta notificações.');
+                return;
+            }
+
+            // Verifica permissão
+            if (Notification.permission === 'granted') {
+
+                new Notification('Atenção', {
+                    body: corpo,
+                    icon: '/img/icon-256.png' // seu ícone
+                });
+            } else if (Notification.permission !== 'denied') {
+
+                // Pede permissão
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('Atenção', {
+                            body: corpo,
+                            icon: '/img/icon-256.png'
+                        });
+                    }
+                });
+            }
+        }
+
+
+        function aqui() {
+            alert(soma(2, 3))
+        }
+
+    </script>
+
+</body>
+
+</html>
