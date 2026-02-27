@@ -1,0 +1,7 @@
+atalhos VS code
+
+hidentar ctrl + shift + f
+
+
+cor ligth  #49454F
+cor dark   #CAC4D0

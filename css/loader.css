@@ -1,0 +1,30 @@
+    /* Loader centralizado na tela */
+    #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.3);
+        /* fundo branco com 50% de transparência */
+        z-index: 2000;
+        display: none;
+        /* começa invisível */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loader-ring {
+        width: 64px;
+        height: 64px;
+        border: 6px solid #BACCA4;
+        border-top: 6px solid #0A516D;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }

@@ -1,0 +1,33 @@
+:root {
+
+    --font--family: 'Segoe UI', sans-serif;
+
+    --color--border: #CCCCCC;
+    --color--bar: #0A516D;
+    --color--bar--text: #FFFFFF;
+    --color--text: #49454F;
+    --color--background: #FFFFFF;
+    --color--background--overlay: rgba(0, 0, 0, 0.4);
+    --color--background--menu--lateral: #f8f8f8;
+
+    --font--size--bar: 18px;
+
+    --icon-config: url('/img/settings_24dp_49454F.png');
+    --icon-tema: url('/img/bedtime_24dp_49454F.png');
+}
+
+.dark-mode {
+    /* add after */
+    --color--border: #CCCCCC;
+    --color--bar: #0A516D;
+    --color--bar--text: #FFFFFF;
+    --color--text: #CAC4D0;
+    --color--background: #1D1B20;
+    --color--background--overlay: rgba(0, 0, 0, 0.4);
+    --color--background--menu--lateral: #2B2726;
+
+    --font--size--bar: 18px;
+
+    --icon-config: url('/img/settings_24dp_CAC4D0.png');
+    --icon-tema: url('/img/sunny_24dp_CAC4D0.png');
+}
