@@ -16,3 +16,21 @@
      background-color: var(--color--background);
      color: var(--color--text);
  }
+
+ /* media queries */
+
+ /* Telas grandes - desktop (769px em diante)*/
+ @media (min-width: 769px) {}
+
+
+ /* Telas médias - tablet (481px a 768px)  */
+ @media (min-width: 481px) and (max-width: 768px) {}
+
+
+ /* Telas pequenas - celular (até 480px)  */
+ @media (max-width: 480px) {
+     body {
+         width: 94.5vw;
+
+     }
+ }

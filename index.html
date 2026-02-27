@@ -109,8 +109,23 @@
 
         $(document).ready(function () {
             if (localStorage.getItem('theme') === 'dark-mode') {
-                $('body').addClass('dark-mode');
+                //$('body').addClass('dark-mode');
+                $('html').addClass('dark-mode');
             }
+
+
+            // acao quando mudar o tamanho da tela
+            $(window).on('resize', function () {
+
+                // quando for tamanho de desktop
+                if (window.matchMedia("(min-width: 769px)").matches) {
+                    $('.menu-lateral').css('left', '0');
+                    $('.overlay').hide();
+                } else {
+                    $('.menu-lateral').css('left', '-320px');
+                }
+
+            });
         });
 
         $(function () {
@@ -156,26 +171,24 @@
             $('.submenu a').on('click', function (e) {
                 e.preventDefault();
 
-                if ($('body').hasClass('dark-mode')) {
+                if ($('html').hasClass('dark-mode')) {
                     // 🔄 Se já estiver dark → volta para padrão
-                    $('body').removeClass('dark-mode');
+                    $('html').removeClass('dark-mode');
                     localStorage.removeItem('theme');
                 } else {
                     // 🌙 Se estiver padrão → ativa dark
-                    $('body').addClass('dark-mode');
+                    $('html').addClass('dark-mode');
                     localStorage.setItem('theme', 'dark-mode');
                 }
 
                 // fecha submenu
                 $(this).closest('.has-submenu').removeClass('open');
 
-                fecharMenu();
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    fecharMenu();
+                }
             });
 
-            // document.querySelector('.menu-tema').addEventListener('click', function (e) {
-            //     e.preventDefault();
-            //     document.querySelector('.has-submenu').classList.remove('open');
-            // });
         });
 
         if ('serviceWorker' in navigator) {

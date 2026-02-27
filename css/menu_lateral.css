@@ -24,8 +24,6 @@
 
          border-top-right-radius: 20px;
          border-bottom-right-radius: 20px;
-
-         filter: drop-shadow(4px 0 20px rgba(0, 0, 0, 0.25));
      }
 
      .card-usuario {
@@ -134,26 +132,9 @@
 
              border-top-right-radius: 0px;
              border-bottom-right-radius: 20px;
+             filter: drop-shadow(4px 0 20px rgba(0, 0, 0, 0.25));
 
          }
-
-         /* .menu-lateral {
-         width: 320px;
-         background-color: var(--color--background--menu--lateral);
-         color: var(--color--text);
-         height: 100dvh;
-         position: fixed;
-         top: 0;
-         left: -320px;
-         transition: left 0.3s ease;
-         z-index: 1002;
-         overflow: hidden;
-
-         border-top-right-radius: 20px;
-         border-bottom-right-radius: 20px;
-
-         filter: drop-shadow(4px 0 20px rgba(0, 0, 0, 0.25));
-     } */
 
          .overlay {
              display: none !important;
