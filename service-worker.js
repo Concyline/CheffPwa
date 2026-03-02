@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meuapp-cache-v1.7';
+const CACHE_NAME = 'meuapp-cache-v1.8';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -6,6 +6,7 @@ const urlsToCache = [
     '/offline.html',         // página para quando estiver offline
     '/manifest.json',
     '/img/icon-192.png',
+    '/img/icon-256.png',
     '/img/icon-512.png',
     '/img/icon-maskable-512.png',
     // adicione outros arquivos importantes aqui (JS, CSS, fontes...)
