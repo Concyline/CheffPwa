@@ -199,4 +199,10 @@
 
 
      /* Telas pequenas - celular (até 480px)  */
-     @media (max-width: 480px) {}
+     @media (max-width: 480px) {
+
+         .menu-lateral a {
+             padding: 15px 10px;
+         }
+
+     }
