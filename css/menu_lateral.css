@@ -61,9 +61,23 @@
          padding: 0;
      }
 
+     .menu-lateral a {
+         display: block;
+         width: 100%;
+         padding: 10px;
+         box-sizing: border-box;
+         border-radius: 10px;
+         transition: background-color 0.5s ease;
+     }
+
+     .menu-lateral a:hover {
+         background-color: var(--color--menu_hover);
+     }
+
      .menu-lateral ul li {
-         padding: 13px;
+
          margin-left: 10px;
+         margin-right: 10px;
          border-bottom: 1px solid var(--color--background--menu--lateral);
      }
 
@@ -75,6 +89,22 @@
 
 
      /* configuração do menus */
+
+     .menu-home::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-home);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
+
      .menu-config::before {
          content: "";
          display: inline-block;
@@ -82,6 +112,7 @@
          width: 18px;
          height: 18px;
          margin-right: 8px;
+         padding-bottom: 4px;
          background-image: var(--icon-config);
          background-size: contain;
          background-repeat: no-repeat;
@@ -95,6 +126,7 @@
          width: 18px;
          height: 18px;
          margin-right: 8px;
+         padding-bottom: 4px;
          background-image: var(--icon-tema);
          background-size: contain;
          background-repeat: no-repeat;
