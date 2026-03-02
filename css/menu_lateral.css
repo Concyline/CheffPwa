@@ -23,7 +23,6 @@
 
          border-top-right-radius: 20px;
          border-bottom-right-radius: 20px;
-         filter: drop-shadow(8px 0 40px rgba(0, 0, 0, 0.25));
 
          transition: left 0.5s ease, filter 3s ease;
      }
@@ -139,6 +138,8 @@
 
              border-top-right-radius: 0px;
              border-bottom-right-radius: 20px;
+
+             filter: drop-shadow(8px 0 40px rgba(0, 0, 0, 0.25));
 
          }
 
