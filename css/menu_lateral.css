@@ -67,7 +67,7 @@
          padding: 10px;
          box-sizing: border-box;
          border-radius: 10px;
-         transition: background-color 0.5s ease;
+         transition: background-color 0.3s ease;
      }
 
      .menu-lateral a:hover {

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/variables.css">
 
     <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/componentes.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/top_bar.css">
     <link rel="stylesheet" href="css/menu_lateral.css">
@@ -32,19 +33,17 @@
 
 
     <style>
-        a.botao {
-            display: inline-block;
-            background-color: #018790;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+        .textview {
+            display: block;
 
-        a.botao:hover {
-            background-color: #0A516D;
+            font-size: 14px;
+            font-weight: 400;
+
+            color: var(--color--text);
+
+            margin-bottom: 0px;
+
+            letter-spacing: 0.2px;
         }
     </style>
 </head>
@@ -85,6 +84,9 @@
         <div class="loader-ring"></div>
     </div>
 
+    <!-- Toast -->
+    <div id="toast" class="toast">Mensagem aqui</div>
+
     <!-- Conteúdo principal -->
     <main>
         <h2>Bem-vindo! Versao 1.1</h2>
@@ -93,145 +95,41 @@
         <a href="#" class="botao">Ação Principal</a>
         <a class="botao" id="btnLoader">Loader</a>
         <a class="botao" id="btnNotifica">Notificação</a>
-        <button id="getTokenBtn">Mostrar Token</button>
+        <button class="botao" id="teste">Teste</button>
+        <button class="botao" disabled id="teste">Teste</button>
+        <button class="botao" id="getTokenBtn">Mostrar Token</button>
+
+        <div class="div-input">
+            <span class="textview">Entre com o token</span>
+            <input type="text" class="input" placeholder="Digite seu token">
+        </div>
 
 
-        <button type="button" onclick="aqui()">soma</button>
+
+        <button class="botao" type="button" onclick="aqui()">soma</button>
 
     </main>
 
     <!-- jQuery + interações -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/math.js"></script>
+    <script src="./js/ready.js"></script>
+    <script src="./js/componentes.js"></script>
+    <script src="./js/menu_lateral.js"></script>
     <script src="./js/gerenteToken.js"></script>
+    <script src="./js/serviceWorker.js"></script>
 
     <script>
 
-        $(document).ready(function () {
-            if (localStorage.getItem('theme') === 'dark-mode') {
-                //$('body').addClass('dark-mode');
-                $('html').addClass('dark-mode');
-            }
-
-
-            // acao quando mudar o tamanho da tela
-            $(window).on('resize', function () {
-
-                // quando for tamanho de desktop
-                if (window.matchMedia("(min-width: 769px)").matches) {
-                    $('.menu-lateral').css('left', '0');
-                    $('.overlay').hide();
-                } else {
-                    $('.menu-lateral').css('left', '-320px');
-                }
-
-            });
-        });
-
-        $(function () {
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            function abrirMenu() {
-                $('.menu-lateral').css('left', '0').addClass('aberto');
-                $('.overlay').fadeIn();
-            }
-
-            function fecharMenu() {
-                $('.menu-lateral').css('left', '-320px').removeClass('aberto');
-                $('.overlay').fadeOut();
-            }
-
-            $('.menu-toggle').click(abrirMenu);
-            $('.overlay').click(fecharMenu);
-
-            document.addEventListener('touchstart', function (e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            document.addEventListener('touchend', function (e) {
-                touchEndX = e.changedTouches[0].screenX;
-                let diffX = touchEndX - touchStartX;
-
-                if (touchStartX < 50 && diffX > 50) {
-                    abrirMenu();
-                }
-
-                if (touchStartX > 50 && diffX < -50 && $('.overlay').is(':visible')) {
-                    fecharMenu();
-                }
-            });
-
-
-            $('.menu-config').on('click', function (e) {
-                e.preventDefault();
-                $(this).closest('.has-submenu').toggleClass('open');
-            });
-
-            $('.submenu a').on('click', function (e) {
-                e.preventDefault();
-
-                if ($('html').hasClass('dark-mode')) {
-                    // 🔄 Se já estiver dark → volta para padrão
-                    $('html').removeClass('dark-mode');
-                    localStorage.removeItem('theme');
-                } else {
-                    // 🌙 Se estiver padrão → ativa dark
-                    $('html').addClass('dark-mode');
-                    localStorage.setItem('theme', 'dark-mode');
-                }
-
-                // fecha submenu
-                $(this).closest('.has-submenu').removeClass('open');
-
-                if (window.matchMedia("(max-width: 768px)").matches) {
-                    fecharMenu();
-                }
-            });
-
-        });
-
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(reg => {
-                    console.log('✅ Service Worker registrado:', reg.scope);
-
-                    // Verifica se há uma nova versão do SW sendo instalada
-                    reg.onupdatefound = () => {
-                        const newWorker = reg.installing;
-
-                        newWorker.onstatechange = () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('⚠️ Nova versão detectada. Recarregando...');
-                                window.location.reload(); // Atualiza automaticamente
-                            }
-                        };
-                    };
-                })
-                .catch(err => {
-                    console.log('❌ Erro ao registrar SW:', err);
-                });
-        }
-
-        $('#btnLoader').on('click', function () {
-            console.log('click');
-
-            $('#loader')
-                .css('display', 'flex') // força flex antes de animar
-                .hide()                 // esconde imediatamente (caso visível)
-                .fadeIn(200);           // anima a entrada
-
-            setTimeout(() => {
-                $('#loader').fadeOut(300); // Oculta após 5 segundos
-            }, 5000); // corrigido: 500000 seria 8 minutos
-        });
 
         document.getElementById('btnNotifica').addEventListener('click', function (e) {
             e.preventDefault(); // Impede navegação
 
-            console.log("clique novo novo")
+            //console.log("clique novo novo")
 
-            mostrarNotificacao('Mensagem acionada por clique');
+            //mostrarNotificacao('Mensagem acionada por clique');
+
+            mostrarToast("Toast cusomizado como do android!")
         });
 
         function mostrarNotificacao(corpo) {

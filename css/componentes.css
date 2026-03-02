@@ -1,0 +1,139 @@
+   .toast {
+       position: fixed;
+       bottom: 20px;
+       left: 50%;
+       transform: translate(-50%, 20px);
+
+       background: var(--color--background--menu--lateral);
+       color: var(--color--text);
+       border: 1px solid var(--color--text);
+       padding: 14px 24px;
+       border-radius: var(--border--radius--component);
+
+       text-align: center;
+
+       opacity: 0;
+       transition: all 0.3s ease;
+   }
+
+   .toast.show {
+       opacity: 1;
+       transform: translate(-50%, 0);
+   }
+
+
+
+
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+
+   .botao {
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+
+       background-color: var(--color--background--botao);
+       color: var(--color--bar--text);
+
+       padding: 0 24px;
+       min-height: 40px;
+
+       border-radius: var(--border--radius--component);
+
+       font-weight: 500;
+       font-size: 14px;
+       letter-spacing: 0.5px;
+
+       border: none;
+       cursor: pointer;
+
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+
+   .botao:hover {
+       background-color: var(--color--background--botao--hover);
+       box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25);
+   }
+
+   .botao:active {
+       transform: translateY(1px);
+       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+   }
+
+   .botao:focus-visible {
+       outline: 3px solid rgba(20, 130, 176, 0.4);
+       outline-offset: 2px;
+   }
+
+   .botao:disabled {
+       background-color: var(--color--background--botao--disabled);
+       cursor: not-allowed;
+       box-shadow: none;
+       opacity: 0.6;
+   }
+
+
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+
+   .input {
+       width: 100%;
+       box-sizing: border-box;
+
+       padding: 0 16px;
+       min-height: 48px;
+
+       border-radius: var(--border--radius--component);
+       border: 1px solid var(--color--border);
+       color: var(--color--text);
+
+       font-size: 14px;
+       font-weight: 400;
+
+       background-color: var(--color--background--menu--lateral);
+
+       transition:
+           border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+           box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+           background-color 0.2s ease;
+   }
+
+   .input:focus {
+       outline: none;
+       border-color: #0F6E94;
+       background-color: var(--color--background--menu--lateral);
+       box-shadow: 0 0 0 3px rgba(15, 110, 148, 0.15);
+   }
+
+   .input:disabled {
+       background-color: #ECECEC;
+       color: #9E9E9E;
+       cursor: not-allowed;
+       border-color: #E0E0E0;
+   }
+
+   .input::placeholder {
+       color: #9E9E9E;
+   }
+
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+
+
+
+   /* Telas pequenas - celular (até 480px)  */
+   @media (max-width: 480px) {
+
+       .toast {
+           width: calc(100% - 32px);
+           /* ocupa quase toda largura */
+           left: 50%;
+           transform: translateX(-50%);
+       }
+
+   }

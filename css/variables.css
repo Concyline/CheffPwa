@@ -9,9 +9,14 @@
     --color--background: #FFFFFF;
     --color--background--overlay: rgba(0, 0, 0, 0.4);
     --color--background--menu--lateral: #f8f8f8;
+    --color--background--botao: #0F6E94;
+    --color--background--botao--hover: #1482B0;
+    --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.1);
 
     --font--size--bar: 18px;
+
+    --border--radius--component: 10px;
 
     --icon-home: url('/img/home_24dp_49454F.png');
     --icon-config: url('/img/settings_24dp_49454F.png');
@@ -27,9 +32,14 @@
     --color--background: #141118;
     --color--background--overlay: rgba(0, 0, 0, 0.4);
     --color--background--menu--lateral: #1D1B20;
+    --color--background--botao: #0F6E94;
+    --color--background--botao--hover: #1482B0;
+    --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.4);
 
     --font--size--bar: 18px;
+
+    --border--radius--component: 10px;
 
     --icon-home: url('/img/home_24dp_CAC4D0.png');
     --icon-config: url('/img/settings_24dp_CAC4D0.png');
