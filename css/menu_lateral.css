@@ -24,6 +24,13 @@
 
          border-top-right-radius: 20px;
          border-bottom-right-radius: 20px;
+         filter: drop-shadow(8px 0 40px rgba(0, 0, 0, 0.25));
+
+         transition: left 0.3s ease, filter 0.3s ease;
+     }
+
+     .menu-lateral.aberto {
+         filter: drop-shadow(8px 0 40px rgba(0, 0, 0, 1));
      }
 
      .card-usuario {
@@ -67,6 +74,7 @@
          text-decoration: none;
          font-weight: 500;
      }
+
 
      /* configuração do menus */
      .menu-config::before {
@@ -132,7 +140,6 @@
 
              border-top-right-radius: 0px;
              border-bottom-right-radius: 20px;
-             filter: drop-shadow(4px 0 20px rgba(0, 0, 0, 0.25));
 
          }
 
@@ -160,4 +167,10 @@
 
 
      /* Telas pequenas - celular (até 480px)  */
-     @media (max-width: 480px) {}
+     @media (max-width: 480px) {
+         .menu-lateral {
+             border-top-right-radius: 20px;
+             border-bottom-right-radius: 20px;
+
+         }
+     }
