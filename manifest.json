@@ -1,11 +1,11 @@
 {
   "name": "Siac app",
   "short_name": "Siac app",
-  "start_url": "/?source=pwa&v=1.12",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0a5c7c",
-  "theme_color": "#0a5c7c",
+  "background_color": "#0A516D",
+  "theme_color": "#0A516D",
   "icons": [
     {
       "src": "/img/icon-192.png",

@@ -3,7 +3,7 @@
     --font--family: 'Segoe UI', sans-serif;
 
     --color--border: #CCCCCC;
-    --color--bar: #0a5c7c;
+    --color--bar: #0A516D;
     --color--bar--text: #FFFFFF;
     --color--text: #49454F;
     --color--background: #FFFFFF;
@@ -32,7 +32,7 @@
 .dark-mode {
     /* add after */
     --color--border: #CCCCCC;
-    --color--bar: #0a5c7c;
+    --color--bar: #0A516D;
     --color--bar--text: #FFFFFF;
     --color--text: #CAC4D0;
     --color--background: #141118;
