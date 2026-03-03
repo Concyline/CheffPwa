@@ -55,12 +55,12 @@
 
    .botao:hover {
        background-color: var(--color--background--botao--hover);
-       box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25);
+       /* box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25); */
    }
 
    .botao:active {
        transform: translateY(1px);
-       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+       /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
    }
 
    .botao:focus-visible {
@@ -86,9 +86,10 @@
 
        padding: 0 16px;
        min-height: 48px;
+       margin-bottom: 5px;
 
        border-radius: var(--border--radius--component);
-       border: 1px solid var(--color--border);
+       border: 2px solid var(--color--border);
        color: var(--color--text);
 
        font-size: 14px;
@@ -104,9 +105,10 @@
 
    .input:focus {
        outline: none;
-       border-color: #0F6E94;
+       border-color: var(--color--bar);
+       /* border-color: #0F6E94; */
        background-color: var(--color--background--menu--lateral);
-       box-shadow: 0 0 0 3px rgba(15, 110, 148, 0.15);
+       /* box-shadow: 0 0 0 3px rgba(15, 110, 148, 0.15); */
    }
 
    .input:disabled {
@@ -125,6 +127,14 @@
    /* -------------------------------------------------------------------------------------------------------- */
 
 
+   /* media queries */
+
+   /* Telas grandes - desktop (769px em diante)*/
+   @media (min-width: 769px) {}
+
+
+   /* Telas médias - tablet (481px a 768px)  */
+   @media (min-width: 481px) and (max-width: 768px) {}
 
    /* Telas pequenas - celular (até 480px)  */
    @media (max-width: 480px) {
