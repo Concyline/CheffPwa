@@ -66,70 +66,188 @@ function showSnackbar(message, actionText = null, actionCallback = null) {
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
 
-function showAlert(title, message) {
+function showAlert({
+    title = "Attention",
+    message = "Something went wrong.",
+    type = "ok", // ok | confirm | triple
 
-    const overlay = document.createElement("div");
-    overlay.className = "alert-overlay";
+    okText = "OK",
+    yesText = "Sim",
+    noText = "Não",
+    cancelText = "Cancelar"
 
-    const alertBox = document.createElement("div");
-    alertBox.className = "alert";
+} = {}) {
 
-    const header = document.createElement("div");
-    header.className = "alert-header";
+    return new Promise((resolve) => {
 
-    const icon = document.createElement("div");
-    icon.className = "alert-icon";
+        const overlay = document.createElement("div");
+        overlay.className = "alert-overlay show";
 
-    const titleEl = document.createElement("div");
-    titleEl.className = "alert-title";
-    titleEl.textContent = title;
+        const alertBox = document.createElement("div");
+        alertBox.className = "alert";
 
-    header.appendChild(icon);
-    header.appendChild(titleEl);
+        // HEADER
+        const header = document.createElement("div");
+        header.className = "alert-header";
 
-    const messageEl = document.createElement("div");
-    messageEl.className = "alert-message";
-    messageEl.textContent = message;
+        const icon = document.createElement("div");
+        icon.className = "alert-icon";
 
-    const actions = document.createElement("div");
-    actions.className = "alert-actions";
+        const titleEl = document.createElement("div");
+        titleEl.className = "alert-title";
+        titleEl.innerText = title;
 
-    const cancelBtn = document.createElement("button");
-    cancelBtn.className = "alert-button";
-    cancelBtn.textContent = "CANCEL";
+        header.appendChild(icon);
+        header.appendChild(titleEl);
 
-    const okBtn = document.createElement("button");
-    okBtn.className = "alert-button";
-    okBtn.textContent = "YES";
+        // MESSAGE
+        const messageEl = document.createElement("div");
+        messageEl.className = "alert-message";
+        messageEl.innerText = message;
 
-    function closeAlert() {
-        overlay.classList.remove("show");
-        setTimeout(() => overlay.remove(), 250);
-    }
+        // ACTIONS
+        const actions = document.createElement("div");
+        actions.className = "alert-actions";
 
-    cancelBtn.addEventListener("click", closeAlert);
-    okBtn.addEventListener("click", closeAlert);
-
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) {
-            closeAlert();
+        function close(result) {
+            overlay.classList.remove("show");
+            setTimeout(() => {
+                overlay.remove();
+                resolve(result);
+            }, 250);
         }
-    });
 
-    actions.appendChild(cancelBtn);
-    actions.appendChild(okBtn);
+        // ===== TIPOS =====
 
-    alertBox.appendChild(header);
-    alertBox.appendChild(messageEl);
-    alertBox.appendChild(actions);
+        if (type === "ok") {
 
-    overlay.appendChild(alertBox);
-    document.body.appendChild(overlay);
+            const okBtn = document.createElement("button");
+            okBtn.className = "alert-button";
+            okBtn.innerText = okText;
+            okBtn.onclick = () => close("ok");
 
-    requestAnimationFrame(() => {
-        overlay.classList.add("show");
+            actions.appendChild(okBtn);
+        }
+
+        if (type === "confirm") {
+
+            const cancelBtn = document.createElement("button");
+            cancelBtn.className = "alert-button";
+            cancelBtn.innerText = cancelText;
+            cancelBtn.onclick = () => close("cancel");
+
+            const yesBtn = document.createElement("button");
+            yesBtn.className = "alert-button";
+            yesBtn.innerText = yesText;
+            yesBtn.onclick = () => close("yes");
+
+            actions.appendChild(cancelBtn);
+            actions.appendChild(yesBtn);
+        }
+
+        if (type === "triple") {
+
+            const cancelBtn = document.createElement("button");
+            cancelBtn.className = "alert-button";
+            cancelBtn.innerText = cancelText;
+            cancelBtn.onclick = () => close("cancel");
+
+            const noBtn = document.createElement("button");
+            noBtn.className = "alert-button";
+            noBtn.innerText = noText;
+            noBtn.onclick = () => close("no");
+
+            const yesBtn = document.createElement("button");
+            yesBtn.className = "alert-button";
+            yesBtn.innerText = yesText;
+            yesBtn.onclick = () => close("yes");
+
+            actions.appendChild(cancelBtn);
+            actions.appendChild(noBtn);
+            actions.appendChild(yesBtn);
+        }
+
+        // MONTA
+        alertBox.appendChild(header);
+        alertBox.appendChild(messageEl);
+        alertBox.appendChild(actions);
+        overlay.appendChild(alertBox);
+
+        document.body.appendChild(overlay);
+
+        // Fecha clicando fora
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                close("cancel");
+            }
+        });
     });
 }
+
+// function showAlert(title, message) {
+
+//     const overlay = document.createElement("div");
+//     overlay.className = "alert-overlay";
+
+//     const alertBox = document.createElement("div");
+//     alertBox.className = "alert";
+
+//     const header = document.createElement("div");
+//     header.className = "alert-header";
+
+//     const icon = document.createElement("div");
+//     icon.className = "alert-icon";
+
+//     const titleEl = document.createElement("div");
+//     titleEl.className = "alert-title";
+//     titleEl.textContent = title;
+
+//     header.appendChild(icon);
+//     header.appendChild(titleEl);
+
+//     const messageEl = document.createElement("div");
+//     messageEl.className = "alert-message";
+//     messageEl.textContent = message;
+
+//     const actions = document.createElement("div");
+//     actions.className = "alert-actions";
+
+//     const cancelBtn = document.createElement("button");
+//     cancelBtn.className = "alert-button";
+//     cancelBtn.textContent = "CANCEL";
+
+//     const okBtn = document.createElement("button");
+//     okBtn.className = "alert-button";
+//     okBtn.textContent = "YES";
+
+//     function closeAlert() {
+//         overlay.classList.remove("show");
+//         setTimeout(() => overlay.remove(), 250);
+//     }
+
+//     cancelBtn.addEventListener("click", closeAlert);
+//     okBtn.addEventListener("click", closeAlert);
+
+//     overlay.addEventListener("click", (e) => {
+//         if (e.target === overlay) {
+//             closeAlert();
+//         }
+//     });
+
+//     actions.appendChild(cancelBtn);
+//     actions.appendChild(okBtn);
+
+//     alertBox.appendChild(header);
+//     alertBox.appendChild(messageEl);
+//     alertBox.appendChild(actions);
+
+//     overlay.appendChild(alertBox);
+//     document.body.appendChild(overlay);
+
+//     requestAnimationFrame(() => {
+//         overlay.classList.add("show");
+//     });
+// }
 
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------

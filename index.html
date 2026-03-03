@@ -87,7 +87,10 @@
         <button class="botao" id="btnToast">Toast</button>
         <button class="botao" id="btnSnack">SnackBar</button>
         <button class="botao" id="btnSnackCall">SnackBar Call back</button>
-        <button class="botao" id="btnAlert">Alert</button>
+
+        <button class="botao" id="btnAlertOk">Alert ok</button>
+        <button class="botao" id="btnAlertSim">Alert sim/cancelar</button>
+        <button class="botao" id="btnAlertSimNao">Alert sim/nao/cancelar</button>
 
         <button class="botao" id="getTokenBtn">Mostrar Token</button>
 
@@ -156,43 +159,64 @@
             );
         })
 
-        $('#btnAlert').on('click', function (e) {
-            showAlert("Atenção", "Deseja realmente continuar?");
+        $('#btnAlertOk').on('click', function (e) {
+
+            showAlert({
+                title: "Excluir item",
+                message: "Tem certeza?",
+                type: "ok",
+                okText: "Visto"
+            }).then(result => {
+
+                if (result === "ok") {
+                    showToast("ok");
+                }
+
+            });
+
         })
 
-        function mostrarNotificacao(corpo) {
+        $('#btnAlertSim').on('click', function (e) {
 
-            // Verifica se o navegador suporta
-            if (!('Notification' in window)) {
-                alert('Este navegador não suporta notificações.');
-                return;
-            }
+            showAlert({
+                title: "Delete",
+                message: "Do you want to delete this item?",
+                type: "confirm",
+                yesText: "Excluir",
+                cancelText: "Voltar"
+            })
+                .then(result => {
 
-            // Verifica permissão
-            if (Notification.permission === 'granted') {
-
-                new Notification('Atenção', {
-                    body: corpo,
-                    icon: '/img/icon-256.png' // seu ícone
-                });
-            } else if (Notification.permission !== 'denied') {
-
-                // Pede permissão
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        new Notification('Atenção', {
-                            body: corpo,
-                            icon: '/img/icon-256.png'
-                        });
+                    if (result === "yes") {
+                        showToast("yes");
                     }
+
                 });
-            }
-        }
 
+        })
 
-        function aqui() {
-            alert(soma(2, 3))
-        }
+        $('#btnAlertSimNao').on('click', function (e) {
+
+            showAlert({
+                title: "Atenção",
+                message: "Seseja fazer o BKP?",
+                type: "triple", yesText: "Excluir",
+                noText: "Reavaliar",
+                cancelText: "Voltar"
+            })
+                .then(result => {
+
+                    if (result === "yes") {
+                        showToast("yes");
+
+                    } else if (result === "no") {
+                        showToast("no");
+                    }
+
+                });
+
+        })
+
 
         function sendToken() {
             const savedToken = localStorage.getItem('token');
