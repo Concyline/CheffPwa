@@ -14,7 +14,7 @@ class TopProgressBar {
             top: "0",
             left: "0",
             width: "100%",
-            height: "50px",
+            height: "5px",
             overflow: "hidden",
             zIndex: "99999",
             display: "none"
