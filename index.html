@@ -153,42 +153,44 @@
 
             const api = new ApiService();
 
-            try {
+            setTimeout(async () => {
 
-                showToast("Toast cusomizado como do android!")
+                try {
 
+                    const response = await api.post("/user/login", {
+                        email: "admin_pimenta_sapeka@system.local",
+                        password: "admin"
+                    });
 
-                const response = await api.post("/user/login", {
-                    email: "admin_pimenta_sapeka@system.local",
-                    password: "admin"
-                });
+                    if (!response.Success) {
+                        showAlert("Erro", response.Message || "Falha no login");
+                        return;
+                    }
 
-                if (!response.Success) {
-                    showAlert("Erro", response.Message || "Falha no login");
-                    return;
+                    const token = response.Data.token;
+                    const user = response.Data.user;
+
+                    TokenManager.set(token);
+
+                    console.log("Usuário:", user);
+                    console.log("Token:", token);
+
+                    showAlert({
+                        title: "Atenção",
+                        message: token,
+                        type: "ok",
+                    });
+
+                } catch (error) {
+                    showAlert({
+                        title: "Erro",
+                        message: error.message,
+                        type: "ok",
+                    });
                 }
 
-                const token = response.Data.token;
-                const user = response.Data.user;
+            }, 5000);
 
-                TokenManager.set(token);
-
-                console.log("Usuário:", user);
-                console.log("Token:", token);
-
-                showAlert({
-                    title: "Atenção",
-                    message: token,
-                    type: "ok",
-                });
-
-            } catch (error) {
-                showAlert({
-                    title: "Erro",
-                    message: error.message,
-                    type: "ok",
-                });
-            }
         }
 
 
