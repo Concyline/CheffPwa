@@ -27,7 +27,7 @@
     --icon-home: url('/img/home_24dp_49454F.png');
     --icon-config: url('/img/settings_24dp_49454F.png');
     --icon-tema: url('/img/bedtime_24dp_49454F.png');
-    --icon-alert: url('/img/error_outline_24dp_49454F.png');
+    --icon-alert: url('/img/error_outline_72dp_49454F.png');
 }
 
 .dark-mode {
@@ -54,5 +54,5 @@
     --icon-home: url('/img/home_24dp_CAC4D0.png');
     --icon-config: url('/img/settings_24dp_CAC4D0.png');
     --icon-tema: url('/img/sunny_24dp_CAC4D0.png');
-    --icon-alert: url('/img/error_outline_24dp_CAC4D0.png');
+    --icon-alert: url('/img/error_outline_72dp_CAC4D0.png');
 }
