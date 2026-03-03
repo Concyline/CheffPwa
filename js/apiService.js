@@ -6,45 +6,49 @@ class ApiService {
 
     async request(endpoint, options = {}) {
 
-        const token = TokenManager.get();
+        TopProgressBar.start();
 
-        const headers = {
-            "Content-Type": "application/json",
-            ...options.headers
-        };
+        try {
 
-        if (token) {
-            headers["Authorization"] = `Bearer ${token}`;
+            const token = TokenManager.get();
+
+            const headers = {
+                "Content-Type": "application/json",
+                ...options.headers
+            };
+
+            if (token) {
+                headers["Authorization"] = `Bearer ${token}`;
+            }
+
+            const config = {
+                ...options,
+                headers
+            };
+
+            const response = await fetch(`${this.baseURL}${endpoint}`, config);
+
+            if (response.status === 401) {
+                TokenManager.remove();
+                window.location.href = "/login.html";
+                return;
+            }
+
+            if (!response.ok) {
+                throw new Error(`Erro ${response.status}`);
+            }
+
+            return await response.json();
+
+        } finally {
+            TopProgressBar.finish();
         }
-
-        const config = {
-            ...options,
-            headers
-        };
-
-        const response = await fetch(`${this.baseURL}${endpoint}`, config);
-
-        if (response.status === 401) {
-            TokenManager.remove();
-            window.location.href = "/login.html";
-            return;
-        }
-
-        if (!response.ok) {
-            throw new Error(`Erro ${response.status}`);
-        }
-
-        return response.json();
     }
 
-    // ✅ GET
     get(url) {
-        return this.request(url, {
-            method: "GET"
-        });
+        return this.request(url, { method: "GET" });
     }
 
-    // ✅ POST
     post(url, body) {
         return this.request(url, {
             method: "POST",
@@ -52,7 +56,6 @@ class ApiService {
         });
     }
 
-    // ✅ PUT
     put(url, body) {
         return this.request(url, {
             method: "PUT",
@@ -60,7 +63,6 @@ class ApiService {
         });
     }
 
-    // ✅ DELETE
     delete(url) {
         return this.request(url, {
             method: "DELETE"

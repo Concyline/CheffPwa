@@ -82,6 +82,7 @@
 
 
         <button class="botao" id="teste">Login</button>
+        <button class="botao" id="progress">Progress</button>
         <button class="botao" disabled id="teste">Teste</button>
 
         <button class="botao" id="btnToast">Toast</button>
@@ -132,7 +133,7 @@
 
     <!-- jQuery + interações -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/math.js"></script>
+    <script src="./js/topProgressBar.js"></script>
     <script src="./js/ready.js"></script>
     <script src="./js/componentes.js"></script>
     <script src="./js/menu_lateral.js"></script>
@@ -145,6 +146,15 @@
     <script>
 
 
+        $("#progress").on("click", function (e) {
+
+            TopProgressBar.start();
+
+            setTimeout(() => {
+                TopProgressBar.finish();
+            }, 5000);
+        })
+
         $("#teste").on("click", function (e) {
             login()
         })
@@ -153,43 +163,39 @@
 
             const api = new ApiService();
 
-            setTimeout(async () => {
+            try {
 
-                try {
+                const response = await api.post("/user/login", {
+                    email: "admin_pimenta_sapeka@system.local",
+                    password: "admin"
+                });
 
-                    const response = await api.post("/user/login", {
-                        email: "admin_pimenta_sapeka@system.local",
-                        password: "admin"
-                    });
-
-                    if (!response.Success) {
-                        showAlert("Erro", response.Message || "Falha no login");
-                        return;
-                    }
-
-                    const token = response.Data.token;
-                    const user = response.Data.user;
-
-                    TokenManager.set(token);
-
-                    console.log("Usuário:", user);
-                    console.log("Token:", token);
-
-                    showAlert({
-                        title: "Atenção",
-                        message: token,
-                        type: "ok",
-                    });
-
-                } catch (error) {
-                    showAlert({
-                        title: "Erro",
-                        message: error.message,
-                        type: "ok",
-                    });
+                if (!response.Success) {
+                    showAlert("Erro", response.Message || "Falha no login");
+                    return;
                 }
 
-            }, 5000);
+                const token = response.Data.token;
+                const user = response.Data.user;
+
+                TokenManager.set(token);
+
+                console.log("Usuário:", user);
+                console.log("Token:", token);
+
+                showAlert({
+                    title: "Atenção",
+                    message: token,
+                    type: "ok",
+                });
+
+            } catch (error) {
+                showAlert({
+                    title: "Erro",
+                    message: error.message,
+                    type: "ok",
+                });
+            }
 
         }
 
