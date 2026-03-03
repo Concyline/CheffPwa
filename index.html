@@ -221,9 +221,19 @@
         function sendToken() {
             const savedToken = localStorage.getItem('token');
             if (savedToken) {
-                alert(`Token salvo: ${savedToken}`);
+
+                showAlert({
+                    title: "Excluir item",
+                    message: `Token salvo: ${savedToken}`,
+                    type: "ok",
+                });
+
             } else {
-                alert('Nenhum token salvo no localStorage.');
+                showAlert({
+                    title: "Excluir item",
+                    message: 'Nenhum token salvo no localStorage.',
+                    type: "ok",
+                });
             }
         }
 

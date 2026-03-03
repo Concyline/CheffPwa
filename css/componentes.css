@@ -7,7 +7,7 @@
        font-weight: var(--font--weight);
        letter-spacing: var(--font--letter--spacing);
 
-       background: var(--color--background--menu--lateral);
+       background: var(--color--background--toast);
        color: var(--color--text);
        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
        padding: 14px 24px;
@@ -63,7 +63,7 @@
 
        padding: 20px 20px;
 
-       background-color: var(--color--background--menu--lateral);
+       background-color: var(--color--background--toast);
        color: var(--color--text);
 
        border-radius: var(--border--radius--component);
@@ -129,7 +129,7 @@
        width: 90%;
        max-width: 420px;
 
-       background: var(--color--background);
+       background: var(--color--background--toast);
        color: var(--color--text);
 
        border-radius: 12px;
@@ -236,12 +236,10 @@
 
    .botao:hover {
        background-color: var(--color--background--botao--hover);
-       /* box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25); */
    }
 
    .botao:active {
        transform: translateY(1px);
-       /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
    }
 
    .botao:focus-visible {
@@ -277,12 +275,7 @@
        font-weight: var(--font--weight);
        letter-spacing: var(--font--letter--spacing);
 
-       background-color: var(--color--background--menu--lateral);
-
-       /* transition:
-           border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-           box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-           background-color 0.2s ease; */
+       background-color: var(--color--background--toast);
    }
 
    .input:focus {
