@@ -14,7 +14,7 @@ class TopProgressBar {
             top: "0",
             left: "0",
             width: "100%",
-            height: "3px",
+            height: "2px",
             overflow: "hidden",
             zIndex: "99999",
             display: "none"
@@ -26,7 +26,7 @@ class TopProgressBar {
         Object.assign(bar.style, {
             width: "40%",
             height: "100%",
-            background: "linear-gradient(90deg, #00FF55, #00cc44)",
+            background: "#FFFFFF",
             position: "absolute",
             animation: "progress-indeterminate 1.2s infinite ease-in-out"
         });
