@@ -17,6 +17,7 @@
     --font--size--bar: 18px;
     --font--size: 14px;
     --font--weight: 400;
+    --font--weight--bold: 600;
     --font--letter--spacing: 0.5px;
 
     --border--radius--component: 5px;
@@ -25,12 +26,13 @@
     --icon-home: url('/img/home_24dp_49454F.png');
     --icon-config: url('/img/settings_24dp_49454F.png');
     --icon-tema: url('/img/bedtime_24dp_49454F.png');
+    --icon-alert: url('/img/error_outline_24dp_49454F.png');
 }
 
 .dark-mode {
     /* add after */
     --color--border: #CCCCCC;
-    --color--bar: #0A516D;
+    --color--bar: #0a5c7c;
     --color--bar--text: #FFFFFF;
     --color--text: #CAC4D0;
     --color--background: #141118;
@@ -50,4 +52,5 @@
     --icon-home: url('/img/home_24dp_CAC4D0.png');
     --icon-config: url('/img/settings_24dp_CAC4D0.png');
     --icon-tema: url('/img/sunny_24dp_CAC4D0.png');
+    --icon-alert: url('/img/error_outline_24dp_CAC4D0.png');
 }

@@ -81,13 +81,14 @@
         <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
 
 
+        <button class="botao" id="teste">Teste</button>
+        <button class="botao" disabled id="teste">Teste</button>
+
         <button class="botao" id="btnToast">Toast</button>
         <button class="botao" id="btnSnack">SnackBar</button>
         <button class="botao" id="btnSnackCall">SnackBar Call back</button>
+        <button class="botao" id="btnAlert">Alert</button>
 
-
-        <button class="botao" id="teste">Teste</button>
-        <button class="botao" disabled id="teste">Teste</button>
         <button class="botao" id="getTokenBtn">Mostrar Token</button>
 
         <div class="div-input">
@@ -153,6 +154,10 @@
                     console.log("Ação desfeita!");
                 }
             );
+        })
+
+        $('#btnAlert').on('click', function (e) {
+            showAlert("Atenção", "Deseja realmente continuar?");
         })
 
         function mostrarNotificacao(corpo) {

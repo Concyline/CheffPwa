@@ -1,6 +1,6 @@
    .toast {
        position: fixed;
-       bottom: 20px;
+       bottom: 40px;
        left: 50%;
        transform: translate(-50%, 20px);
        font-size: var(--font--size);
@@ -33,7 +33,7 @@
        width: 18px;
        height: 18px;
 
-       background-image: url("/img/favicon-32.png");
+       background-image: url("/img/icon-notification.png");
        background-size: contain;
        background-repeat: no-repeat;
        background-position: center;
@@ -50,7 +50,7 @@
 
    .snackbar {
        position: fixed;
-       bottom: 10px;
+       bottom: 5px;
        left: 50%;
        transform: translateX(-50%) translateY(20px);
 
@@ -94,7 +94,7 @@
        width: 50px;
        height: 50px;
 
-       background-image: url("/img/favicon-32.png");
+       background-image: url("/img/icon-notification.png");
        background-size: contain;
        background-repeat: no-repeat;
        background-position: center;
@@ -103,6 +103,107 @@
        flex-shrink: 0;
    }
 
+
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+   /* -------------------------------------------------------------------------------------------------------- */
+
+   /* Overlay */
+   .alert-overlay {
+       position: fixed;
+       inset: 0;
+       background: rgba(0, 0, 0, 0.6);
+
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+       opacity: 0;
+       transition: opacity 0.25s ease;
+
+       z-index: 9999;
+   }
+
+   /* Caixa */
+   .alert {
+       width: 90%;
+       max-width: 420px;
+
+       background: var(--color--background);
+       color: var(--color--text);
+
+       border-radius: 12px;
+
+       padding: 24px;
+
+       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+       transform: scale(0.9);
+       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+
+   .alert-overlay.show {
+       opacity: 1;
+   }
+
+   .alert-overlay.show .alert {
+       transform: scale(1);
+   }
+
+   /* Cabeçalho com ícone + título */
+   .alert-header {
+       display: flex;
+       align-items: center;
+       gap: 16px;
+
+       margin-bottom: 12px;
+   }
+
+   .alert-icon {
+       width: 28px;
+       height: 28px;
+
+       background-image: var(--icon-alert);
+       background-size: contain;
+       background-repeat: no-repeat;
+       background-position: center;
+
+       flex-shrink: 0;
+   }
+
+   .alert-title {
+       font-size: var(--font--size--bar);
+       font-weight: var(--font--weight--bold);
+   }
+
+   /* Mensagem */
+   .alert-message {
+       font-size: --font--size;
+       margin-bottom: 20px;
+       color: var(--color--text);
+   }
+
+   /* Área dos botões */
+   .alert-actions {
+       display: flex;
+       justify-content: flex-end;
+       gap: 20px;
+   }
+
+   /* Botões estilo Material */
+   .alert-button {
+       background: none;
+       border: none;
+
+       font-size: var(--font--size);
+       font-weight: var(--font--weight--bold);
+
+       color: var(--color--background--botao);
+       margin-top: 10px;
+       ;
+
+       cursor: pointer;
+   }
 
    /* -------------------------------------------------------------------------------------------------------- */
    /* -------------------------------------------------------------------------------------------------------- */

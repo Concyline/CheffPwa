@@ -65,3 +65,72 @@ function showSnackbar(message, actionText = null, actionCallback = null) {
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
+
+function showAlert(title, message) {
+
+    const overlay = document.createElement("div");
+    overlay.className = "alert-overlay";
+
+    const alertBox = document.createElement("div");
+    alertBox.className = "alert";
+
+    const header = document.createElement("div");
+    header.className = "alert-header";
+
+    const icon = document.createElement("div");
+    icon.className = "alert-icon";
+
+    const titleEl = document.createElement("div");
+    titleEl.className = "alert-title";
+    titleEl.textContent = title;
+
+    header.appendChild(icon);
+    header.appendChild(titleEl);
+
+    const messageEl = document.createElement("div");
+    messageEl.className = "alert-message";
+    messageEl.textContent = message;
+
+    const actions = document.createElement("div");
+    actions.className = "alert-actions";
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.className = "alert-button";
+    cancelBtn.textContent = "CANCEL";
+
+    const okBtn = document.createElement("button");
+    okBtn.className = "alert-button";
+    okBtn.textContent = "YES";
+
+    function closeAlert() {
+        overlay.classList.remove("show");
+        setTimeout(() => overlay.remove(), 250);
+    }
+
+    cancelBtn.addEventListener("click", closeAlert);
+    okBtn.addEventListener("click", closeAlert);
+
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+            closeAlert();
+        }
+    });
+
+    actions.appendChild(cancelBtn);
+    actions.appendChild(okBtn);
+
+    alertBox.appendChild(header);
+    alertBox.appendChild(messageEl);
+    alertBox.appendChild(actions);
+
+    overlay.appendChild(alertBox);
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+        overlay.classList.add("show");
+    });
+}
+
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
