@@ -184,70 +184,85 @@ function showAlert({
     });
 }
 
-// function showAlert(title, message) {
+// EXEMPLOS // EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS
+// EXEMPLOS // EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS
+// EXEMPLOS // EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS// EXEMPLOS
 
-//     const overlay = document.createElement("div");
-//     overlay.className = "alert-overlay";
+$('#btnToast').on('click', function (e) {
+    showToast("Toast cusomizado como do android!")
+})
 
-//     const alertBox = document.createElement("div");
-//     alertBox.className = "alert";
+$('#btnSnack').on('click', function (e) {
+    showSnackbar("Snack cusomizado como do android!")
+})
 
-//     const header = document.createElement("div");
-//     header.className = "alert-header";
+$('#btnSnackCall').on('click', function (e) {
+    showSnackbar(
+        "Item removido",
+        "DESFAZER",
+        () => {
+            console.log("Ação desfeita!");
+        }
+    );
+})
 
-//     const icon = document.createElement("div");
-//     icon.className = "alert-icon";
+$('#btnAlertOk').on('click', function (e) {
 
-//     const titleEl = document.createElement("div");
-//     titleEl.className = "alert-title";
-//     titleEl.textContent = title;
+    showAlert({
+        title: "Excluir item",
+        message: "Tem certeza?",
+        type: "ok",
+        okText: "Visto"
+    }).then(result => {
 
-//     header.appendChild(icon);
-//     header.appendChild(titleEl);
+        if (result === "ok") {
+            showToast("ok");
+        }
 
-//     const messageEl = document.createElement("div");
-//     messageEl.className = "alert-message";
-//     messageEl.textContent = message;
+    });
 
-//     const actions = document.createElement("div");
-//     actions.className = "alert-actions";
+})
 
-//     const cancelBtn = document.createElement("button");
-//     cancelBtn.className = "alert-button";
-//     cancelBtn.textContent = "CANCEL";
+$('#btnAlertSim').on('click', function (e) {
 
-//     const okBtn = document.createElement("button");
-//     okBtn.className = "alert-button";
-//     okBtn.textContent = "YES";
+    showAlert({
+        title: "Delete",
+        message: "Do you want to delete this item?",
+        type: "confirm",
+        yesText: "Excluir",
+        cancelText: "Voltar"
+    })
+        .then(result => {
 
-//     function closeAlert() {
-//         overlay.classList.remove("show");
-//         setTimeout(() => overlay.remove(), 250);
-//     }
+            if (result === "yes") {
+                showToast("yes");
+            }
 
-//     cancelBtn.addEventListener("click", closeAlert);
-//     okBtn.addEventListener("click", closeAlert);
+        });
 
-//     overlay.addEventListener("click", (e) => {
-//         if (e.target === overlay) {
-//             closeAlert();
-//         }
-//     });
+})
 
-//     actions.appendChild(cancelBtn);
-//     actions.appendChild(okBtn);
+$('#btnAlertSimNao').on('click', function (e) {
 
-//     alertBox.appendChild(header);
-//     alertBox.appendChild(messageEl);
-//     alertBox.appendChild(actions);
+    showAlert({
+        title: "Atenção",
+        message: "Seseja fazer o BKP?",
+        type: "triple", yesText: "Excluir",
+        noText: "Reavaliar",
+        cancelText: "Voltar"
+    })
+        .then(result => {
 
-//     overlay.appendChild(alertBox);
-//     document.body.appendChild(overlay);
+            if (result === "yes") {
+                showToast("yes");
 
-//     requestAnimationFrame(() => {
-//         overlay.classList.add("show");
-//     });
-// }
+            } else if (result === "no") {
+                showToast("no");
+            }
+
+        });
+
+})
 
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------

@@ -81,7 +81,7 @@
         <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
 
 
-        <button class="botao" id="teste">Teste</button>
+        <button class="botao" id="teste">Login</button>
         <button class="botao" disabled id="teste">Teste</button>
 
         <button class="botao" id="btnToast">Toast</button>
@@ -139,83 +139,55 @@
     <script src="./js/gerenteToken.js"></script>
     <script src="./js/serviceWorker.js"></script>
 
+    <script src="./js/tokenManager.js"></script>
+    <script src="./js/apiService.js"></script>
+
     <script>
 
-        $('#btnToast').on('click', function (e) {
-            showToast("Toast cusomizado como do android!")
+
+        $("#teste").on("click", function (e) {
+            login()
         })
 
-        $('#btnSnack').on('click', function (e) {
-            showSnackbar("Snack cusomizado como do android!")
-        })
+        async function login() {
 
-        $('#btnSnackCall').on('click', function (e) {
-            showSnackbar(
-                "Item removido",
-                "DESFAZER",
-                () => {
-                    console.log("Ação desfeita!");
-                }
-            );
-        })
+            const api = new ApiService();
 
-        $('#btnAlertOk').on('click', function (e) {
+            try {
 
-            showAlert({
-                title: "Excluir item",
-                message: "Tem certeza?",
-                type: "ok",
-                okText: "Visto"
-            }).then(result => {
 
-                if (result === "ok") {
-                    showToast("ok");
-                }
-
-            });
-
-        })
-
-        $('#btnAlertSim').on('click', function (e) {
-
-            showAlert({
-                title: "Delete",
-                message: "Do you want to delete this item?",
-                type: "confirm",
-                yesText: "Excluir",
-                cancelText: "Voltar"
-            })
-                .then(result => {
-
-                    if (result === "yes") {
-                        showToast("yes");
-                    }
-
+                const response = await api.post("/user/login", {
+                    email: "admin_pimenta_sapeka@system.local",
+                    password: "admin"
                 });
 
-        })
+                if (!response.Success) {
+                    showAlert("Erro", response.Message || "Falha no login");
+                    return;
+                }
 
-        $('#btnAlertSimNao').on('click', function (e) {
+                const token = response.Data.token;
+                const user = response.Data.user;
 
-            showAlert({
-                title: "Atenção",
-                message: "Seseja fazer o BKP?",
-                type: "triple", yesText: "Excluir",
-                noText: "Reavaliar",
-                cancelText: "Voltar"
-            })
-                .then(result => {
+                TokenManager.set(token);
 
-                    if (result === "yes") {
-                        showToast("yes");
+                console.log("Usuário:", user);
+                console.log("Token:", token);
 
-                    } else if (result === "no") {
-                        showToast("no");
-                    }
-
+                showAlert({
+                    title: "Atenção",
+                    message: token,
+                    type: "ok",
                 });
 
-        })
+            } catch (error) {
+                showAlert({
+                    title: "Erro",
+                    message: error.message,
+                    type: "ok",
+                });
+            }
+        }
 
 
         function sendToken() {

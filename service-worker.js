@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meuapp-cache-v1.27';
+const CACHE_NAME = 'meuapp-cache-v1.28';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -36,21 +36,61 @@ self.addEventListener('activate', event => {
 
 // FETCH – responde com cache, ou rede, ou offline.html
 self.addEventListener('fetch', event => {
+
+    // 🔹 Só intercepta GET
+    if (event.request.method !== 'GET') {
+        return;
+    }
+
+    const url = new URL(event.request.url);
+
+    // 🔹 Só intercepta mesma origem
+    if (url.origin !== self.location.origin) {
+        return;
+    }
+
     event.respondWith(
+
         caches.match(event.request).then(cachedResponse => {
+
             if (cachedResponse) {
                 return cachedResponse;
             }
 
             return fetch(event.request).catch(() => {
-                // se for navegação (ex: clicou em link) e falhar, retorna offline.html
-                if (
-                    event.request.mode === 'navigate' ||
-                    event.request.headers.get('accept')?.includes('text/html')
-                ) {
+
+                // Se for navegação HTML
+                if (event.request.mode === 'navigate') {
                     return caches.match('/offline.html');
                 }
+
+                // fallback seguro
+                return new Response('', { status: 404 });
+
             });
+
         })
+
     );
+
 });
+
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request).then(cachedResponse => {
+//             if (cachedResponse) {
+//                 return cachedResponse;
+//             }
+
+//             return fetch(event.request).catch(() => {
+//                 // se for navegação (ex: clicou em link) e falhar, retorna offline.html
+//                 if (
+//                     event.request.mode === 'navigate' ||
+//                     event.request.headers.get('accept')?.includes('text/html')
+//                 ) {
+//                     return caches.match('/offline.html');
+//                 }
+//             });
+//         })
+//     );
+// });

@@ -31,7 +31,8 @@
 }
 
 .dark-mode {
-    /* add after */
+    --font--family: 'Segoe UI', sans-serif;
+
     --color--border: #CCCCCC;
     --color--bar: #0A516D;
     --color--bar--text: #FFFFFF;
@@ -47,6 +48,9 @@
 
     --font--size--bar: 18px;
     --font--size: 14px;
+    --font--weight: 400;
+    --font--weight--bold: 600;
+    --font--letter--spacing: 0.5px;
 
     --border--radius--component: 5px;
     --border--radius--toast: 40px;
