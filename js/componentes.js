@@ -123,7 +123,7 @@ function showAlert({
 
             const okBtn = document.createElement("button");
             okBtn.className = "alert-button";
-            okBtn.innerText = okText;
+            okBtn.innerText = okText.toUpperCase();
             okBtn.onclick = () => close("ok");
 
             actions.appendChild(okBtn);
@@ -133,12 +133,12 @@ function showAlert({
 
             const cancelBtn = document.createElement("button");
             cancelBtn.className = "alert-button";
-            cancelBtn.innerText = cancelText;
+            cancelBtn.innerText = cancelText.toUpperCase();
             cancelBtn.onclick = () => close("cancel");
 
             const yesBtn = document.createElement("button");
             yesBtn.className = "alert-button";
-            yesBtn.innerText = yesText;
+            yesBtn.innerText = yesText.toUpperCase();
             yesBtn.onclick = () => close("yes");
 
             actions.appendChild(cancelBtn);
@@ -149,17 +149,17 @@ function showAlert({
 
             const cancelBtn = document.createElement("button");
             cancelBtn.className = "alert-button";
-            cancelBtn.innerText = cancelText;
+            cancelBtn.innerText = cancelText.toUpperCase();
             cancelBtn.onclick = () => close("cancel");
 
             const noBtn = document.createElement("button");
             noBtn.className = "alert-button";
-            noBtn.innerText = noText;
+            noBtn.innerText = noText.toUpperCase();
             noBtn.onclick = () => close("no");
 
             const yesBtn = document.createElement("button");
             yesBtn.className = "alert-button";
-            yesBtn.innerText = yesText;
+            yesBtn.innerText = yesText.toUpperCase();
             yesBtn.onclick = () => close("yes");
 
             actions.appendChild(cancelBtn);
