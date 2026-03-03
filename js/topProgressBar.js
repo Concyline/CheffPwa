@@ -26,7 +26,8 @@ class TopProgressBar {
         Object.assign(bar.style, {
             width: "40%",
             height: "100%",
-            background: "linear-gradient(90deg, transparent, #FFFFFF, transparent)",
+            //background: "linear-gradient(90deg, transparent, #FFFFFF, transparent)",
+            background: "#FFFFFF",
             position: "absolute",
             animation: "progress-indeterminate 1.2s infinite ease-in-out"
         });
