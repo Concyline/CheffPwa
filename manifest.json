@@ -4,8 +4,8 @@
   "start_url": "/?source=pwa&v=1.12",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#FFFFFF",
-  "theme_color": "#0A516D",
+  "background_color": "#0a5c7c",
+  "theme_color": "#0a5c7c",
   "icons": [
     {
       "src": "/img/icon-192.png",

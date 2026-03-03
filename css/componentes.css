@@ -199,8 +199,7 @@
        font-weight: var(--font--weight--bold);
 
        color: var(--color--background--botao);
-       margin-top: 10px;
-       ;
+       margin-top: 20px;
 
        cursor: pointer;
    }
