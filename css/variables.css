@@ -15,8 +15,12 @@
     --color--menu_hover: rgba(100, 100, 100, 0.1);
 
     --font--size--bar: 18px;
+    --font--size: 14px;
+    --font--weight: 400;
+    --font--letter--spacing: 0.5px;
 
     --border--radius--component: 5px;
+    --border--radius--toast: 40px;
 
     --icon-home: url('/img/home_24dp_49454F.png');
     --icon-config: url('/img/settings_24dp_49454F.png');
@@ -38,8 +42,10 @@
     --color--menu_hover: rgba(100, 100, 100, 0.4);
 
     --font--size--bar: 18px;
+    --font--size: 14px;
 
     --border--radius--component: 5px;
+    --border--radius--toast: 40px;
 
     --icon-home: url('/img/home_24dp_CAC4D0.png');
     --icon-config: url('/img/settings_24dp_CAC4D0.png');

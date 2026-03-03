@@ -33,18 +33,7 @@
 
 
     <style>
-        .textview {
-            display: block;
 
-            font-size: 14px;
-            font-weight: 400;
-
-            color: var(--color--text);
-
-            margin-bottom: 0px;
-
-            letter-spacing: 0.2px;
-        }
     </style>
 </head>
 
@@ -84,17 +73,19 @@
         <div class="loader-ring"></div>
     </div>
 
-    <!-- Toast -->
-    <div id="toast" class="toast">Mensagem aqui</div>
+
 
     <!-- Conteúdo principal -->
     <main>
         <h2>Bem-vindo! Versao 1.1</h2>
         <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
 
-        <a href="#" class="botao">Ação Principal</a>
-        <a class="botao" id="btnLoader">Loader</a>
-        <a class="botao" id="btnNotifica">Notificação</a>
+
+        <button class="botao" id="btnToast">Toast</button>
+        <button class="botao" id="btnSnack">SnackBar</button>
+        <button class="botao" id="btnSnackCall">SnackBar Call back</button>
+
+
         <button class="botao" id="teste">Teste</button>
         <button class="botao" disabled id="teste">Teste</button>
         <button class="botao" id="getTokenBtn">Mostrar Token</button>
@@ -146,16 +137,23 @@
 
     <script>
 
+        $('#btnToast').on('click', function (e) {
+            showToast("Toast cusomizado como do android!")
+        })
 
-        document.getElementById('btnNotifica').addEventListener('click', function (e) {
-            e.preventDefault(); // Impede navegação
+        $('#btnSnack').on('click', function (e) {
+            showSnackbar("Snack cusomizado como do android!")
+        })
 
-            //console.log("clique novo novo")
-
-            //mostrarNotificacao('Mensagem acionada por clique');
-
-            mostrarToast("Toast cusomizado como do android!")
-        });
+        $('#btnSnackCall').on('click', function (e) {
+            showSnackbar(
+                "Item removido",
+                "DESFAZER",
+                () => {
+                    console.log("Ação desfeita!");
+                }
+            );
+        })
 
         function mostrarNotificacao(corpo) {
 
