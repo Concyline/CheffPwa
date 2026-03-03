@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meuapp-cache-v1.36';
+const CACHE_NAME = 'meuapp-cache-v1.37';
 
 const urlsToCache = [
     '/',                     // raiz
