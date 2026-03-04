@@ -9,7 +9,7 @@
 
        background: var(--color--background--toast);
        color: var(--color--text);
-       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+       box-shadow: var(--box--shadow);
        padding: 14px 24px;
        border-radius: var(--border--radius--toast);
 

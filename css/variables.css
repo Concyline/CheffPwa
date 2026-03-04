@@ -14,6 +14,7 @@
     --color--background--botao--hover: #1482B0;
     --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.1);
+    --box--shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     --font--size--bar: 18px;
     --font--size: 14px;
@@ -46,6 +47,7 @@
     --color--background--botao--hover: #1482B0;
     --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.4);
+    --box--shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 
     --font--size--bar: 18px;
     --font--size: 14px;
