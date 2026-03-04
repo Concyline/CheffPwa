@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meuapp-cache-v1.50';
+const CACHE_NAME = 'v-1';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -60,7 +60,7 @@ self.addEventListener('install', event => {
             for (const url of urlsToCache) {
                 try {
                     await cache.add(url);
-                    console.log('Cacheado:', url);
+                    //console.log('Cacheado:', url);
                 } catch (err) {
                     console.error('Erro ao cachear:', url);
                 }

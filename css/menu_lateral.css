@@ -11,6 +11,9 @@
      }
 
      .menu-lateral {
+         display: flex;
+         flex-direction: column;
+
          width: 320px;
          background-color: var(--color--background--menu--lateral);
          color: var(--color--text);
@@ -143,6 +146,17 @@
 
      .has-submenu.open .submenu {
          display: block;
+     }
+
+
+     /* rodape */
+
+     .footer-menu-lateral {
+         margin-top: auto;
+         padding: 10px;
+         text-align: center;
+         font-size: var(--font--size--versao);
+         color: var(--color--text);
      }
 
 

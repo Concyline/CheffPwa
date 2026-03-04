@@ -29,4 +29,26 @@ $(function () {
             $('#loader').fadeOut(300); // Oculta após 5 segundos
         }, 5000); // corrigido: 500000 seria 8 minutos
     });
+
+    (async function () {
+        try {
+            const response = await fetch('./service-worker.js');
+
+            if (!response.ok) {
+                throw new Error('Não foi possível ler o service-worker.js');
+            }
+
+            const conteudo = await response.text();
+            const match = conteudo.match(/CACHE_NAME\s*=\s*['"`](.*?)['"`]/);
+
+            if (match && match[1]) {
+                $('#versao').text(`Versão: ${match[1]}`);
+            }
+
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+    })();
+
+
 });
