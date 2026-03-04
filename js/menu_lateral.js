@@ -5,30 +5,6 @@ $(function () {
     function abrirMenu() {
         $('.menu-lateral').css('left', '0').addClass('aberto');
         $('.overlay').fadeIn();
-
-        obterCacheName()
-    }
-
-    async function obterCacheName() {
-        try {
-            const response = await fetch('./service-worker.js');
-
-            if (!response.ok) {
-                throw new Error('Não foi possível ler o service-worker.js');
-            }
-
-            const conteudo = await response.text();
-            const match = conteudo.match(/CACHE_NAME\s*=\s*['"`](.*?)['"`]/);
-
-            if (match && match[1]) {
-                $('#versao').text(`Versão: ${match[1]}`);
-            } else {
-                console.warn('CACHE_NAME não encontrado');
-            }
-
-        } catch (error) {
-            console.error('Erro ao ler service-worker:', error);
-        }
     }
 
     function fecharMenu() {
