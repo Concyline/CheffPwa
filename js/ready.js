@@ -36,24 +36,22 @@ $(function () {
 
             if (!response.ok) {
                 $('#versao').text(`Versão Offline: ${StorageManager.get("versao")}`);
-                throw new Error('Não foi possível ler o service-worker.js');
+                return
             }
 
             const conteudo = await response.text();
             const match = conteudo.match(/CACHE_NAME\s*=\s*['"`](.*?)['"`]/);
 
+
             if (match && match[1]) {
                 $('#versao').text(`Versão: ${match[1]}`);
                 StorageManager.set("versao", match[1])
             } else {
-                console.warn('CACHE_NAME não encontrado');
                 $('#versao').text('CACHE_NAME não encontrado')
             }
 
         } catch (error) {
-            console.error('Erro ao ler service-worker:', error);
             $('#versao').text(`Versão Offline: ${StorageManager.get("versao")}`);
-
         }
     }
 
