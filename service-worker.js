@@ -1,25 +1,75 @@
-const CACHE_NAME = 'meuapp-cache-v1.42';
+const CACHE_NAME = 'meuapp-cache-v1.44';
 
 const urlsToCache = [
     '/',                     // raiz
     '/index.html',           // SPA principal
     '/offline.html',         // página para quando estiver offline
     '/manifest.json',
+
+    '/img/avatar.png',
+    '/img/bedtime_24dp_49454F.png',
+    '/img/error_outline_72dp_49454F.png',
+    '/img/error_outline_72dp_CAC4D0.png',
+    '/img/favicon-32.png',
+    '/img/home_24dp_49454F.png',
+    '/img/home_24dp_CAC4D0.png',
     '/img/icon-192.png',
     '/img/icon-256.png',
     '/img/icon-512.png',
     '/img/icon-maskable-512.png',
+    '/img/no-notification.png',
+    '/img/settings_24dp_49454F.png',
+    '/img/settings_24dp_CAC4D0.png',
+    '/img/sunny_24dp_CAC4D0.png',
+    '/img/Untitled-2.fw.png',
+
+    './css/componentes.css',
+    '/css/geral.css',
+    '/css/loader.css',
+    '/css/menu_lateral.css',
+    '/css/top_bar.css',
+    '/css/variables.css',
+
+    '/js/apiService.js',
+    '/js/componentes.js',
+    '/js/gerenteToken.js',
+    '/js/jquery-3.6.0.min.js',
+    '/js/main.js',
+    '/js/menu_lateral.js',
+    '/js/ready.js',
+    '/js/serviceWorker.js',
+    '/js/tokenManager.js',
+    '/js/topProgressBar.js'
     // adicione outros arquivos importantes aqui (JS, CSS, fontes...)
 ];
 
 // INSTALAÇÃO – armazena os arquivos no cache
+// self.addEventListener('install', event => {
+//     event.waitUntil(
+//         caches.open(CACHE_NAME).then(cache => {
+//             return cache.addAll(urlsToCache);
+//         })
+//     );
+//     self.skipWaiting(); // força o SW novo a ser ativado imediatamente
+// });
+
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache);
+        caches.open(CACHE_NAME).then(async cache => {
+
+            for (const url of urlsToCache) {
+                try {
+                    await cache.add(url);
+                    console.log('Cacheado:', url);
+                } catch (err) {
+                    console.error('Erro ao cachear:', url);
+                }
+            }
+
         })
     );
-    self.skipWaiting(); // força o SW novo a ser ativado imediatamente
+
+    self.skipWaiting();
 });
 
 // ATIVAÇÃO – remove versões antigas do cache
