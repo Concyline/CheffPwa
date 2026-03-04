@@ -35,7 +35,7 @@ $(function () {
             const response = await fetch('./service-worker.js');
 
             if (!response.ok) {
-                $('#versao').text(`Versão Offline: ${StorageManager.get("versao")}`);
+                $('#versao').text(StorageManager.get("versao"));
                 return
             }
 
@@ -44,14 +44,14 @@ $(function () {
 
 
             if (match && match[1]) {
-                $('#versao').text(`Versão: ${match[1]}`);
+                $('#versao').text(match[1]);
                 StorageManager.set("versao", match[1])
             } else {
                 $('#versao').text('CACHE_NAME não encontrado')
             }
 
         } catch (error) {
-            $('#versao').text(`Versão Offline: ${StorageManager.get("versao")}`);
+            $('#versao').text(StorageManager.get("versao"));
         }
     }
 
