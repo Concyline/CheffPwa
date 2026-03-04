@@ -1,10 +1,11 @@
-const CACHE_NAME = 'v-1.7';
+const CACHE_NAME = 'v-1.8';
 
 const urlsToCache = [
     '/',                     // raiz
     './index.html',           // SPA principal
     './offline.html',         // página para quando estiver offline
     './manifest.json',
+    './service-worker.js',
 
     './img/avatar.png',
     './img/bedtime_24dp_49454F.png',

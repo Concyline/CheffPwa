@@ -52,7 +52,7 @@ $(function () {
 
         } catch (error) {
             console.error('Erro ao ler service-worker:', error);
-            $('#versao').text('Erro ao ler service-worker:', error.message)
+            $('#versao').text(`Versão Offline: ${StorageManager.get("versao")}`);
 
         }
     }
