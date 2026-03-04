@@ -20,4 +20,5 @@ injectScript("./js/serviceWorker.js")
 
 injectScript("./js/tokenManager.js")
 injectScript("./js/apiService.js")
+injectScript("./js/storageManager.js")
 

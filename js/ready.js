@@ -43,10 +43,12 @@ $(function () {
 
             if (match && match[1]) {
                 $('#versao').text(`Versão: ${match[1]}`);
+                StorageManager.set("versao", match[1])
             }
 
         } catch (error) {
             console.error('Erro:', error);
+            $('#versao').text(`Versão offline: ${StorageManager.get("versao")}`);
         }
     })();
 
