@@ -1,28 +1,28 @@
-const CACHE_NAME = 'meuapp-cache-v1.45';
+const CACHE_NAME = 'meuapp-cache-v1.46';
 
 const urlsToCache = [
     '/',                     // raiz
-    './index.html',           // SPA principal
-    './offline.html',         // página para quando estiver offline
-    './manifest.json',
+    '/index.html',           // SPA principal
+    '/offline.html',         // página para quando estiver offline
+    '/manifest.json',
 
-    './img/avatar.png',
-    './img/bedtime_24dp_49454F.png',
-    './img/error_outline_72dp_49454F.png',
-    './img/error_outline_72dp_CAC4D0.png',
-    './img/favicon-32.png',
-    './img/home_24dp_49454F.png',
-    './img/home_24dp_CAC4D0.png',
-    './img/icon-192.png',
-    './img/icon-256.png',
-    './img/icon-512.png',
-    './img/icon-maskable-512.png',
-    './img/settings_24dp_49454F.png',
-    './img/settings_24dp_CAC4D0.png',
-    './img/sunny_24dp_CAC4D0.png',
-    './img/Untitled-2.fw.png',
+    '/img/avatar.png',
+    '/img/bedtime_24dp_49454F.png',
+    '/img/error_outline_72dp_49454F.png',
+    '/img/error_outline_72dp_CAC4D0.png',
+    '/img/favicon-32.png',
+    '/img/home_24dp_49454F.png',
+    '/img/home_24dp_CAC4D0.png',
+    '/img/icon-192.png',
+    '/img/icon-256.png',
+    '/img/icon-512.png',
+    '/img/icon-maskable-512.png',
+    '/img/settings_24dp_49454F.png',
+    '/img/settings_24dp_CAC4D0.png',
+    '/img/sunny_24dp_CAC4D0.png',
+    '/img/Untitled-2.fw.png',
 
-    './css/componentes.css',
+    '/css/componentes.css',
     '/css/geral.css',
     '/css/loader.css',
     '/css/menu_lateral.css',
