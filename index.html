@@ -82,6 +82,7 @@
 
 
         <button class="botao" id="teste">Login</button>
+        <button class="botao" id="start">Start session</button>
         <button class="botao" id="progress">Progress</button>
         <button class="botao" disabled id="teste">Teste</button>
 
@@ -131,8 +132,9 @@
 
     </main>
 
+
     <!-- jQuery + interações -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/topProgressBar.js"></script>
     <script src="./js/ready.js"></script>
     <script src="./js/componentes.js"></script>
@@ -140,8 +142,13 @@
     <script src="./js/gerenteToken.js"></script>
     <script src="./js/serviceWorker.js"></script>
 
-    <script src="./js/tokenManager.js"></script>
-    <script src="./js/apiService.js"></script>
+    <script src="./js/tokenManager.js"></script> -->
+    <!-- <script src="./js/apiService.js"></script> -->
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/main.js"></script>
+
+
 
     <script>
 
@@ -159,9 +166,36 @@
             login()
         })
 
+        $("#start").on("click", function (e) {
+            startSerrionTable()
+        })
+
+        async function startSerrionTable() {
+            const api = new ApiService()
+
+            try {
+
+                const response = await api.post("/table-sessions/start-qrcode", {
+                    qrToken: "11AB7699-034F-4FFB-81DC-874E788ED86E"
+                });
+
+                if (!response.Success) {
+                    showAlert({ message: response.Message });
+                    return;
+                }
+
+                showAlert({ message: JSON.stringify(response) });
+
+            } catch (e) {
+                showAlert({ message: e.message });
+            }
+        }
+
+
+
         async function login() {
 
-            const api = new ApiService();
+            const api = new ApiService()
 
             try {
 
@@ -170,8 +204,11 @@
                     password: "admin"
                 });
 
+                console.log(response)
+                console.log(response.Timestamp)
+
                 if (!response.Success) {
-                    showAlert("Erro", response.Message || "Falha no login");
+                    showAlert({ message: response.Message });
                     return;
                 }
 
@@ -183,21 +220,15 @@
                 console.log("Usuário:", user);
                 console.log("Token:", token);
 
-                showAlert({
-                    title: "Atenção",
-                    message: token,
-                    type: "ok",
-                });
+                showAlert({ message: token });
 
-            } catch (error) {
-                showAlert({
-                    title: "Erro",
-                    message: error.message,
-                    type: "ok",
-                });
+            } catch (e) {
+                showAlert({ message: e.message });
             }
 
         }
+
+
 
 
         function sendToken() {

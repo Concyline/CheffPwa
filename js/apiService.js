@@ -34,10 +34,6 @@ class ApiService {
                 return;
             }
 
-            if (!response.ok) {
-                throw new Error(`Erro ${response.status}`);
-            }
-
             return await response.json();
 
         } finally {
