@@ -17,7 +17,8 @@
     --box--shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     --font--size--bar: 18px;
-    --font--size: 14px;
+    --font--size--legenda: 14px;
+    --font--size: 16px;
     --font--size--versao: 10px;
     --font--weight: 400;
     --font--weight--bold: 600;
@@ -50,7 +51,8 @@
     --box--shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 
     --font--size--bar: 18px;
-    --font--size: 14px;
+    --font--size--legenda: 14px;
+    --font--size: 16px;
     --font--size--versao: 10px;
     --font--weight: 400;
     --font--weight--bold: 600;
