@@ -35,6 +35,7 @@ $(function () {
             const response = await fetch('./service-worker.js');
 
             if (!response.ok) {
+                $('#versao').text(`Versão offline: ${StorageManager.get("versao")}`);
                 throw new Error('Não foi possível ler o service-worker.js');
             }
 
@@ -44,8 +45,6 @@ $(function () {
             if (match && match[1]) {
                 $('#versao').text(`Versão: ${match[1]}`);
                 StorageManager.set("versao", match[1])
-            } else {
-                $('#versao').text(`Versão offline: ${StorageManager.get("versao")}`);
             }
 
         } catch (error) {
