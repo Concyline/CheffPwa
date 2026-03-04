@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meuapp-cache-v1.47';
+const CACHE_NAME = 'meuapp-cache-v1.48';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -17,6 +17,7 @@ const urlsToCache = [
     './img/icon-256.png',
     './img/icon-512.png',
     './img/icon-maskable-512.png',
+    './img/icon-notification.png',
     './img/settings_24dp_49454F.png',
     './img/settings_24dp_CAC4D0.png',
     './img/sunny_24dp_CAC4D0.png',
