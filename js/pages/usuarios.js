@@ -68,28 +68,6 @@ async function save(user) {
 
 $("#btn-imagem").on("click", () => $("#file-input").click());
 
-$("#file-input").on("change", function () {
-
-    const file = this.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-
-        const base64 = e.target.result; // aqui está o base64
-
-        console.log(base64);
-
-        showAlert({ message: base64 });
-
-        //$("#preview").attr("src", base64);
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
 
 $("#file-input").on("change", function () {
 
@@ -106,9 +84,9 @@ $("#file-input").on("change", function () {
 
         const base64 = e.target.result;
 
-        showAlert({ message: base64 });
+        //showAlert({ message: base64 == null });
 
-        //$("#preview").attr("src", base64);
+        $("#preview").attr("src", base64);
 
     };
 
