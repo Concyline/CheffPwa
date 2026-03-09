@@ -1,25 +1,26 @@
-<div>
-
-
+<form id="form-usuario">
 
     <div class="div-input">
-        <span class="textview">Entre com o token</span>
-        <input type="text" class="input" placeholder="Digite seu token">
+        <label class="textview">Nome</label>
+        <input type="text" name="nome" class="input" required placeholder="Digite seu nome">
     </div>
 
     <div class="div-input">
-        <span class="textview">Entre com o token</span>
-        <input type="text" class="input" placeholder="Digite seu token">
+        <label class="textview">Email</label>
+        <input type="email" name="email" class="input" required placeholder="Digite seu email">
     </div>
 
     <div class="div-input">
-        <span class="textview">Entre com o token</span>
-        <input type="text" class="input" placeholder="Digite seu token">
+        <label class="textview">Telefone</label>
+        <input type="tel" name="telefone" class="input fone" inputmode="numeric"
+            pattern="\([0-9]{2}\)\s?[0-9]{4,5}-[0-9]{4}" maxlength="15" required placeholder="(11) 99999-9999">
     </div>
 
+    <div class="div-input">
+        <label class="textview">Senha</label>
+        <input type="password" name="senha" class="input" minlength="4" required placeholder="Digite sua senha">
+    </div>
 
+    <button type="submit">Cadastrar</button>
 
-
-
-
-</div>
+</form>
