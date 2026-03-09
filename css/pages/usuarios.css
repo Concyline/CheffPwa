@@ -19,7 +19,7 @@
 }
 
 .popup-item {
-    padding: 16px;
+    padding: 26px 26px;
     text-align: left;
     font-size: var(--font--size);
     color: var(--color--text);

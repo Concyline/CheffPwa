@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.30';
+const CACHE_NAME = 'Versão : 1.31';
 
 const urlsToCache = [
     '/',                     // raiz
