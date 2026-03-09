@@ -12,9 +12,11 @@
     --color--background--menu--lateral: #f8f8f8;
     --color--background--botao: #0F6E94;
     --color--background--botao--hover: #1482B0;
+    --color--background--popup--hover: #f5f5f5;
     --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.1);
     --box--shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --box--shadow-popup: 0 -2px 10px rgba(0, 0, 0, 0.2);
 
     --font--size--bar: 18px;
     --font--size--legenda: 14px;
@@ -35,6 +37,8 @@
     --icon-tables: url('/img/table_restaurant_24dp_49454F.png');
     --icon-food: url('/img/fastfood_24dp_49454F.png');
     --icon-adm: url('/img/manage_accounts_24dp_49454F.png');
+    --icon-camera: url('/img/camera_alt_24dp_49454F.png');
+    --icon-galery: url('/img/image_24dp_49454F.png');
 }
 
 .dark-mode {
@@ -51,9 +55,11 @@
     --color--background--menu--lateral: #1D1B20;
     --color--background--botao: #0F6E94;
     --color--background--botao--hover: #1482B0;
+    --color--background--popup--hover: #3a3838;
     --color--background--botao--disabled: #9E9E9E;
     --color--menu_hover: rgba(100, 100, 100, 0.4);
     --box--shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    --box--shadow-popup: 0 -2px 10px rgba(255, 255, 255, 0.2);
 
     --font--size--bar: 18px;
     --font--size--legenda: 14px;
@@ -74,4 +80,6 @@
     --icon-tables: url('/img/table_restaurant_24dp_CAC4D0.png');
     --icon-food: url('/img/fastfood_24dp_CAC4D0.png');
     --icon-adm: url('/img/manage_accounts_24dp_CAC4D0.png');
+    --icon-camera: url('/img/camera_alt_24dp_CAC4D0.png');
+    --icon-galery: url('/img/image_24dp_CAC4D0.png');
 }

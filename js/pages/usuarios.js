@@ -1,3 +1,5 @@
+
+
 $(".fone").on("input", function () {
 
     let v = $(this).val().replace(/\D/g, "");
@@ -66,8 +68,6 @@ async function save(user) {
     }
 }
 
-//$("#btn-imagem").on("click", () => $("#file-input").click());
-
 $("#btn-imagem").click(function () {
 
     if (window.matchMedia("(min-width: 769px)").matches) {
@@ -75,27 +75,31 @@ $("#btn-imagem").click(function () {
 
     } else {
 
-
-
-        showAlert({
-            title: "Atenção",
-            message: "Para ober sua imagem.",
-            type: "confirm",
-            yesText: "Camera",
-            cancelText: "Galeria"
-        })
-            .then(result => {
-
-                if (result === "yes") {
-                    $("#file-camera").click();
-                } else {
-                    $("#file-galeria").click();
-                }
-
-            });
+        $(".popup-overlay").fadeIn(150);
+        $("#popup-menu").addClass("show");
 
     }
 
+});
+
+$("#overlay").click(function () {
+    $("#overlay").fadeOut(150);
+    $("#popup-menu").removeClass("show");
+});
+
+$("#btn-camera").click(function () {
+    $("#file-camera").click();
+
+    $("#overlay").fadeOut(150);
+    $("#popup-menu").removeClass("show");
+});
+
+$("#btn-galeria").click(function () {
+
+    $("#file-galeria").click();
+
+    $("#overlay").fadeOut(150);
+    $("#popup-menu").removeClass("show");
 });
 
 $("#file-camera").on("change", function () {
@@ -119,8 +123,6 @@ function lerImagem(input) {
         const base64 = e.target.result;
 
         $("#preview").attr("src", base64);
-
-        console.log(base64);
 
     };
 
