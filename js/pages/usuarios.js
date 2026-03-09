@@ -66,17 +66,51 @@ async function save(user) {
     }
 }
 
-$("#btn-imagem").on("click", () => $("#file-input").click());
+//$("#btn-imagem").on("click", () => $("#file-input").click());
+
+$("#btn-imagem").click(function () {
+
+    if (window.matchMedia("(min-width: 769px)").matches) {
+        $("#file-galeria").click();
+
+    } else {
 
 
-$("#file-input").on("change", function () {
 
-    const file = this.files[0];
+        showAlert({
+            title: "Atenção",
+            message: "Para ober sua imagem.",
+            type: "confirm",
+            yesText: "Camera",
+            cancelText: "Galeria"
+        })
+            .then(result => {
 
-    if (!file) {
-        showAlert({ message: "Nenhum arquivo selecionado" });
-        return;
+                if (result === "yes") {
+                    $("#file-camera").click();
+                } else {
+                    $("#file-galeria").click();
+                }
+
+            });
+
     }
+
+});
+
+$("#file-camera").on("change", function () {
+    lerImagem(this);
+});
+
+$("#file-galeria").on("change", function () {
+    lerImagem(this);
+});
+
+function lerImagem(input) {
+
+    const file = input.files[0];
+
+    if (!file) return;
 
     const reader = new FileReader();
 
@@ -84,18 +118,44 @@ $("#file-input").on("change", function () {
 
         const base64 = e.target.result;
 
-        //showAlert({ message: base64 == null });
-
         $("#preview").attr("src", base64);
 
-    };
+        console.log(base64);
 
-    reader.onerror = function (error) {
-        showAlert({ message: "Erro ao ler arquivo " + error });
     };
 
     reader.readAsDataURL(file);
 
-});
+}
+
+
+// $("#file-input").on("change", function () {
+
+//     const file = this.files[0];
+
+//     if (!file) {
+//         showAlert({ message: "Nenhum arquivo selecionado" });
+//         return;
+//     }
+
+//     const reader = new FileReader();
+
+//     reader.onload = function (e) {
+
+//         const base64 = e.target.result;
+
+//         //showAlert({ message: base64 == null });
+
+//         $("#preview").attr("src", base64);
+
+//     };
+
+//     reader.onerror = function (error) {
+//         showAlert({ message: "Erro ao ler arquivo " + error });
+//     };
+
+//     reader.readAsDataURL(file);
+
+// });
 
 
