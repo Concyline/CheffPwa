@@ -91,3 +91,33 @@ $("#file-input").on("change", function () {
 
 });
 
+$("#file-input").on("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) {
+        showAlert({ message: "Nenhum arquivo selecionado" });
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+
+        const base64 = e.target.result;
+
+        showAlert({ message: base64 });
+
+        //$("#preview").attr("src", base64);
+
+    };
+
+    reader.onerror = function (error) {
+        showAlert({ message: "Erro ao ler arquivo " + error });
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
