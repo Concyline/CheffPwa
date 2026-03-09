@@ -31,6 +31,10 @@
     --icon-config: url('/img/settings_24dp_49454F.png');
     --icon-tema: url('/img/bedtime_24dp_49454F.png');
     --icon-alert: url('/img/error_outline_72dp_49454F.png');
+    --icon-add-user: url('/img/person_add_24dp_49454F.png');
+    --icon-tables: url('/img/table_restaurant_24dp_49454F.png');
+    --icon-food: url('/img/fastfood_24dp_49454F.png');
+    --icon-adm: url('/img/manage_accounts_24dp_49454F.png');
 }
 
 .dark-mode {
@@ -66,4 +70,8 @@
     --icon-config: url('/img/settings_24dp_CAC4D0.png');
     --icon-tema: url('/img/sunny_24dp_CAC4D0.png');
     --icon-alert: url('/img/error_outline_72dp_CAC4D0.png');
+    --icon-add-user: url('/img/person_add_24dp_CAC4D0.png');
+    --icon-tables: url('/img/table_restaurant_24dp_CAC4D0.png');
+    --icon-food: url('/img/fastfood_24dp_CAC4D0.png');
+    --icon-adm: url('/img/manage_accounts_24dp_CAC4D0.png');
 }

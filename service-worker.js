@@ -40,7 +40,9 @@ const urlsToCache = [
     './js/ready.js',
     './js/serviceWorker.js',
     './js/tokenManager.js',
-    './js/topProgressBar.js'
+    './js/topProgressBar.js',
+    './js/router.js',
+    './js/app.js'
     // adicione outros arquivos importantes aqui (JS, CSS, fontes...)
 ];
 

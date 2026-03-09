@@ -32,10 +32,20 @@ $(function () {
         }
     });
 
-
-    $('.menu-config').on('click', function (e) {
+    $('.menu').on('click', function (e) {
         e.preventDefault();
         $(this).closest('.has-submenu').toggleClass('open');
+    });
+
+    $('.menu-add-user').on('click', function (e) {
+        e.preventDefault();
+
+        // fecha submenu
+        //$(this).closest('.has-submenu').removeClass('open');
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            fecharMenu();
+        }
     });
 
     $('.menu-tema').on('click', function (e) {
@@ -52,11 +62,21 @@ $(function () {
         }
 
         // fecha submenu
-        $(this).closest('.has-submenu').removeClass('open');
+        //$(this).closest('.has-submenu').removeClass('open');
 
         if (window.matchMedia("(max-width: 768px)").matches) {
             fecharMenu();
         }
+    });
+
+    $(".menu-navigate").on("click", function (e) {
+
+        e.preventDefault();
+
+        $(".menu-navigate").removeClass("active"); // remove de todos os links
+
+        $(this).addClass("active"); // adiciona no clicado
+
     });
 
 });

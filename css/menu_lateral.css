@@ -7,7 +7,7 @@
      }
 
      .menu-title {
-         margin-left: 20px !important;
+         margin-left: 10px !important;
      }
 
      .menu-lateral {
@@ -78,7 +78,6 @@
      }
 
      .menu-lateral ul li {
-
          margin-left: 10px;
          margin-right: 10px;
          border-bottom: 1px solid var(--color--background--menu--lateral);
@@ -88,6 +87,10 @@
          color: var(--color--text);
          text-decoration: none;
          font-weight: 500;
+     }
+
+     .active {
+         background-color: rgba(133, 248, 181, 0.25);
      }
 
 
@@ -131,6 +134,62 @@
          margin-right: 8px;
          padding-bottom: 4px;
          background-image: var(--icon-tema);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
+     .menu-add-user::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-add-user);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
+     .menu-tables::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-tables);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
+     .menu-food::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-food);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
+     .menu-adm::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-adm);
          background-size: contain;
          background-repeat: no-repeat;
          transition: all 2s ease;
@@ -201,8 +260,12 @@
              margin-left: 320px;
          }
 
-         .menu-toggle,
+         /* .menu-toggle,
          .menu-title {
+             display: none;
+         } */
+
+         .menu-toggle {
              display: none;
          }
      }

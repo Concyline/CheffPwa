@@ -42,7 +42,7 @@
     <!-- Barra superior -->
     <div class="topbar">
         <button class="menu-toggle">&#9776;</button>
-        <h1 class="menu-title">Siac App</h1>
+        <h1 class="menu-title" id="top-bar-title">Siac App</h1>
     </div>
 
     <!-- Menu lateral -->
@@ -56,10 +56,21 @@
             <li><a href="#" class="menu-home">Início</a></li>
 
             <li class="has-submenu">
-                <a href="#" class="menu-config">Configurações</a>
+                <a href="#" class="menu menu-adm">Administração</a>
+                <ul class="submenu">
+                    <li><a href="#" class="menu-add-user menu-navigate" data-route="usuarios"
+                            data-navigation="Usuários">Cirar
+                            usuário</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" class="menu-tables menu-navigate" data-route="mesas" data-navigation="Mesas">Mesas</a></li>
+            <li><a href="#" class="menu-food menu-navigate" data-route="pratos" data-navigation="Pratos">Pratos</a></li>
+
+            <li class="has-submenu">
+                <a href="#" class="menu menu-config">Configurações</a>
                 <ul class="submenu">
                     <li><a href="#" class="menu-tema">Tema</a></li>
-                    <!-- <li><a href="#">Perfil</a></li> -->
                 </ul>
             </li>
         </ul>
@@ -80,7 +91,10 @@
 
     <!-- Conteúdo principal -->
     <main>
-        <h2>Bem-vindo! </h2>
+
+        <div id="app-content"></div>
+
+        <!-- <h2>Bem-vindo! </h2>
         <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
 
 
@@ -182,7 +196,7 @@
             <input type="text" class="input" placeholder="Digite seu token">
         </div>
 
-        <button class="botao" type="button" onclick="aqui()">soma</button>
+        <button class="botao" type="button" onclick="aqui()">soma</button> -->
 
     </main>
 
@@ -207,104 +221,104 @@
     <script>
 
 
-        $("#progress").on("click", function (e) {
+        // $("#progress").on("click", function (e) {
 
-            TopProgressBar.start();
+        //     TopProgressBar.start();
 
-            setTimeout(() => {
-                TopProgressBar.finish();
-            }, 5000);
-        })
+        //     setTimeout(() => {
+        //         TopProgressBar.finish();
+        //     }, 5000);
+        // })
 
-        $("#teste").on("click", function (e) {
-            login()
-        })
+        // $("#teste").on("click", function (e) {
+        //     login()
+        // })
 
-        $("#start").on("click", function (e) {
-            startSerrionTable()
-        })
+        // $("#start").on("click", function (e) {
+        //     startSerrionTable()
+        // })
 
-        async function startSerrionTable() {
-            const api = new ApiService()
+        // async function startSerrionTable() {
+        //     const api = new ApiService()
 
-            try {
+        //     try {
 
-                const response = await api.post("/table-sessions/start-qrcode", {
-                    qrToken: "11AB7699-034F-4FFB-81DC-874E788ED86E"
-                });
+        //         const response = await api.post("/table-sessions/start-qrcode", {
+        //             qrToken: "11AB7699-034F-4FFB-81DC-874E788ED86E"
+        //         });
 
-                if (!response.Success) {
-                    showAlert({ message: response.Message });
-                    return;
-                }
+        //         if (!response.Success) {
+        //             showAlert({ message: response.Message });
+        //             return;
+        //         }
 
-                showAlert({ message: JSON.stringify(response) });
+        //         showAlert({ message: JSON.stringify(response) });
 
-            } catch (e) {
-                showAlert({ message: e.message });
-            }
-        }
-
-
-
-        async function login() {
-
-            const api = new ApiService()
-
-            try {
-
-                const response = await api.post("/user/login", {
-                    email: "admin_pimenta_sapeka@system.local",
-                    password: "admin"
-                });
-
-                console.log(response)
-                console.log(response.Timestamp)
-
-                if (!response.Success) {
-                    showAlert({ message: response.Message });
-                    return;
-                }
-
-                const token = response.Data.token;
-                const user = response.Data.user;
-
-                TokenManager.set(token);
-
-                console.log("Usuário:", user);
-                console.log("Token:", token);
-
-                showAlert({ message: token });
-
-            } catch (e) {
-                showAlert({ message: e.message });
-            }
-
-        }
+        //     } catch (e) {
+        //         showAlert({ message: e.message });
+        //     }
+        // }
 
 
 
+        // async function login() {
 
-        function sendToken() {
-            const savedToken = localStorage.getItem('token');
-            if (savedToken) {
+        //     const api = new ApiService()
 
-                showAlert({
-                    title: "Excluir item",
-                    message: `Token salvo: ${savedToken}`,
-                    type: "ok",
-                });
+        //     try {
 
-            } else {
-                showAlert({
-                    title: "Excluir item",
-                    message: 'Nenhum token salvo no localStorage.',
-                    type: "ok",
-                });
-            }
-        }
+        //         const response = await api.post("/user/login", {
+        //             email: "admin_pimenta_sapeka@system.local",
+        //             password: "admin"
+        //         });
 
-        document.getElementById('getTokenBtn').addEventListener('click', sendToken);
+        //         console.log(response)
+        //         console.log(response.Timestamp)
+
+        //         if (!response.Success) {
+        //             showAlert({ message: response.Message });
+        //             return;
+        //         }
+
+        //         const token = response.Data.token;
+        //         const user = response.Data.user;
+
+        //         TokenManager.set(token);
+
+        //         console.log("Usuário:", user);
+        //         console.log("Token:", token);
+
+        //         showAlert({ message: token });
+
+        //     } catch (e) {
+        //         showAlert({ message: e.message });
+        //     }
+
+        // }
+
+
+
+
+        // function sendToken() {
+        //     const savedToken = localStorage.getItem('token');
+        //     if (savedToken) {
+
+        //         showAlert({
+        //             title: "Excluir item",
+        //             message: `Token salvo: ${savedToken}`,
+        //             type: "ok",
+        //         });
+
+        //     } else {
+        //         showAlert({
+        //             title: "Excluir item",
+        //             message: 'Nenhum token salvo no localStorage.',
+        //             type: "ok",
+        //         });
+        //     }
+        // }
+
+        // document.getElementById('getTokenBtn').addEventListener('click', sendToken);
 
     </script>
 
