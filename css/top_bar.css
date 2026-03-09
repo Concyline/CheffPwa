@@ -1,10 +1,14 @@
    .topbar {
+
+       display: flex;
+       align-items: center;
+
        height: 70px;
        background-color: var(--color--bar);
        color: var(--color--bar--text);
        display: flex;
        align-items: center;
-       padding: 0 16px;
+       padding: 0 10px;
        position: fixed;
        top: 0;
        left: 0;
@@ -17,3 +21,55 @@
        margin: 0;
        flex: 1;
    }
+
+   .div-service {
+       margin-left: auto;
+       display: flex;
+       align-items: center;
+       gap: 10px;
+   }
+
+   .service-button {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       min-width: 44px;
+       min-height: 44px;
+       padding: 10px;
+       background: none;
+       border: none;
+       border-radius: 10px;
+       cursor: pointer;
+       transition: background-color 0.2s ease, transform 0.1s ease;
+       -webkit-tap-highlight-color: transparent;
+   }
+
+   .service-button:active {
+       transform: scale(0.92);
+       background: rgba(255, 255, 255, 0.2);
+   }
+
+   /* media queries */
+
+   @media (hover: hover) {
+       .service-button:hover {
+           background: rgba(255, 255, 255, 0.15);
+       }
+   }
+
+
+   /* Telas grandes - desktop (769px em diante)*/
+   @media (min-width: 769px) {
+
+       .topbar {
+           margin-left: 320px;
+       }
+   }
+
+
+   /* Telas médias - tablet (481px a 768px)  */
+   @media (min-width: 481px) and (max-width: 768px) {}
+
+
+   /* Telas pequenas - celular (até 480px)  */
+   @media (max-width: 480px) {}

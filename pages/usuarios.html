@@ -1,5 +1,8 @@
 <form id="form-usuario">
 
+    <!-- <input type="file" id="file-input" accept="image/*" style="display:none"> -->
+    <input type="file" id="file-input" accept="image/*" capture="environment">
+
     <div class="div-input">
         <label class="textview">Nome</label>
         <input type="text" name="nome" class="input" required placeholder="Digite seu nome">
@@ -20,7 +23,5 @@
         <label class="textview">Senha</label>
         <input type="password" name="senha" class="input" minlength="4" required placeholder="Digite sua senha">
     </div>
-
-    <button type="submit">Cadastrar</button>
 
 </form>
