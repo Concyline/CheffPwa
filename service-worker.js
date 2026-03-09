@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.21';
+const CACHE_NAME = 'Versão : 1.22';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -31,10 +31,9 @@ const urlsToCache = [
     './img/person_add_24dp_CAC4D0.png',
     './img/settings_24dp_49454F.png',
     './img/settings_24dp_CAC4D0.png',
-    './img/sunny_24dp_CAC44D0.png',
+    './img/sunny_24dp_CAC4D0.png',
     './img/table_restaurant_24dp_49454F.png',
     './img/table_restaurant_24dp_CAC4D0.png',
-    './img/Untitled-2.fw.png',
 
     './css/componentes.css',
     './css/geral.css',
@@ -62,7 +61,6 @@ const urlsToCache = [
     './js/pages/mesas.js',
     './js/pages/pratos.js',
     './js/pages/usuarios.js'
-    // adicione outros arquivos importantes aqui (JS, CSS, fontes...)
 ];
 
 // INSTALAÇÃO – armazena os arquivos no cache
