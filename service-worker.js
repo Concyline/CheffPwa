@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.20';
+const CACHE_NAME = 'Versão : 1.21';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -7,10 +7,16 @@ const urlsToCache = [
     './manifest.json',
     './service-worker.js',
 
+    './pages/mesas.html',
+    './pages/pratos.html',
+    './pages/usuarios.html',
+
     './img/avatar.png',
     './img/bedtime_24dp_49454F.png',
     './img/error_outline_72dp_49454F.png',
     './img/error_outline_72dp_CAC4D0.png',
+    './img/fastfood_24dp_49454F.png',
+    './img/fastfood_24dp_CAC4D0.png',
     './img/favicon-32.png',
     './img/home_24dp_49454F.png',
     './img/home_24dp_CAC4D0.png',
@@ -19,9 +25,15 @@ const urlsToCache = [
     './img/icon-512.png',
     './img/icon-maskable-512.png',
     './img/icon-notification.png',
+    './img/manage_accounts_24dp_49454F.png',
+    './img/manage_accounts_24dp_CAC4D0.png',
+    './img/person_add_24dp_49454F.png',
+    './img/person_add_24dp_CAC4D0.png',
     './img/settings_24dp_49454F.png',
     './img/settings_24dp_CAC4D0.png',
-    './img/sunny_24dp_CAC4D0.png',
+    './img/sunny_24dp_CAC44D0.png',
+    './img/table_restaurant_24dp_49454F.png',
+    './img/table_restaurant_24dp_CAC4D0.png',
     './img/Untitled-2.fw.png',
 
     './css/componentes.css',
@@ -30,19 +42,26 @@ const urlsToCache = [
     './css/menu_lateral.css',
     './css/top_bar.css',
     './css/variables.css',
+    './css/pages/mesas.css',
+    './css/pages/pratos.css',
+    './css/pages/usuarios.css',
 
     './js/apiService.js',
+    './js/app.js',
     './js/componentes.js',
     './js/gerenteToken.js',
     './js/jquery-3.6.0.min.js',
     './js/main.js',
     './js/menu_lateral.js',
     './js/ready.js',
+    './js/router.js',
     './js/serviceWorker.js',
+    './js/storageManager.js',
     './js/tokenManager.js',
     './js/topProgressBar.js',
-    './js/router.js',
-    './js/app.js'
+    './js/pages/mesas.js',
+    './js/pages/pratos.js',
+    './js/pages/usuarios.js'
     // adicione outros arquivos importantes aqui (JS, CSS, fontes...)
 ];
 
