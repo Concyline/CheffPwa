@@ -1,9 +1,9 @@
-const CACHE_NAME = 'Versão : 1.39';
+const CACHE_NAME = 'Versão : 1.40';
 
 const urlsToCache = [
-    '/',                     // raiz
-    './index.html',           // SPA principal
-    './offline.html',         // página para quando estiver offline
+    '/',
+    './index.html',
+    './offline.html',
     './manifest.json',
     './service-worker.js',
 

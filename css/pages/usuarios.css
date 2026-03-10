@@ -100,8 +100,7 @@ input[type="password"]::-ms-clear {
 }
 
 .crop-container {
-    width: 90%;
-    max-width: 400px;
+    width: 400px;
 
     display: flex;
     flex-direction: column;
@@ -119,6 +118,7 @@ input[type="password"]::-ms-clear {
     border-radius: 50%;
     cursor: pointer;
     padding: 10px;
+    margin-left: 10px;
 }
 
 #btn-cancelar-crop img {
@@ -133,6 +133,7 @@ input[type="password"]::-ms-clear {
     border-radius: 50%;
     cursor: pointer;
     padding: 10px;
+    margin-right: 10px;
 }
 
 #btn-cortar img {
@@ -145,14 +146,14 @@ input[type="password"]::-ms-clear {
 
     width: 400px;
 
-    top: 10%;
+    top: 5%;
     /* left: 0;
     right: 0; */
 
     display: flex;
     justify-content: space-between;
 
-    padding: 0 10px;
+    padding: 0;
 
     z-index: 10;
 }
@@ -235,8 +236,8 @@ input[type="password"]::-ms-clear {
     }
 
     .crop-actions {
-        width: 340px;
-        top: 25px;
+        /* width: 340px;
+        top: 25px; */
     }
 
     .toggle-password {
