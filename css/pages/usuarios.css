@@ -110,12 +110,33 @@
     display: block;
 }
 
-/* .crop-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
-} */
+#btn-cancelar-crop {
+    background: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#btn-cancelar-crop img {
+    width: 24px;
+    height: 24px;
+}
+
+#btn-cortar {
+    background: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#btn-cortar img {
+    width: 24px;
+    height: 24px;
+}
 
 .crop-actions {
     position: absolute;
@@ -193,7 +214,12 @@
         justify-content: center;
     }
 
+    .crop-dialog {
+        background: #000;
+    }
+
     .crop-actions {
         width: 325px;
+        top: 10px;
     }
 }
