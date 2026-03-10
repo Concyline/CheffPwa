@@ -47,7 +47,13 @@
 
     <div class="div-input">
         <label class="textview">Senha</label>
-        <input type="password" name="senha" class="input" minlength="4" required placeholder="Digite sua senha">
+
+        <div class="password-container">
+            <input type="password" id="senha" name="senha" class="input" minlength="4" autocomplete="new-password"
+                required placeholder="Digite sua senha" autocomplete="off">
+
+            <span class="toggle-password menu-visibility"></span>
+        </div>
     </div>
 
 </form>
@@ -57,19 +63,6 @@
 
 
 <!-- DIALOG CROP -->
-<!-- <div id="crop-dialog" class="crop-dialog">
-
-    <div class="crop-container">
-        <img id="image-crop">
-    </div>
-
-    <div class="crop-actions">
-        <button type="button" id="btn-cancelar-crop">Cancelar</button>
-        <button type="button" id="btn-cortar">Cortar</button>
-    </div>
-
-</div> -->
-
 <div id="crop-dialog" class="crop-dialog">
 
     <div class="crop-container">

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.37';
+const CACHE_NAME = 'Versão : 1.39';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -45,6 +45,8 @@ const urlsToCache = [
     './img/image_24dp_49454F.png',
     './img/close_24dp_FFFFFF.png',
     './img/crop_24dp_FFFFFF.png',
+    './img/visibility_24dp_49454F.png',
+    './img/visibility_24dp_CAC4D0.png',
 
     './css/componentes.css',
     './css/geral.css',

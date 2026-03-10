@@ -14,6 +14,18 @@ $(".fone").on("input", function () {
 
 });
 
+$(".toggle-password").click(function () {
+
+    const input = $("#senha");
+
+    if (input.attr("type") === "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+
+});
+
 $("#form-usuario").on("submit", function (e) {
 
     e.preventDefault();
@@ -169,110 +181,10 @@ $("#btn-cancelar-crop").click(function () {
         cropper.destroy();
     }
 
-    //$("#crop-dialog").fadeOut(200);
     $("#crop-dialog").removeClass("show");
 
 });
 
-// function lerImagem(input) {
 
-//     const file = input.files[0];
-//     if (!file) return;
-
-//     const reader = new FileReader();
-
-//     reader.onload = function (e) {
-
-//         const img = new Image();
-
-//         img.onload = function () {
-
-//             const canvas = document.createElement("canvas");
-//             const ctx = canvas.getContext("2d");
-
-//             const size = 256; // tamanho final do avatar
-
-//             canvas.width = size;
-//             canvas.height = size;
-
-//             // menor lado da imagem
-//             const minSide = Math.min(img.width, img.height);
-
-//             // ponto inicial para cortar do centro
-//             const sx = (img.width - minSide) / 2;
-//             const sy = (img.height - minSide) / 2;
-
-//             ctx.drawImage(
-//                 img,
-//                 sx, sy,           // origem do corte
-//                 minSide, minSide, // área cortada
-//                 0, 0,             // destino
-//                 size, size        // tamanho final
-//             );
-
-//             const base64 = canvas.toDataURL("image/webp", 0.8);
-
-//             $("#preview").attr("src", base64);
-//             $("#avatarbase64").val(base64);
-
-//         };
-
-//         img.src = e.target.result;
-
-//     };
-
-//     reader.readAsDataURL(file);
-// }
-
-// function lerImagem(input) {
-
-//     const file = input.files[0];
-
-//     if (!file) return;
-
-//     const reader = new FileReader();
-
-//     reader.onload = function (e) {
-
-//         const base64 = e.target.result;
-
-//         $("#preview").attr("src", base64);
-//         $("#avatarbase64").val(base64); // guarda no input hidden
-
-//     };
-
-//     reader.readAsDataURL(file);
-
-// }
-
-
-// $("#file-input").on("change", function () {
-
-//     const file = this.files[0];
-
-//     if (!file) {
-//         showAlert({ message: "Nenhum arquivo selecionado" });
-//         return;
-//     }
-
-//     const reader = new FileReader();
-
-//     reader.onload = function (e) {
-
-//         const base64 = e.target.result;
-
-//         //showAlert({ message: base64 == null });
-
-//         $("#preview").attr("src", base64);
-
-//     };
-
-//     reader.onerror = function (error) {
-//         showAlert({ message: "Erro ao ler arquivo " + error });
-//     };
-
-//     reader.readAsDataURL(file);
-
-// });
 
 

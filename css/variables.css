@@ -39,6 +39,7 @@
     --icon-adm: url('/img/manage_accounts_24dp_49454F.png');
     --icon-camera: url('/img/camera_alt_24dp_49454F.png');
     --icon-galery: url('/img/image_24dp_49454F.png');
+    --icon-visibility: url('/img/visibility_24dp_49454F.png');
 }
 
 .dark-mode {
@@ -82,4 +83,5 @@
     --icon-adm: url('/img/manage_accounts_24dp_CAC4D0.png');
     --icon-camera: url('/img/camera_alt_24dp_CAC4D0.png');
     --icon-galery: url('/img/image_24dp_CAC4D0.png');
+    --icon-visibility: url('/img/visibility_24dp_CAC4D0.png');
 }
