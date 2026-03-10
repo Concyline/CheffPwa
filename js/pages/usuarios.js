@@ -32,6 +32,7 @@ $("#form-usuario").on("submit", function (e) {
             email: formData.get("email"),
             phone: formData.get("telefone"),
             password: formData.get("senha"),
+            avatarbase64: formData.get("avatarbase64"),
             role: 5
         }
 
@@ -104,31 +105,145 @@ $("#btn-galeria").click(function () {
 
 $("#file-camera").on("change", function () {
     lerImagem(this);
+    $(this).val(""); // limpa o input
 });
 
 $("#file-galeria").on("change", function () {
     lerImagem(this);
+    $(this).val(""); // limpa o input
 });
+
+let cropper;
 
 function lerImagem(input) {
 
-    const file = input.files[0];
+    console.log('ta lnedo')
 
+    const file = input.files[0];
     if (!file) return;
 
-    const reader = new FileReader();
+    const url = URL.createObjectURL(file);
 
-    reader.onload = function (e) {
+    $("#image-crop").attr("src", url);
 
-        const base64 = e.target.result;
+    $("#crop-dialog").fadeIn(200);
+    $("#crop-dialog").addClass("show");
 
-        $("#preview").attr("src", base64);
+    if (cropper) cropper.destroy();
 
-    };
-
-    reader.readAsDataURL(file);
-
+    cropper = new Cropper(document.getElementById("image-crop"), {
+        aspectRatio: 1,
+        viewMode: 1,
+        dragMode: "move",
+        autoCropArea: 1,
+        background: false,
+        movable: true,
+        zoomable: true
+    });
 }
+
+$("#btn-cortar").click(function () {
+
+    if (!cropper) return;
+
+    const canvas = cropper.getCroppedCanvas({
+        width: 256,
+        height: 256
+    });
+
+    const base64 = canvas.toDataURL("image/webp", 0.8);
+
+    $("#preview").attr("src", base64);
+    $("#avatarbase64").val(base64);
+
+    cropper.destroy();
+
+    $("#crop-dialog").fadeOut(200);
+    $("#crop-dialog").removeClass("show");
+
+});
+
+$("#btn-cancelar-crop").click(function () {
+
+    if (cropper) {
+        cropper.destroy();
+    }
+
+    //$("#crop-dialog").fadeOut(200);
+    $("#crop-dialog").removeClass("show");
+
+});
+
+// function lerImagem(input) {
+
+//     const file = input.files[0];
+//     if (!file) return;
+
+//     const reader = new FileReader();
+
+//     reader.onload = function (e) {
+
+//         const img = new Image();
+
+//         img.onload = function () {
+
+//             const canvas = document.createElement("canvas");
+//             const ctx = canvas.getContext("2d");
+
+//             const size = 256; // tamanho final do avatar
+
+//             canvas.width = size;
+//             canvas.height = size;
+
+//             // menor lado da imagem
+//             const minSide = Math.min(img.width, img.height);
+
+//             // ponto inicial para cortar do centro
+//             const sx = (img.width - minSide) / 2;
+//             const sy = (img.height - minSide) / 2;
+
+//             ctx.drawImage(
+//                 img,
+//                 sx, sy,           // origem do corte
+//                 minSide, minSide, // área cortada
+//                 0, 0,             // destino
+//                 size, size        // tamanho final
+//             );
+
+//             const base64 = canvas.toDataURL("image/webp", 0.8);
+
+//             $("#preview").attr("src", base64);
+//             $("#avatarbase64").val(base64);
+
+//         };
+
+//         img.src = e.target.result;
+
+//     };
+
+//     reader.readAsDataURL(file);
+// }
+
+// function lerImagem(input) {
+
+//     const file = input.files[0];
+
+//     if (!file) return;
+
+//     const reader = new FileReader();
+
+//     reader.onload = function (e) {
+
+//         const base64 = e.target.result;
+
+//         $("#preview").attr("src", base64);
+//         $("#avatarbase64").val(base64); // guarda no input hidden
+
+//     };
+
+//     reader.readAsDataURL(file);
+
+// }
 
 
 // $("#file-input").on("change", function () {

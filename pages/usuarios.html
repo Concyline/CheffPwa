@@ -17,7 +17,17 @@
     <input type="file" id="file-camera" accept="image/*" capture="environment" style="display:none">
     <input type="file" id="file-galeria" accept="image/*" style="display:none">
 
-    <img id="preview" width="200">
+    <!-- <div style="max-width:400px">
+        <img id="image-crop">
+    </div>
+
+    <button id="btn-cortar">Cortar</button> -->
+
+    <div class="container-avatar">
+        <img id="preview" src="../img/avatar.png">
+    </div>
+
+    <input type="hidden" name="avatarbase64" id="avatarbase64">
 
     <div class="div-input">
         <label class="textview">Nome</label>
@@ -41,3 +51,36 @@
     </div>
 
 </form>
+
+
+
+
+
+<!-- DIALOG CROP -->
+<!-- <div id="crop-dialog" class="crop-dialog">
+
+    <div class="crop-container">
+        <img id="image-crop">
+    </div>
+
+    <div class="crop-actions">
+        <button type="button" id="btn-cancelar-crop">Cancelar</button>
+        <button type="button" id="btn-cortar">Cortar</button>
+    </div>
+
+</div> -->
+
+<div id="crop-dialog" class="crop-dialog">
+
+    <div class="crop-container">
+
+        <div class="crop-actions">
+            <button id="btn-cancelar-crop">Cancelar</button>
+            <button id="btn-cortar">Cortar</button>
+        </div>
+
+        <img id="image-crop">
+
+    </div>
+
+</div>

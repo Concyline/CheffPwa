@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.31';
+const CACHE_NAME = 'Versão : 1.32';
 
 const urlsToCache = [
     '/',                     // raiz
@@ -50,6 +50,8 @@ const urlsToCache = [
     './css/menu_lateral.css',
     './css/top_bar.css',
     './css/variables.css',
+    './css/cropper.min.css',
+
     './css/pages/mesas.css',
     './css/pages/pratos.css',
     './css/pages/usuarios.css',
@@ -67,6 +69,8 @@ const urlsToCache = [
     './js/storageManager.js',
     './js/tokenManager.js',
     './js/topProgressBar.js',
+    './js/cropper.min.js',
+
     './js/pages/mesas.js',
     './js/pages/pratos.js',
     './js/pages/usuarios.js'

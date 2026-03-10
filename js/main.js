@@ -21,5 +21,6 @@ injectScript("./js/tokenManager.js")
 injectScript("./js/apiService.js")
 injectScript("./js/router.js")
 injectScript("./js/app.js")
+injectScript("./js/cropper.min.js")
 
 
