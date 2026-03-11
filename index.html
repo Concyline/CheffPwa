@@ -47,7 +47,7 @@
 
         <div class="div-service">
 
-            <button class="service-button" type="submit" name="action" value="save" form="form-usuario">
+            <button class="service-button" id="btn-save" type="submit" name="action" value="save" form="form-usuario">
                 <img src="./img/done_24dp_FFFFFF.png" width="24">
             </button>
 
@@ -55,11 +55,12 @@
                 <img src="./img/add_a_photo_24dp_FFFFFF.png" width="24">
             </button>
 
-            <button class="service-button" type="submit" name="action" value="edit" form="form-usuario">
+            <button class="service-button" id="btn-edit" type="submit" name="action" value="edit" form="form-usuario">
                 <img src="./img/edit_24dp_FFFFFF.png" width="24">
             </button>
 
-            <button class="service-button" type="submit" name="action" value="delete" form="form-usuario">
+            <button class="service-button" id="btn-delet" type="submit" name="action" value="delete"
+                form="form-usuario">
                 <img src="./img/delete_24dp_FFFFFF.png" width="24">
             </button>
 
@@ -70,8 +71,8 @@
     <!-- Menu lateral -->
     <nav class="menu-lateral">
         <div class="card-usuario">
-            <img src="./img/avatar.png" alt="Foto do usuário" class="avatar" />
-            <span class="card-usuario-email">siac@gruposiac.com</span>
+            <img src="./img/avatar.png" id="avatar-lateral" alt="Foto do usuário" class="avatar" />
+            <span class="card-usuario-email" id="email-lateral">siac@gruposiac.com</span>
         </div>
 
         <ul>
@@ -236,7 +237,21 @@
     <!-- <script src="./js/apiService.js"></script> -->
 
     <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/main.js"></script>
+
+    <script src="./js/ready.js"></script>
+    <script src="./js/storageManager.js"></script>
+    <script src="./js/topProgressBar.js"></script>
+    <script src="./js/componentes.js"></script>
+    <script src="./js/menu_lateral.js"></script>
+    <script src="./js/gerenteToken.js"></script>
+    <script src="./js/serviceWorker.js"></script>
+    <script src="./js/tokenManager.js"></script>
+    <script src="./js/apiService.js"></script>
+    <script src="./js/router.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/cropper.min.js"></script>
+
+    <!-- <script src="./js/main.js"></script> -->
 
 
 

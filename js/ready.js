@@ -1,4 +1,5 @@
 $(function () {
+
     if (localStorage.getItem('theme') === 'dark-mode') {
         $('html').addClass('dark-mode');
     }

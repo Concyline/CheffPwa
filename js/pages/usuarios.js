@@ -1,4 +1,10 @@
 
+$(function () {
+
+    showUserLocalStorage()
+
+})
+
 
 $(".fone").on("input", function () {
 
@@ -74,11 +80,37 @@ async function save(user) {
             return;
         }
 
+        console.log(response.Data)
+
+        StorageManager.set('user', response.Data);
+
         showAlert({ message: JSON.stringify(response.Message) });
+        clearUserForm()
+        showUserLocalStorage()
 
     } catch (e) {
         showAlert({ message: e.message });
     }
+}
+
+function showUserLocalStorage() {
+
+    var user = StorageManager.get("user")
+
+    if (user) {
+        $("#avatar-lateral").attr("src", user.AvatarBase64);
+        $("#email-lateral").text(user.Email)
+    }
+}
+
+function clearUserForm() {
+
+    const form = $("#form-usuario")[0];
+    form.reset();
+
+    $("#preview").attr("src", "../img/avatar.png");
+    $("#avatarbase64").val("");
+
 }
 
 $("#btn-imagem").click(function () {
@@ -128,8 +160,6 @@ $("#file-galeria").on("change", function () {
 let cropper;
 
 function lerImagem(input) {
-
-    console.log('ta lnedo')
 
     const file = input.files[0];
     if (!file) return;

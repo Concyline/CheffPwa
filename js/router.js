@@ -24,6 +24,8 @@ class Router {
             this.loadCss(page)
             this.loadJs(page)
 
+            this.updateTopbar(page)
+
         } catch (error) {
             this.content.innerHTML = "<h2>Erro ao carregar página</h2>";
             console.error(error);
@@ -53,5 +55,25 @@ class Router {
         script.id = "page-js";
 
         document.body.appendChild(script);
+    }
+
+    static updateTopbar(page) {
+
+        // esconde todos primeiro
+        $('#btn-save').hide();
+        $("#btn-imagem").hide();
+        $("#btn-edit").hide();
+        $("#btn-delet").hide();
+
+        if (page === "mesas") {
+
+
+        } else if (page === "pratos") {
+
+
+        } else if (page === "usuarios") {
+            $("#btn-save").show();
+            $("#btn-imagem").show();
+        }
     }
 }

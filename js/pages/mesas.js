@@ -1,4 +1,9 @@
 
+$(function () {
+
+
+
+})
 
 function soma(n1, n2) {
     console.log(`Soma ${n1 + n2}`)

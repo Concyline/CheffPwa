@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.40';
+const CACHE_NAME = 'Versão : 1.41';
 
 const urlsToCache = [
     '/',
@@ -65,7 +65,6 @@ const urlsToCache = [
     './js/componentes.js',
     './js/gerenteToken.js',
     './js/jquery-3.6.0.min.js',
-    './js/main.js',
     './js/menu_lateral.js',
     './js/ready.js',
     './js/router.js',
