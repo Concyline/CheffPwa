@@ -33,6 +33,7 @@ $(function () {
     });
 
     // LOGUIN NO SISTEMA
+
     $("#email-lateral").on("click", function (e) {
 
         e.preventDefault();
@@ -41,55 +42,57 @@ $(function () {
 
     });
 
-    // FECHA CLICANDO FORA
-    $("#login-dialog").on("click", function (e) {
 
-        if (e.target === this) {
-            $("#login-dialog").fadeOut(200).css("display", "none");
-        }
+    // FECHA COM SETA
+    $("#btn-login-back").on("click", function () {
+
+        $("#login-dialog").fadeOut(200).css("display", "none");
 
     });
-
-
 
     $("#form-login").on("submit", async function (e) {
 
         e.preventDefault();
 
-        const formData = new FormData(this);
+        const api = new ApiService()
 
-        const login = {
-            email: formData.get("email"),
-            password: formData.get("senha")
-        };
+        try {
 
-        console.log(login);
+            const formData = new FormData(this);
 
-        $("#login-dialog").fadeOut(200).css("display", "none");
+            const login = {
+                email: formData.get("email"),
+                password: formData.get("senha")
+            };
 
-        // const api = new ApiService();
+            const response = await api.post("/user/login", login);
 
-        // try {
+            if (!response.Success) {
+                showAlert({ message: response.Message });
+                return;
+            }
 
-        //     const response = await api.post("/auth/login", login);
+            StorageManager.set('token', response.Data.token);
+            StorageManager.set('user', response.Data.user);
 
-        //     if (!response.Success) {
-        //         showAlert({ message: response.Message });
-        //         return;
-        //     }
+            showToast(response.Message)
 
-        //     StorageManager.set("user", response.Data);
+            clearForm()
+            App.showUserLocalStorage()
+            $("#login-dialog").fadeOut(200).css("display", "none");
 
-        //     App.showUserLocalStorage();
-
-        //     $("#login-dialog").fadeOut(200);
-
-        // }
-        // catch (err) {
-        //     showAlert({ message: err.message });
-        // }
+        } catch (e) {
+            showAlert({ message: e.message });
+        }
 
     });
+
+    function clearForm() {
+
+        const form = $("#form-login")[0]
+        form.reset()
+
+    }
 
 
     // ^^^^^^^^^^^^ LOGUIN NO SISTEMA
@@ -102,9 +105,6 @@ $(function () {
 
     $('.menu-add-user').on('click', function (e) {
         e.preventDefault();
-
-        // fecha submenu
-        //$(this).closest('.has-submenu').removeClass('open');
 
         if (window.matchMedia("(max-width: 768px)").matches) {
             fecharMenu();
@@ -124,9 +124,6 @@ $(function () {
             localStorage.setItem('theme', 'dark-mode');
         }
 
-        // fecha submenu
-        //$(this).closest('.has-submenu').removeClass('open');
-
         if (window.matchMedia("(max-width: 768px)").matches) {
             fecharMenu();
         }
@@ -136,8 +133,13 @@ $(function () {
         e.preventDefault();
 
         StorageManager.remove('user')
+        StorageManager.remove('token')
 
         App.showUserLocalStorage()
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            fecharMenu();
+        }
 
     });
 

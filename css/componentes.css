@@ -275,15 +275,13 @@
        font-weight: var(--font--weight);
        letter-spacing: var(--font--letter--spacing);
 
-       background-color: var(--color--background--toast);
+       background-color: var(--color--background--toast) !important;
    }
 
    .input:focus {
        outline: none;
        border-color: var(--color--bar);
-       /* border-color: #0F6E94; */
        background-color: var(--color--background--menu--lateral);
-       /* box-shadow: 0 0 0 3px rgba(15, 110, 148, 0.15); */
    }
 
    .input:disabled {

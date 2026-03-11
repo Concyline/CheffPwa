@@ -5,10 +5,14 @@ window.App = {
         var user = StorageManager.get("user");
 
         if (user) {
-            $("#avatar-lateral").attr("src", user.AvatarBase64)
+
+            if (user.AvatarBase64) {
+                $("#avatar-lateral").attr("src", user.AvatarBase64)
+            }
+
             $("#email-lateral").text(user.Email);
             $('#email-lateral').removeClass('on-login')
-            //$("#email-lateral").css('pointer-events', 'none')
+            $("#email-lateral").css('pointer-events', 'none')
             $('.menu-logout').show()
             return
 
@@ -17,7 +21,7 @@ window.App = {
         $('#avatar-lateral').attr("src", "../img/avatar.png")
         $('#email-lateral').text('Clique aqui para logar')
         $('#email-lateral').addClass('on-login')
-        //$("#email-lateral").css('pointer-events', 'painted')
+        $("#email-lateral").css('pointer-events', 'painted')
         $('.menu-logout').hide()
 
 

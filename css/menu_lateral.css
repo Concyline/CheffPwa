@@ -244,10 +244,6 @@
          color: var(--color--text);
      }
 
-
-
-
-
      /* faixa que compreende o restante da tela hode o menu nao esta como slide */
      .overlay {
          position: fixed;
@@ -265,10 +261,9 @@
      .login-dialog {
          position: fixed;
          inset: 0;
-         background: rgba(0, 0, 0, 0.6);
+         background-color: var(--color--background--overlay);
 
          display: none;
-         /* corrigido */
 
          justify-content: center;
          align-items: center;
@@ -283,31 +278,48 @@
          overflow: hidden;
      }
 
-     /* barra superior */
+     .topbar-back {
+         background: none;
+         border: none;
+         cursor: pointer;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         margin-right: 10px;
+     }
 
      .topbar-login {
-         background: #155a6a;
-         color: white;
+
+         background-color: var(--color--bar);
+         color: var(--color--bar--text);
 
          height: 60px;
 
          display: flex;
          align-items: center;
-         justify-content: space-between;
 
-         padding: 0 15px;
+         padding: 0 10px;
      }
 
      .topbar-title {
-         font-size: 18px;
+         flex: 1;
+         font-size: var(--font--size--bar);
+         margin-bottom: 3px;
      }
 
-     /* conteúdo */
+     .service-button {
+         background: none;
+         border: none;
+         cursor: pointer;
+     }
 
      .login-content {
-         padding: 15px;
+         padding: 15px 15px 25px 15px;
          display: flex;
          flex-direction: column;
+
          gap: 15px;
      }
 

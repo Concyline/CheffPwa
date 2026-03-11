@@ -38,8 +38,6 @@ $("#form-usuario").on("submit", function (e) {
 
     const action = document.activeElement.value;
 
-    console.log(action);
-
     if (action === "save") {
         console.log("Salvar");
 
@@ -68,6 +66,7 @@ $("#form-usuario").on("submit", function (e) {
 
 });
 
+// GRAVA O USUARIO
 async function save(user) {
     const api = new ApiService()
 
@@ -80,20 +79,47 @@ async function save(user) {
             return;
         }
 
-        console.log(response.Data)
-
-        StorageManager.set('user', response.Data);
-
-        showAlert({ message: JSON.stringify(response.Message) });
-        clearUserForm()
-        App.showUserLocalStorage()
+        login(user)
 
     } catch (e) {
         showAlert({ message: e.message });
     }
 }
 
-function clearUserForm() {
+// DEPOS FAZ LOGIN
+async function login(user) {
+    const api = new ApiService()
+
+    try {
+
+        const login = {
+            email: user.email,
+            password: user.password
+        };
+
+        const response = await api.post("/user/login", login);
+
+        if (!response.Success) {
+            showAlert({ message: response.Message });
+            return;
+        }
+
+        StorageManager.set('token', response.Data.token);
+        StorageManager.set('user', response.Data.user);
+
+        showToast(response.Message)
+
+        clearForm()
+        App.showUserLocalStorage()
+        $("#login-dialog").fadeOut(200).css("display", "none");
+
+    } catch (e) {
+        showAlert({ message: e.message });
+    }
+}
+
+
+function clearForm() {
 
     const form = $("#form-usuario")[0];
     form.reset();
