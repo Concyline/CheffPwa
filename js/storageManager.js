@@ -1,6 +1,7 @@
 class StorageManager {
 
     static set(key, value) {
+        //console.log('StorageManager set')
         if (typeof value === "object") {
             localStorage.setItem(key, JSON.stringify(value));
         } else {
@@ -9,6 +10,7 @@ class StorageManager {
     }
 
     static get(key) {
+        //console.log('StorageManager get')
         const value = localStorage.getItem(key);
 
         // tenta converter JSON automaticamente

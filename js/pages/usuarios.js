@@ -1,7 +1,7 @@
 
 $(function () {
 
-    showUserLocalStorage()
+
 
 })
 
@@ -86,20 +86,10 @@ async function save(user) {
 
         showAlert({ message: JSON.stringify(response.Message) });
         clearUserForm()
-        showUserLocalStorage()
+        App.showUserLocalStorage()
 
     } catch (e) {
         showAlert({ message: e.message });
-    }
-}
-
-function showUserLocalStorage() {
-
-    var user = StorageManager.get("user")
-
-    if (user) {
-        $("#avatar-lateral").attr("src", user.AvatarBase64);
-        $("#email-lateral").text(user.Email)
     }
 }
 
@@ -157,7 +147,7 @@ $("#file-galeria").on("change", function () {
     $(this).val(""); // limpa o input
 });
 
-let cropper;
+var cropper;
 
 function lerImagem(input) {
 

@@ -32,6 +32,69 @@ $(function () {
         }
     });
 
+    // LOGUIN NO SISTEMA
+    $("#email-lateral").on("click", function (e) {
+
+        e.preventDefault();
+
+        $("#login-dialog").fadeIn(200).css("display", "flex");
+
+    });
+
+    // FECHA CLICANDO FORA
+    $("#login-dialog").on("click", function (e) {
+
+        if (e.target === this) {
+            $("#login-dialog").fadeOut(200).css("display", "none");
+        }
+
+    });
+
+
+
+    $("#form-login").on("submit", async function (e) {
+
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        const login = {
+            email: formData.get("email"),
+            password: formData.get("senha")
+        };
+
+        console.log(login);
+
+        $("#login-dialog").fadeOut(200).css("display", "none");
+
+        // const api = new ApiService();
+
+        // try {
+
+        //     const response = await api.post("/auth/login", login);
+
+        //     if (!response.Success) {
+        //         showAlert({ message: response.Message });
+        //         return;
+        //     }
+
+        //     StorageManager.set("user", response.Data);
+
+        //     App.showUserLocalStorage();
+
+        //     $("#login-dialog").fadeOut(200);
+
+        // }
+        // catch (err) {
+        //     showAlert({ message: err.message });
+        // }
+
+    });
+
+
+    // ^^^^^^^^^^^^ LOGUIN NO SISTEMA
+
+
     $('.menu').on('click', function (e) {
         e.preventDefault();
         $(this).closest('.has-submenu').toggleClass('open');
@@ -67,6 +130,15 @@ $(function () {
         if (window.matchMedia("(max-width: 768px)").matches) {
             fecharMenu();
         }
+    });
+
+    $('.menu-logout').on('click', function (e) {
+        e.preventDefault();
+
+        StorageManager.remove('user')
+
+        App.showUserLocalStorage()
+
     });
 
     $(".menu-navigate").on("click", function (e) {

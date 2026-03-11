@@ -93,6 +93,18 @@
          background-color: rgba(133, 248, 181, 0.25);
      }
 
+     .on-login {
+         cursor: pointer;
+
+     }
+
+     .on-login:hover {
+         background-color: rgba(133, 248, 181, 0.25);
+         padding: 10px 30px;
+         border-radius: 10px;
+         transition: padding 1s ease;
+     }
+
 
      /* configuração do menus */
 
@@ -195,6 +207,20 @@
          transition: all 2s ease;
      }
 
+     .menu-logout::before {
+         content: "";
+         display: inline-block;
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+         margin-right: 8px;
+         padding-bottom: 4px;
+         background-image: var(--icon-logout);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 2s ease;
+     }
+
      /*  area sub menu */
 
      .submenu {
@@ -234,6 +260,57 @@
          z-index: 1000;
      }
 
+
+     /* LOGIN */
+     .login-dialog {
+         position: fixed;
+         inset: 0;
+         background: rgba(0, 0, 0, 0.6);
+
+         display: none;
+         /* corrigido */
+
+         justify-content: center;
+         align-items: center;
+
+         z-index: 9999;
+     }
+
+     .login-box {
+         width: 400px;
+         background: var(--color--background);
+         border-radius: 10px;
+         overflow: hidden;
+     }
+
+     /* barra superior */
+
+     .topbar-login {
+         background: #155a6a;
+         color: white;
+
+         height: 60px;
+
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+
+         padding: 0 15px;
+     }
+
+     .topbar-title {
+         font-size: 18px;
+     }
+
+     /* conteúdo */
+
+     .login-content {
+         padding: 15px;
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+     }
+
      /* media queries */
 
      /* Telas grandes - desktop (769px em diante)*/
@@ -256,15 +333,6 @@
              margin-left: 320px;
          }
 
-         /* .topbar {
-             margin-left: 320px;
-         } */
-
-         /* .menu-toggle,
-         .menu-title {
-             display: none;
-         } */
-
          .menu-toggle {
              display: none;
          }
@@ -280,6 +348,10 @@
 
          .menu-lateral a {
              padding: 15px 10px;
+         }
+
+         .login-box {
+             margin: 15px;
          }
 
      }

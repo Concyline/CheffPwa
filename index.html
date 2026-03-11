@@ -96,6 +96,8 @@
                     <li><a href="#" class="menu-tema">Tema</a></li>
                 </ul>
             </li>
+
+            <li><a href="#" class="menu-logout">Sair do sistema</a></li>
         </ul>
 
         <div class="footer-menu-lateral">
@@ -106,9 +108,52 @@
     <!-- Fundo escurecido -->
     <div class="overlay"></div>
 
-    <!-- Loader da pagina -->
-    <div id="loader">
-        <div class="loader-ring"></div>
+
+    <div id="login-dialog" class="login-dialog">
+
+        <div class="login-box">
+
+            <div class="topbar-login">
+
+                <span class="topbar-title">Login</span>
+
+                <button id="btn-login-submit" class="service-button" form="form-login" type="submit">
+                    <img src="./img/done_24dp_FFFFFF.png" width="24">
+                </button>
+
+            </div>
+
+            <div class="login-content">
+
+                <form id="form-login">
+
+                    <!-- <input type="email" name="email" placeholder="Digite seu email" required class="input">
+
+                    <input type="password" name="senha" placeholder="Digite sua senha" required class="input"> -->
+
+                    <div class="div-input">
+                        <label class="textview">Email</label>
+                        <input type="email" id="email" name="email" class="input" required
+                            placeholder="Digite seu email">
+                    </div>
+
+                    <div class="div-input">
+                        <label class="textview">Senha</label>
+
+                        <div class="password-container">
+                            <input type="password" id="senha" name="senha" class="input" minlength="4"
+                                autocomplete="new-password" required placeholder="Digite sua senha" autocomplete="off">
+
+                            <span class="toggle-password menu-visibility"></span>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
     </div>
 
 
@@ -224,18 +269,6 @@
     </main>
 
 
-    <!-- jQuery + interações -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/topProgressBar.js"></script>
-    <script src="./js/ready.js"></script>
-    <script src="./js/componentes.js"></script>
-    <script src="./js/menu_lateral.js"></script>
-    <script src="./js/gerenteToken.js"></script>
-    <script src="./js/serviceWorker.js"></script>
-
-    <script src="./js/tokenManager.js"></script> -->
-    <!-- <script src="./js/apiService.js"></script> -->
-
     <script src="./js/jquery-3.6.0.min.js"></script>
 
     <script src="./js/ready.js"></script>
@@ -251,7 +284,6 @@
     <script src="./js/app.js"></script>
     <script src="./js/cropper.min.js"></script>
 
-    <!-- <script src="./js/main.js"></script> -->
 
 
 
