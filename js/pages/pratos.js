@@ -19,10 +19,17 @@ async function notificar() {
 
     if (permissao === "granted") {
 
-        new Notification("Novo pedido!", {
+        const reg = await navigator.serviceWorker.ready;
+
+        reg.showNotification("Novo pedido!", {
             body: "Mesa 4 solicitou atendimento",
             icon: "/img/icon.png"
         });
+
+        // new Notification("Novo pedido!", {
+        //     body: "Mesa 4 solicitou atendimento",
+        //     icon: "/img/icon.png"
+        // });
 
     } else {
         console.log("Permissão negada");
