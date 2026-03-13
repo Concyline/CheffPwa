@@ -2,24 +2,24 @@ $(function () {
 
 })
 
-window.addEventListener("focus", () => {
+// window.addEventListener("focus", () => {
 
-    console.log('focus')
+//     console.log('focus')
 
-    const params = new URLSearchParams(window.location.search);
+//     const params = new URLSearchParams(window.location.search);
 
-    const page = params.get("page");
-    const id = params.get("id");
+//     const page = params.get("page");
+//     const id = params.get("id");
 
-    console.log('param ', page, id)
+//     console.log('param ', page, id)
 
-    if (page === "pedido") {
+//     if (page === "pedido") {
 
-        Router.navigate("usuarios", "Usuários");
+//         Router.navigate("usuarios", "Usuários");
 
-    }
+//     }
 
-});
+// });
 
 async function notificar(pedidoId, mesa) {
 
