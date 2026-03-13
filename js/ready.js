@@ -112,33 +112,32 @@ $(function () {
 
     });
 
-
 });
 
-function processarRota() {
+//function processarRota() {
 
-    console.log('cru')
+//console.log('cru')
 
-    Router.navigate("usuarios", "Usuários");
+//Router.navigate("usuarios", "Usuários");
 
-    // const hash = location.hash;
+// const hash = location.hash;
 
-    // console.log("rota:", hash);
+// console.log("rota:", hash);
 
-    // if (hash.startsWith("#/pedido/")) {
+// if (hash.startsWith("#/pedido/")) {
 
-    //     console.log("entrou");
+//     console.log("entrou");
 
-    //     const id = hash.split("/")[2];
+//     const id = hash.split("/")[2];
 
-    //     Router.navigate("usuarios", "Usuários");
+//     Router.navigate("usuarios", "Usuários");
 
-    //     //carregarPedido(id);
+//     //carregarPedido(id);
 
-    //     return;
-    // }
+//     return;
+// }
 
-}
+//}
 
 //window.addEventListener("hashchange", processarRota);
-window.addEventListener("load", processarRota);
+//window.addEventListener("load", processarRota);
