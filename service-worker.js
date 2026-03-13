@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.46';
+const CACHE_NAME = 'Versão : 1.47';
 
 const urlsToCache = [
     '/',
@@ -160,6 +160,41 @@ self.addEventListener('fetch', event => {
             });
 
         })
+
+    );
+
+});
+
+self.addEventListener("notificationclick", function (event) {
+
+    event.notification.close();
+
+    const url = event.notification.data.url;
+
+    console.log(url)
+
+    event.waitUntil(
+
+        clients.matchAll({ type: "window", includeUncontrolled: true })
+            .then(function (clientList) {
+
+                console.log('windows')
+
+                for (const client of clientList) {
+
+                    if (client.url.includes(url) && "focus" in client) {
+                        return client.focus();
+                    }
+
+                }
+
+                console.log('opne')
+
+                if (clients.openWindow) {
+                    return clients.openWindow(url);
+                }
+
+            })
 
     );
 

@@ -57,7 +57,7 @@ class Router {
         document.body.appendChild(script);
     }
 
-    // RESETA TODOS OS MENUS DEPOIS DE NAVEGAR PARA UMA TELA ESPECIFICA
+    // RESETA TODOS OS MENUS DEPOIS DE NAVEGAR PARA UMA tela
     static updateMenusTopbar(page) {
 
         // esconde todos primeiro
