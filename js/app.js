@@ -30,24 +30,30 @@ function processarRota() {
 
     const hash = location.hash;
 
-    if (!hash) {
+    var arrayNavigation = hash.split("/")
+
+
+    if (arrayNavigation.length == 1) {
         // root da aplicação
         Router.navigate("pratos", "Pratos");
-    }
 
-    console.log("rota:", hash);
-
-    if (hash.startsWith("#/pedido/")) {
-
-        console.log("entrou");
-
-        const id = hash.split("/")[2];
+    } else if (arrayNavigation[1] == 'pedido') {
 
         Router.navigate("usuarios", "Usuários");
 
-        //carregarPedido(id);
-
-        return;
     }
+
+    console.log("rota:", hash);
+    console.log("arrayNavigation:", arrayNavigation);
+
+    // if (hash.startsWith("#/pedido/")) {
+
+    //     const id = hash.split("/")[2];
+
+    //     // ficiticio ate definir oque fazer
+    //     Router.navigate("usuarios", "Usuários");
+
+    //     return;
+    // }
 
 }
