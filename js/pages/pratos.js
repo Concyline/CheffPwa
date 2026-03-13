@@ -2,9 +2,26 @@ $(function () {
 
 })
 
-async function notificar(pedidoId, mesa) {
+window.addEventListener("focus", () => {
 
-    console.log('NOTIFICAR', pedidoId, mesa)
+    console.log('focus')
+
+    const params = new URLSearchParams(window.location.search);
+
+    const page = params.get("page");
+    const id = params.get("id");
+
+    console.log('param ', page, id)
+
+    if (page === "pedido") {
+
+        Router.navigate("usuarios", "Usuários");
+
+    }
+
+});
+
+async function notificar(pedidoId, mesa) {
 
     if (!("Notification" in window)) {
         alert("Este navegador não suporta notificações");

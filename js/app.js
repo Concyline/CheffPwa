@@ -26,22 +26,3 @@ $(function () {
     //Router.navigate("usuarios", "Usuários");
 
 });
-
-window.addEventListener("focus", () => {
-
-    console.log('focus')
-
-    const params = new URLSearchParams(window.location.search);
-
-    const page = params.get("page");
-    const id = params.get("id");
-
-    console.log('param ', page, id)
-
-    if (page === "pedido") {
-
-        Router.navigate("usuarios", "Usuários");
-
-    }
-
-});
