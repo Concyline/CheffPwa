@@ -10,7 +10,7 @@ async function notificar(pedidoId, mesa) {
         body: `Mesa ${mesa} solicitou atendimento`,
         icon: "/img/avatar.png",
         data: {
-            url: `#/pedido/${pedidoId}`
+            url: `/index.html#/pedido/${pedidoId}`
         }
     });
 
