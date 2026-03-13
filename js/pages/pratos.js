@@ -85,3 +85,11 @@ async function notificar(pedidoId, mesa) {
     }
 
 }
+
+document.getElementById("btn-permissao").addEventListener("click", async () => {
+
+    const perm = await Notification.requestPermission();
+
+    console.log("Permissão:", perm);
+
+});
