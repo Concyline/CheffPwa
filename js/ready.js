@@ -113,31 +113,3 @@ $(function () {
     });
 
 });
-
-//function processarRota() {
-
-//console.log('cru')
-
-//Router.navigate("usuarios", "Usuários");
-
-// const hash = location.hash;
-
-// console.log("rota:", hash);
-
-// if (hash.startsWith("#/pedido/")) {
-
-//     console.log("entrou");
-
-//     const id = hash.split("/")[2];
-
-//     Router.navigate("usuarios", "Usuários");
-
-//     //carregarPedido(id);
-
-//     return;
-// }
-
-//}
-
-//window.addEventListener("hashchange", processarRota);
-//window.addEventListener("load", processarRota);

@@ -46,14 +46,4 @@ function processarRota() {
     console.log("rota:", hash);
     console.log("arrayNavigation:", arrayNavigation);
 
-    // if (hash.startsWith("#/pedido/")) {
-
-    //     const id = hash.split("/")[2];
-
-    //     // ficiticio ate definir oque fazer
-    //     Router.navigate("usuarios", "Usuários");
-
-    //     return;
-    // }
-
 }
