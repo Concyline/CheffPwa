@@ -23,7 +23,7 @@ async function notificar(pedidoId, mesa) {
 
         reg.showNotification("Novo pedido!", {
             body: `Mesa ${mesa} solicitou atendimento`,
-            icon: "/img/icon.png",
+            icon: "/img/avatar.png",
             vibrate: [200, 100, 200],
             data: {
                 url: `/index.html?page=pedido&id=${pedidoId}`
