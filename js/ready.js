@@ -112,17 +112,18 @@ $(function () {
 
     });
 
+
 });
 
 function processarRota() {
 
     const hash = location.hash;
 
-    console.log("rotan:", hash);
+    console.log("rota:", hash);
 
     if (hash.startsWith("#/pedido/")) {
 
-        console.log('entrou')
+        console.log("entrou");
 
         const id = hash.split("/")[2];
 
@@ -135,4 +136,5 @@ function processarRota() {
 
 }
 
-window.addEventListener("hashchange", processarRota);
+//window.addEventListener("hashchange", processarRota);
+window.addEventListener("load", processarRota);
