@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.48';
+const CACHE_NAME = 'Versão : 1.49';
 
 const urlsToCache = [
     '/',
@@ -166,6 +166,8 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener("notificationclick", function (event) {
+
+    console.log('notificationclick')
 
     event.notification.close();
 
