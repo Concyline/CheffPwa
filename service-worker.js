@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.51';
+const CACHE_NAME = 'Versão : 1.52';
 
 const urlsToCache = [
     '/',
@@ -172,66 +172,34 @@ self.addEventListener("notificationclick", function (event) {
     const url = event.notification.data.url;
 
     event.waitUntil(
-
-        clients.matchAll({ type: "window", includeUncontrolled: true })
-            .then(function (clientList) {
-
-                for (const client of clientList) {
-
-                    // se já existe aba aberta
-                    if (client.url.includes("index.html")) {
-
-                        client.postMessage({
-                            type: "OPEN_PAGE",
-                            url: url
-                        });
-
-                        return client.focus();
-                    }
-
-                }
-
-                // se não existe, abre nova aba
-                if (clients.openWindow) {
-                    return clients.openWindow(url);
-                }
-
-            })
-
+        clients.openWindow(url)
     );
 
 });
 
 // self.addEventListener("notificationclick", function (event) {
 
-//     console.log('notificationclick')
-
 //     event.notification.close();
 
 //     const url = event.notification.data.url;
 
-//     console.log(url)
-
 //     event.waitUntil(
 
 //         clients.matchAll({ type: "window", includeUncontrolled: true })
-//             .then(function (clientList) {
+//             .then((clientsArr) => {
 
-//                 console.log('windows')
+//                 for (const client of clientsArr) {
 
-//                 for (const client of clientList) {
+//                     client.postMessage({
+//                         type: "OPEN_PAGE",
+//                         url: url
+//                     });
 
-//                     if (client.url.includes(url) && "focus" in client) {
-//                         return client.focus();
-//                     }
+//                     return client.focus();
 
 //                 }
 
-//                 console.log('opne')
-
-//                 if (clients.openWindow) {
-//                     return clients.openWindow(url);
-//                 }
+//                 return clients.openWindow(url);
 
 //             })
 
@@ -239,22 +207,4 @@ self.addEventListener("notificationclick", function (event) {
 
 // });
 
-// self.addEventListener('fetch', event => {
-//     event.respondWith(
-//         caches.match(event.request).then(cachedResponse => {
-//             if (cachedResponse) {
-//                 return cachedResponse;
-//             }
 
-//             return fetch(event.request).catch(() => {
-//                 // se for navegação (ex: clicou em link) e falhar, retorna offline.html
-//                 if (
-//                     event.request.mode === 'navigate' ||
-//                     event.request.headers.get('accept')?.includes('text/html')
-//                 ) {
-//                     return caches.match('/offline.html');
-//                 }
-//             });
-//         })
-//     );
-// });
