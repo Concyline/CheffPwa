@@ -22,7 +22,7 @@ $(function () {
     });
 
     // root da aplicação
-    //Router.navigate("pratos", "Pratos");
-    Router.navigate("usuarios", "Usuários");
+    Router.navigate("pratos", "Pratos");
+    //Router.navigate("usuarios", "Usuários");
 
 });

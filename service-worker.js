@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.43';
+const CACHE_NAME = 'Versão : 1.44';
 
 const urlsToCache = [
     '/',
@@ -50,6 +50,8 @@ const urlsToCache = [
     './img/logout_24dp_CAC4D0.png',
     './img/logout_24dp_49454F.png',
     './img/arrow_back_24dp_FFFFFF.png',
+    './img/keyboard_arrow_down_24dp_49454F.png',
+    './img/keyboard_arrow_down_24dp_CAC4D0.png',
 
     './css/componentes.css',
     './css/geral.css',
@@ -63,17 +65,16 @@ const urlsToCache = [
     './css/pages/pratos.css',
     './css/pages/usuarios.css',
 
+    './js/util/Constantes.js',
     './js/apiService.js',
     './js/app.js',
     './js/componentes.js',
-    './js/gerenteToken.js',
     './js/jquery-3.6.0.min.js',
     './js/menu_lateral.js',
     './js/ready.js',
     './js/router.js',
     './js/serviceWorker.js',
     './js/storageManager.js',
-    './js/tokenManager.js',
     './js/topProgressBar.js',
     './js/cropper.min.js',
 

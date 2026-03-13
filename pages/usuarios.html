@@ -1,8 +1,9 @@
 <form id="form-usuario">
 
-    <!-- <input type="file" id="file-input" accept="image/*" capture="environment" style="display:none"> -->
+    <!-- COMPREENDE O RESTANTE DA TELA QUANO O POP UP SE ELEVA -->
     <div id="overlay" class="popup-overlay"></div>
 
+    <!-- POP UP QUE ABRE QUANDO ESTA EM MODO CELULAR -->
     <div id="popup-menu" class="popup-menu">
         <div class="popup-item" id="btn-camera">
             <span class="menu-camera"></span>
@@ -14,18 +15,16 @@
         </div>
     </div>
 
+    <!-- IMPUTS DE SERVIÇO PARA ABRIR AS IMAGENS OU TIRAR UMA FOTO -->
     <input type="file" id="file-camera" accept="image/*" capture="environment" style="display:none">
     <input type="file" id="file-galeria" accept="image/*" style="display:none">
 
-    <!-- <div style="max-width:400px">
-        <img id="image-crop">
-    </div>
 
-    <button id="btn-cortar">Cortar</button> -->
-
+    <!-- CAMPO ONDE SERA MOSTRADO A IMAGEM DEPOIS DE RECORTADA -->
     <div class="container-avatar">
         <img id="preview" src="../img/avatar.png">
     </div>
+
 
     <input type="hidden" name="avatarbase64" id="avatarbase64">
 
@@ -56,10 +55,22 @@
         </div>
     </div>
 
+    <div class="div-input" id="div-role">
+
+        <label class="textview">Perfil do usuário</label>
+
+        <select id="role" name="role" class="input">
+
+            <option value="6">Selecione</option> <!--Cliente externo (app/delivery futuro)-->
+            <option value="3">Cozina</option>
+            <option value="4">Caixa</option>
+            <option value="5">Garçom</option>
+
+        </select>
+
+    </div>
+
 </form>
-
-
-
 
 
 <!-- DIALOG CROP -->

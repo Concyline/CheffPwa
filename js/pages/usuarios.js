@@ -1,8 +1,7 @@
 
 $(function () {
 
-
-
+    App.aplicarPermisoes();
 })
 
 
@@ -49,7 +48,7 @@ $("#form-usuario").on("submit", function (e) {
             phone: formData.get("telefone"),
             password: formData.get("senha"),
             avatarbase64: formData.get("avatarbase64"),
-            role: 5
+            role: parseInt(formData.get("role"), 10)
         }
 
         save(user)
@@ -79,33 +78,8 @@ async function save(user) {
             return;
         }
 
-        login(user)
-
-    } catch (e) {
-        showAlert({ message: e.message });
-    }
-}
-
-// DEPOS FAZ LOGIN
-async function login(user) {
-    const api = new ApiService()
-
-    try {
-
-        const login = {
-            email: user.email,
-            password: user.password
-        };
-
-        const response = await api.post("/user/login", login);
-
-        if (!response.Success) {
-            showAlert({ message: response.Message });
-            return;
-        }
-
-        StorageManager.set('token', response.Data.token);
-        StorageManager.set('user', response.Data.user);
+        StorageManager.set(Constantes.Token, response.Data.token);
+        StorageManager.set(Constantes.User, response.Data.user);
 
         showToast(response.Message)
 

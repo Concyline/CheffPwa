@@ -72,13 +72,15 @@ $(function () {
                 return;
             }
 
-            StorageManager.set('token', response.Data.token);
-            StorageManager.set('user', response.Data.user);
+            StorageManager.set(Constantes.Token, response.Data.token);
+            StorageManager.set(Constantes.User, response.Data.user);
 
             showToast(response.Message)
 
             clearForm()
             App.showUserLocalStorage()
+            App.aplicarPermisoes()
+
             $("#login-dialog").fadeOut(200).css("display", "none");
 
         } catch (e) {
@@ -129,13 +131,15 @@ $(function () {
         }
     });
 
+    // LOGOUT DO SISTEMA
     $('.menu-logout').on('click', function (e) {
         e.preventDefault();
 
-        StorageManager.remove('user')
-        StorageManager.remove('token')
+        StorageManager.remove(Constantes.User)
+        StorageManager.remove(Constantes.Token)
 
         App.showUserLocalStorage()
+        App.aplicarPermisoes()
 
         if (window.matchMedia("(max-width: 768px)").matches) {
             fecharMenu();

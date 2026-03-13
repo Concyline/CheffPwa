@@ -24,7 +24,7 @@ class Router {
             this.loadCss(page)
             this.loadJs(page)
 
-            this.updateTopbar(page)
+            this.updateMenusTopbar(page)
 
         } catch (error) {
             this.content.innerHTML = "<h2>Erro ao carregar página</h2>";
@@ -57,7 +57,8 @@ class Router {
         document.body.appendChild(script);
     }
 
-    static updateTopbar(page) {
+    // RESETA TODOS OS MENUS DEPOIS DE NAVEGAR PARA UMA TELA ESPECIFICA
+    static updateMenusTopbar(page) {
 
         // esconde todos primeiro
         $('#btn-save').hide();

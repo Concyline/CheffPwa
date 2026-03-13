@@ -41,6 +41,7 @@
     --icon-galery: url('/img/image_24dp_49454F.png');
     --icon-visibility: url('/img/visibility_24dp_49454F.png');
     --icon-logout: url('/img/logout_24dp_49454F.png');
+    --icon-select-arrow: url('/img/keyboard_arrow_down_24dp_49454F.png');
 }
 
 .dark-mode {
@@ -86,4 +87,5 @@
     --icon-galery: url('/img/image_24dp_CAC4D0.png');
     --icon-visibility: url('/img/visibility_24dp_CAC4D0.png');
     --icon-logout: url('/img/logout_24dp_CAC4D0.png');
+    --icon-select-arrow: url('/img/keyboard_arrow_down_24dp_CAC4D0.png');
 }

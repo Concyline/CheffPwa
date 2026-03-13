@@ -10,7 +10,7 @@ class ApiService {
 
         try {
 
-            const token = TokenManager.get();
+            const token = StorageManager.get(Constantes.Token)
 
             const headers = {
                 "Content-Type": "application/json",
@@ -27,12 +27,6 @@ class ApiService {
             };
 
             const response = await fetch(`${this.baseURL}${endpoint}`, config);
-
-            if (response.status === 401) {
-                TokenManager.remove();
-                window.location.href = "/login.html";
-                return;
-            }
 
             return await response.json();
 
