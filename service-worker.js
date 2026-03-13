@@ -170,9 +170,11 @@ self.addEventListener("notificationclick", function (event) {
     event.notification.close();
 
     const url = event.notification.data.url;
+    console.log('aqui', url)
 
     event.waitUntil(
         clients.openWindow(url)
+
     );
 
 });
