@@ -136,30 +136,4 @@ function processarRota() {
 }
 
 window.addEventListener("hashchange", processarRota);
-
-// navigator.serviceWorker.ready.then(() => {
-
-//     console.log("Mensagem do SW", "antes");
-
-//     navigator.serviceWorker.addEventListener("message", function (event) {
-
-//         console.log("Mensagem do SW", event.data);
-
-//         if (event.data.type === "OPEN_PAGE") {
-
-//             const url = new URL(event.data.url, window.location.origin);
-
-//             const page = url.searchParams.get("page");
-//             const id = url.searchParams.get("id");
-
-//             if (page === "pedido") {
-
-//                 Router.navigate("usuarios", "Usuários");
-
-//             }
-
-//         }
-
-//     });
-
-// });
+window.addEventListener("load", processarRota);

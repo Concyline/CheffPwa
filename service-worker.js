@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.52';
+const CACHE_NAME = 'Versão : 1.53';
 
 const urlsToCache = [
     '/',
@@ -165,20 +165,6 @@ self.addEventListener('fetch', event => {
 
 });
 
-self.addEventListener("notificationclick", function (event) {
-
-    event.notification.close();
-
-    const url = event.notification.data.url;
-    console.log('aqui', url)
-
-    event.waitUntil(
-        clients.openWindow(url)
-
-    );
-
-});
-
 // self.addEventListener("notificationclick", function (event) {
 
 //     event.notification.close();
@@ -186,27 +172,40 @@ self.addEventListener("notificationclick", function (event) {
 //     const url = event.notification.data.url;
 
 //     event.waitUntil(
-
-//         clients.matchAll({ type: "window", includeUncontrolled: true })
-//             .then((clientsArr) => {
-
-//                 for (const client of clientsArr) {
-
-//                     client.postMessage({
-//                         type: "OPEN_PAGE",
-//                         url: url
-//                     });
-
-//                     return client.focus();
-
-//                 }
-
-//                 return clients.openWindow(url);
-
-//             })
+//         clients.openWindow(url)
 
 //     );
 
 // });
+
+self.addEventListener("notificationclick", function (event) {
+
+    event.notification.close();
+
+    const url = event.notification.data.url;
+
+    event.waitUntil(
+
+        clients.matchAll({ type: "window", includeUncontrolled: true })
+            .then((clientList) => {
+
+                for (const client of clientList) {
+
+                    // se já existe uma aba aberta
+                    if ("navigate" in client) {
+                        client.navigate(url);
+                        return client.focus();
+                    }
+
+                }
+
+                // se não existir nenhuma
+                return clients.openWindow(url);
+
+            })
+
+    );
+
+});
 
 
