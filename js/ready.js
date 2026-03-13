@@ -117,22 +117,26 @@ $(function () {
 
 function processarRota() {
 
-    const hash = location.hash;
+    console.log('cru')
 
-    console.log("rota:", hash);
+    Router.navigate("usuarios", "Usuários");
 
-    if (hash.startsWith("#/pedido/")) {
+    // const hash = location.hash;
 
-        console.log("entrou");
+    // console.log("rota:", hash);
 
-        const id = hash.split("/")[2];
+    // if (hash.startsWith("#/pedido/")) {
 
-        Router.navigate("usuarios", "Usuários");
+    //     console.log("entrou");
 
-        //carregarPedido(id);
+    //     const id = hash.split("/")[2];
 
-        return;
-    }
+    //     Router.navigate("usuarios", "Usuários");
+
+    //     //carregarPedido(id);
+
+    //     return;
+    // }
 
 }
 
