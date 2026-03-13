@@ -112,7 +112,7 @@ $(function () {
 
     });
 
-    processarRota()
+    //processarRota()
 
 });
 
@@ -136,4 +136,4 @@ function processarRota() {
 }
 
 window.addEventListener("hashchange", processarRota);
-window.addEventListener("load", processarRota);
+//window.addEventListener("load", processarRota);
