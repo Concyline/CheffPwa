@@ -21,9 +21,6 @@ $(function () {
 
     });
 
-    // root da aplicação
-    //Router.navigate("pratos", "Pratos");
-    //Router.navigate("usuarios", "Usuários");
 
     processarRota()
 
@@ -31,11 +28,12 @@ $(function () {
 
 function processarRota() {
 
-    console.log('cru')
-
-    Router.navigate("pratos", "Pratos");
-
     const hash = location.hash;
+
+    if (!hash) {
+        // root da aplicação
+        Router.navigate("pratos", "Pratos");
+    }
 
     console.log("rota:", hash);
 

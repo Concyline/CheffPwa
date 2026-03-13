@@ -10,7 +10,6 @@ class Router {
     static async navigate(page, navigation) {
 
         try {
-            console.log('antes navegou')
             const response = await fetch(`./pages/${page}.html`);
 
             if (!response.ok) {
@@ -26,8 +25,6 @@ class Router {
             this.loadJs(page)
 
             this.updateMenusTopbar(page)
-
-            console.log('navegou')
 
         } catch (error) {
             this.content.innerHTML = "<h2>Erro ao carregar página</h2>";
