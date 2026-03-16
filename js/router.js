@@ -38,25 +38,15 @@ class Router {
             hash = "#/pratos?nav=Pratos"
         }
 
-        console.log(hash)
-
+        // decodifica url
         const decodedHash = decodeURIComponent(hash);
 
-        console.log(decodedHash)
-
         const [page, query] = decodedHash.replace("#/", "").split("?");
-
-        console.log(page)
-
-
         const params = new URLSearchParams(query);
 
         // transforma todos os parâmetros em objeto
         const queryParams = Object.fromEntries(params.entries());
 
-        //const navigation = params.get("nav") || "Pratos";
-
-        //this.navigate(page, navigation);
         this.navigate(page, queryParams);
 
     }
@@ -77,7 +67,7 @@ class Router {
             const html = await response.text();
             this.content.innerHTML = html;
 
-            $('#top-bar-title').text(Router.params.nav)
+            $('#top-bar-title').text(Router.params.nav || "Sem parametro nav no menu")
 
             this.loadCss(page)
             this.loadJs(page)
@@ -89,31 +79,6 @@ class Router {
             console.error(error);
         }
     }
-
-    //     static async navigate(page, navigation) {
-
-    //     try {
-    //         const response = await fetch(`./pages/${page}.html`);
-
-    //         if (!response.ok) {
-    //             throw new Error("Página não encontrada");
-    //         }
-
-    //         const html = await response.text();
-    //         this.content.innerHTML = html;
-
-    //         $('#top-bar-title').text(navigation)
-
-    //         this.loadCss(page)
-    //         this.loadJs(page)
-
-    //         this.updateMenusTopbar(page)
-
-    //     } catch (error) {
-    //         this.content.innerHTML = "<h2>Erro ao carregar página</h2>";
-    //         console.error(error);
-    //     }
-    // }
 
     static loadCss(page) {
 

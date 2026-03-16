@@ -17,12 +17,15 @@
          width: 320px;
          background-color: var(--color--background--menu--lateral);
          color: var(--color--text);
-         height: 100dvh;
+         /* height: 100dvh; */
          position: fixed;
-         top: 0;
          left: -320px;
          z-index: 1002;
-         overflow: hidden;
+
+         top: 0;
+         bottom: 0;
+         overflow-y: auto;
+         /* overflow: hidden; */
 
          border-top-right-radius: 20px;
          border-bottom-right-radius: 20px;
@@ -245,12 +248,20 @@
      }
 
      /* faixa que compreende o restante da tela hode o menu nao esta como slide */
-     .overlay {
+     /* .overlay {
          position: fixed;
          top: 0;
          left: 0;
          width: 100%;
          height: 100%;
+         background-color: var(--color--background--overlay);
+         display: none;
+         z-index: 1000;
+     } */
+
+     .overlay {
+         position: fixed;
+         inset: 0;
          background-color: var(--color--background--overlay);
          display: none;
          z-index: 1000;
@@ -364,6 +375,10 @@
 
          .login-box {
              margin: 15px;
+         }
+
+         .card-usuario {
+             height: 200px;
          }
 
      }
