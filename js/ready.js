@@ -104,6 +104,8 @@ $(function () {
     // acao quando mudar o tamanho da tela
     $(window).on('resize', function () {
 
+        showToast("resize");
+
         // quando for tamanho de desktop
         if (window.matchMedia("(min-width: 769px)").matches) {
             $('.menu-lateral').css('left', '0');
@@ -136,26 +138,5 @@ $(function () {
                 console.log('❌ Erro ao registrar SW:', err);
             });
     }
-
-    function ajustarTelaTeclado() {
-
-        if (!window.visualViewport) return;
-
-        const dialog = document.querySelector(".login-dialog");
-
-        function update() {
-
-            const altura = window.visualViewport.height;
-
-            dialog.style.height = altura + "px";
-
-        }
-
-        visualViewport.addEventListener("resize", update);
-        visualViewport.addEventListener("scroll", update);
-
-    }
-
-    ajustarTelaTeclado();
 
 });
