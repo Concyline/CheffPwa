@@ -73,7 +73,6 @@ const urlsToCache = [
     './js/menu_lateral.js',
     './js/ready.js',
     './js/router.js',
-    './js/serviceWorker.js',
     './js/storageManager.js',
     './js/topProgressBar.js',
     './js/cropper.min.js',
@@ -176,12 +175,25 @@ self.addEventListener("notificationclick", function (event) {
         clients.matchAll({ type: "window", includeUncontrolled: true })
             .then((clientList) => {
 
+                // for (const client of clientList) {
+
+                //     // se já existe uma aba aberta
+                //     if ("navigate" in client) {
+                //         client.navigate(url);
+                //         return client.focus();
+                //     }
+
+                // }
+
                 for (const client of clientList) {
 
-                    // se já existe uma aba aberta
-                    if ("navigate" in client) {
+                    const clientUrl = new URL(client.url);
+
+                    if (clientUrl.origin === self.location.origin) {
+
                         client.navigate(url);
                         return client.focus();
+
                     }
 
                 }
