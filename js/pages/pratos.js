@@ -1,5 +1,7 @@
 $(function () {
 
+
+
 })
 
 // async function notificar(pedidoId, mesa) {
@@ -15,6 +17,10 @@ $(function () {
 //     });
 
 // }
+
+function mostrarPedido() {
+    console.log(Router.params.pedido)
+}
 
 async function notificar(pedidoId, mesa) {
 

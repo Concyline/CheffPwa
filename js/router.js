@@ -31,23 +31,43 @@ class Router {
 
     static handleRoute() {
 
-        const hash = location.hash || "#/pratos";
+        var hash = location.hash
 
-        const [page, query] = hash.replace("#/", "").split("?");
+        if (!hash) {
+            // root da aplicacao
+            hash = "#/pratos?nav=Pratos"
+        }
+
+        console.log(hash)
+
+        const decodedHash = decodeURIComponent(hash);
+
+        console.log(decodedHash)
+
+        const [page, query] = decodedHash.replace("#/", "").split("?");
+
+        console.log(page)
 
 
         const params = new URLSearchParams(query);
 
-        const navigation = params.get("nav") || "Pratos";
+        // transforma todos os parâmetros em objeto
+        const queryParams = Object.fromEntries(params.entries());
 
-        this.navigate(page, navigation);
+        //const navigation = params.get("nav") || "Pratos";
+
+        //this.navigate(page, navigation);
+        this.navigate(page, queryParams);
 
     }
 
 
-    static async navigate(page, navigation) {
+    static async navigate(page, params = {}) {
 
         try {
+            // guarda os parâmetros globalmente
+            Router.params = params;
+
             const response = await fetch(`./pages/${page}.html`);
 
             if (!response.ok) {
@@ -57,7 +77,7 @@ class Router {
             const html = await response.text();
             this.content.innerHTML = html;
 
-            $('#top-bar-title').text(navigation)
+            $('#top-bar-title').text(Router.params.nav)
 
             this.loadCss(page)
             this.loadJs(page)
@@ -69,6 +89,31 @@ class Router {
             console.error(error);
         }
     }
+
+    //     static async navigate(page, navigation) {
+
+    //     try {
+    //         const response = await fetch(`./pages/${page}.html`);
+
+    //         if (!response.ok) {
+    //             throw new Error("Página não encontrada");
+    //         }
+
+    //         const html = await response.text();
+    //         this.content.innerHTML = html;
+
+    //         $('#top-bar-title').text(navigation)
+
+    //         this.loadCss(page)
+    //         this.loadJs(page)
+
+    //         this.updateMenusTopbar(page)
+
+    //     } catch (error) {
+    //         this.content.innerHTML = "<h2>Erro ao carregar página</h2>";
+    //         console.error(error);
+    //     }
+    // }
 
     static loadCss(page) {
 

@@ -153,9 +153,8 @@ $(function () {
         e.preventDefault();
 
         const route = $(this).data("route");
-        const navigation = $(this).data("navigation");
 
-        location.hash = "#/" + route + "?nav=" + encodeURIComponent(navigation);
+        location.hash = "#/" + encodeURIComponent(route);
 
         $(".menu-navigate").removeClass("active");
 
