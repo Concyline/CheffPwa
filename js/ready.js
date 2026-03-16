@@ -102,12 +102,23 @@ $(function () {
 
 
     // acao quando mudar o tamanho da tela
-    $(window).on('resize', function () {
+    // $(window).on('resize', function () {
 
-        showToast("resize");
+    //     // quando for tamanho de desktop
+    //     if (window.matchMedia("(min-width: 769px)").matches) {
+    //         $('.menu-lateral').css('left', '0');
+    //         $('.overlay').hide();
+    //     } else {
+    //         $('.menu-lateral').css('left', '-320px');
+    //     }
 
-        // quando for tamanho de desktop
-        if (window.matchMedia("(min-width: 769px)").matches) {
+    // });
+
+    const media = window.matchMedia("(min-width: 769px)");
+
+    media.addEventListener("change", function (e) {
+
+        if (e.matches) {
             $('.menu-lateral').css('left', '0');
             $('.overlay').hide();
         } else {
