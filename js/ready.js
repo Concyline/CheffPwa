@@ -90,6 +90,8 @@ window.App = {
 
 $(function () {
 
+    Router.init();
+
     App.showUserLocalStorage()
     App.obterCacheName()
     App.getTokenUrl()

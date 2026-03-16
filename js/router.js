@@ -3,9 +3,47 @@ class Router {
     static content = null;
 
     static init() {
-        // onde sera inflado a nova pagina 
+
         this.content = document.getElementById("app-content");
+
+        window.addEventListener("hashchange", () => {
+            this.handleRoute();
+        });
+
+        this.handleRoute();
     }
+
+    static handleRoute() {
+
+        console.log("Navegou")
+
+        const hash = location.hash || "#/pratos";
+
+        const parts = hash.replace("#/", "").split("/");
+
+        const page = parts[0];
+
+        //const navigation = page.charAt(0).toUpperCase() + page.slice(1);
+
+        this.navigate(page);
+
+    }
+
+    static handleRoute() {
+
+        const hash = location.hash || "#/pratos";
+
+        const [page, query] = hash.replace("#/", "").split("?");
+
+
+        const params = new URLSearchParams(query);
+
+        const navigation = params.get("nav") || "Pratos";
+
+        this.navigate(page, navigation);
+
+    }
+
 
     static async navigate(page, navigation) {
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.67';
+const CACHE_NAME = 'Versão : 1.68';
 
 const urlsToCache = [
     '/',
@@ -10,6 +10,7 @@ const urlsToCache = [
     './pages/mesas.html',
     './pages/pratos.html',
     './pages/usuarios.html',
+    './pages/pedido.html',
 
     './img/avatar.png',
     './img/bedtime_24dp_49454F.png',
@@ -64,10 +65,10 @@ const urlsToCache = [
     './css/pages/mesas.css',
     './css/pages/pratos.css',
     './css/pages/usuarios.css',
+    './css/pages/pedido.css',
 
     './js/util/Constantes.js',
     './js/apiService.js',
-    './js/app.js',
     './js/componentes.js',
     './js/jquery-3.6.0.min.js',
     './js/menu_lateral.js',
@@ -79,7 +80,8 @@ const urlsToCache = [
 
     './js/pages/mesas.js',
     './js/pages/pratos.js',
-    './js/pages/usuarios.js'
+    './js/pages/usuarios.js',
+    './js/pages/pedido.js'
 ];
 
 // INSTALAÇÃO – armazena os arquivos no cache

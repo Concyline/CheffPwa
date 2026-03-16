@@ -147,13 +147,23 @@ $(function () {
 
     });
 
+
     $(".menu-navigate").on("click", function (e) {
 
         e.preventDefault();
 
-        $(".menu-navigate").removeClass("active"); // remove de todos os links
+        const route = $(this).data("route");
+        const navigation = $(this).data("navigation");
 
-        $(this).addClass("active"); // adiciona no clicado
+        location.hash = "#/" + route + "?nav=" + encodeURIComponent(navigation);
+
+        $(".menu-navigate").removeClass("active");
+
+        $(this).addClass("active");
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            fecharMenu();
+        }
 
     });
 
