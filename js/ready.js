@@ -137,4 +137,25 @@ $(function () {
             });
     }
 
+    function ajustarTelaTeclado() {
+
+        if (!window.visualViewport) return;
+
+        const dialog = document.querySelector(".login-dialog");
+
+        function update() {
+
+            const altura = window.visualViewport.height;
+
+            dialog.style.height = altura + "px";
+
+        }
+
+        visualViewport.addEventListener("resize", update);
+        visualViewport.addEventListener("scroll", update);
+
+    }
+
+    ajustarTelaTeclado();
+
 });
