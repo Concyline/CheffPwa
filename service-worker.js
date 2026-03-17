@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Versão : 1.73';
+const CACHE_NAME = 'Versão : 1.74';
 
 const urlsToCache = [
     '/',
@@ -77,6 +77,7 @@ const urlsToCache = [
     './js/storageManager.js',
     './js/topProgressBar.js',
     './js/cropper.min.js',
+    './js/errorHelper.js',
 
     './js/pages/mesas.js',
     './js/pages/pratos.js',

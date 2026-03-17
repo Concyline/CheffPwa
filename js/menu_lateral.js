@@ -84,7 +84,7 @@ $(function () {
             $("#login-dialog").fadeOut(200).css("display", "none");
 
         } catch (e) {
-            showAlert({ message: e.message });
+            showAlert({ message: ErrorHelper.getMessage(e) });
         }
 
     });

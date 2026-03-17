@@ -100,20 +100,6 @@ $(function () {
         $('html').addClass('dark-mode');
     }
 
-
-    // acao quando mudar o tamanho da tela
-    // $(window).on('resize', function () {
-
-    //     // quando for tamanho de desktop
-    //     if (window.matchMedia("(min-width: 769px)").matches) {
-    //         $('.menu-lateral').css('left', '0');
-    //         $('.overlay').hide();
-    //     } else {
-    //         $('.menu-lateral').css('left', '-320px');
-    //     }
-
-    // });
-
     const media = window.matchMedia("(min-width: 769px)");
 
     media.addEventListener("change", function (e) {
