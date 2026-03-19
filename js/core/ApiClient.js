@@ -1,4 +1,4 @@
-class ApiService {
+class ApiClient {
 
     constructor() {
         this.baseURL = "http://localhost:5022/v1";

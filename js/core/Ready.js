@@ -7,7 +7,7 @@ window.App = {
 
     aplicarPermisoes() {
 
-        const user = StorageManager.get(Constantes.User);
+        var user = Auth.getUser()
 
         $('#div-role').hide();
 
@@ -16,33 +16,6 @@ window.App = {
         if (user.Role === "RestaurantAdmin") {
             $('#div-role').show();
         }
-
-    },
-
-    showUserLocalStorage() {
-
-        var user = StorageManager.get(Constantes.User);
-
-        if (user) {
-
-            if (user.AvatarBase64) {
-                $("#avatar-lateral").attr("src", user.AvatarBase64)
-            }
-
-            $("#email-lateral").text(user.Email);
-            $('#email-lateral').removeClass('on-login')
-            $("#email-lateral").css('pointer-events', 'none')
-            $('.menu-logout').show()
-            return
-
-        }
-
-        $('#avatar-lateral').attr("src", "../img/avatar.png")
-        $('#email-lateral').text('Clique aqui para logar')
-        $('#email-lateral').addClass('on-login')
-        $("#email-lateral").css('pointer-events', 'auto')
-        $('.menu-logout').hide()
-
 
     },
 
@@ -91,8 +64,8 @@ window.App = {
 $(function () {
 
     Router.init();
+    UserController.init();
 
-    App.showUserLocalStorage()
     App.obterCacheName()
     App.getTokenUrl()
 

@@ -67,22 +67,24 @@ const urlsToCache = [
     './css/pages/usuarios.css',
     './css/pages/pedido.css',
 
-    './js/util/Constantes.js',
-    './js/apiService.js',
-    './js/componentes.js',
-    './js/jquery-3.6.0.min.js',
-    './js/menu_lateral.js',
-    './js/ready.js',
-    './js/router.js',
-    './js/storageManager.js',
-    './js/topProgressBar.js',
-    './js/cropper.min.js',
-    './js/errorHelper.js',
+    './js/core/util/Constantes.js',
+    './js/core/ApiClient.js',
+    './js/ui/componentes/componentes.js',
+    './js/core/jquery-3.6.0.min.js',
+    './js/ui/componentes/menu_lateral.js',
+    './js/core/Ready.js',
+    './js/ui/Router.js',
+    './js/core/StorageManager.js',
+    './js/ui/componentes/topProgressBar.js',
+    './js/core/cropper.min.js',
+    './js/helpers/ErrorHelper.js',
+    './js/services/UserService.js',
+    './js/core/Auth.js',
 
-    './js/pages/mesas.js',
-    './js/pages/pratos.js',
-    './js/pages/usuarios.js',
-    './js/pages/pedido.js'
+    './js/ui/pages/mesas.js',
+    './js/ui/pages/pratos.js',
+    './js/ui/pages/usuarios.js',
+    './js/ui/pages/pedido.js'
 ];
 
 // INSTALAÇÃO – armazena os arquivos no cache

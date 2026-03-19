@@ -1,167 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Configuração de titulo-->
+        <title>Siac App</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png" />
 
-    <!--Configuração de titulo-->
-    <title>Siac App</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- iOS + Android WebApp support -->
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="apple-touch-icon" href="/img/icon-256.png" />
 
-    <!-- iOS + Android WebApp support -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="apple-touch-icon" href="/img/icon-256.png">
+        <!-- PWA -->
+        <link rel="manifest" href="/manifest.json?v=1.12" />
+        <meta name="theme-color" content="#0A516D" />
 
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json?v=1.12" />
-    <meta name="theme-color" content="#0A516D" />
+        <!--styles-->
+        <link rel="stylesheet" href="css/variables.css" />
 
-    <!--styles-->
-    <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/geral.css" />
+        <link rel="stylesheet" href="css/componentes.css" />
+        <link rel="stylesheet" href="css/loader.css" />
+        <link rel="stylesheet" href="css/top_bar.css" />
+        <link rel="stylesheet" href="css/menu_lateral.css" />
+        <link rel="stylesheet" href="css/cropper.min.css" />
 
-    <link rel="stylesheet" href="css/geral.css">
-    <link rel="stylesheet" href="css/componentes.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/top_bar.css">
-    <link rel="stylesheet" href="css/menu_lateral.css">
-    <link rel="stylesheet" href="css/cropper.min.css">
+        <style></style>
+    </head>
 
+    <body>
+        <!-- Barra superior -->
+        <div class="topbar">
+            <button class="menu-toggle">&#9776;</button>
+            <h1 class="menu-title" id="top-bar-title">Siac App</h1>
 
-
-    <style>
-
-    </style>
-</head>
-
-<body>
-
-    <!-- Barra superior -->
-    <div class="topbar">
-        <button class="menu-toggle">&#9776;</button>
-        <h1 class="menu-title" id="top-bar-title">Siac App</h1>
-
-        <div class="div-service">
-
-            <button class="service-button" id="btn-save" type="submit" name="action" value="save" form="form-usuario">
-                <img src="./img/done_24dp_FFFFFF.png" width="24">
-            </button>
-
-            <button class="service-button" id="btn-imagem">
-                <img src="./img/add_a_photo_24dp_FFFFFF.png" width="24">
-            </button>
-
-            <button class="service-button" id="btn-edit" type="submit" name="action" value="edit" form="form-usuario">
-                <img src="./img/edit_24dp_FFFFFF.png" width="24">
-            </button>
-
-            <button class="service-button" id="btn-delet" type="submit" name="action" value="delete"
-                form="form-usuario">
-                <img src="./img/delete_24dp_FFFFFF.png" width="24">
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- Menu lateral -->
-    <nav class="menu-lateral">
-        <div class="card-usuario">
-            <img src="./img/avatar.png" id="avatar-lateral" alt="Foto do usuário" class="avatar" />
-            <span class="card-usuario-email" id="email-lateral">siac@gruposiac.com</span>
-        </div>
-
-        <ul>
-            <li><a href="#" class="menu-home">Início</a></li>
-
-            <li class="has-submenu">
-                <a href="#" class="menu menu-adm">Administração</a>
-                <ul class="submenu">
-                    <li><a href="#" class="menu-add-user menu-navigate" data-route="usuarios?nav=Usuários">Cirar
-                            usuário</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#" class="menu-tables menu-navigate" data-route="mesas?nav=Mesas">Mesas</a></li>
-            <li><a href="#" class="menu-food menu-navigate" data-route="pratos?nav=Pratos">Pratos</a></li>
-
-            <li class="has-submenu">
-                <a href="#" class="menu menu-config">Configurações</a>
-                <ul class="submenu">
-                    <li><a href="#" class="menu-tema">Tema</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#" class="menu-logout">Sair do sistema</a></li>
-        </ul>
-
-        <div class="footer-menu-lateral">
-            <span id="versao"></span>
-        </div>
-    </nav>
-
-    <!-- Fundo escurecido -->
-    <div class="overlay"></div>
-
-
-    <div id="login-dialog" class="login-dialog">
-
-        <div class="login-box">
-
-            <div class="topbar-login">
-
-                <button id="btn-login-back" class="service-button">
-                    <img src="./img/arrow_back_24dp_FFFFFF.png" width="24">
+            <div class="div-service">
+                <button
+                    class="service-button"
+                    id="btn-save"
+                    type="submit"
+                    name="action"
+                    value="save"
+                    form="form-usuario"
+                >
+                    <img src="./img/done_24dp_FFFFFF.png" width="24" />
                 </button>
 
-                <span class="topbar-title">Login</span>
-
-                <button id="btn-login-submit" class="service-button" form="form-login" type="submit">
-                    <img src="./img/done_24dp_FFFFFF.png" width="24">
+                <button class="service-button" id="btn-imagem">
+                    <img src="./img/add_a_photo_24dp_FFFFFF.png" width="24" />
                 </button>
 
+                <button
+                    class="service-button"
+                    id="btn-edit"
+                    type="submit"
+                    name="action"
+                    value="edit"
+                    form="form-usuario"
+                >
+                    <img src="./img/edit_24dp_FFFFFF.png" width="24" />
+                </button>
+
+                <button
+                    class="service-button"
+                    id="btn-delet"
+                    type="submit"
+                    name="action"
+                    value="delete"
+                    form="form-usuario"
+                >
+                    <img src="./img/delete_24dp_FFFFFF.png" width="24" />
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu lateral -->
+        <nav class="menu-lateral">
+            <div class="card-usuario">
+                <img
+                    src="./img/avatar.png"
+                    id="avatar-lateral"
+                    alt="Foto do usuário"
+                    class="avatar"
+                />
+                <span class="card-usuario-email" id="email-lateral">siac@gruposiac.com</span>
             </div>
 
-            <div class="login-content"> 
+            <ul>
+                <li><a href="#" class="menu-home">Início</a></li>
 
-                <form id="form-login">
+                <li class="has-submenu">
+                    <a href="#" class="menu menu-adm">Administração</a>
+                    <ul class="submenu">
+                        <li>
+                            <a
+                                href="#"
+                                class="menu-add-user menu-navigate"
+                                data-route="usuarios?nav=Usuários"
+                                >Cirar usuário</a
+                            >
+                        </li>
+                    </ul>
+                </li>
 
-                    <div class="div-input">
-                        <label class="textview">Email</label>
-                        <input type="email" id="email" name="email" class="input" required
-                            placeholder="Digite seu email">
-                    </div>
+                <li>
+                    <a href="#" class="menu-tables menu-navigate" data-route="mesas?nav=Mesas"
+                        >Mesas</a
+                    >
+                </li>
+                <li>
+                    <a href="#" class="menu-food menu-navigate" data-route="pratos?nav=Pratos"
+                        >Pratos</a
+                    >
+                </li>
 
-                    <div class="div-input">
-                        <label class="textview">Senha</label>
+                <li class="has-submenu">
+                    <a href="#" class="menu menu-config">Configurações</a>
+                    <ul class="submenu">
+                        <li><a href="#" class="menu-tema">Tema</a></li>
+                    </ul>
+                </li>
 
-                        <div class="password-container">
-                            <input type="password" id="senha" name="senha" class="input" minlength="4" required
-                                placeholder="Digite sua senha" autocomplete="off">
+                <li><a href="#" class="menu-logout">Sair do sistema</a></li>
+            </ul>
 
-                            <span class="toggle-password menu-visibility"></span>
+            <div class="footer-menu-lateral">
+                <span id="versao"></span>
+            </div>
+        </nav>
+
+        <!-- Fundo escurecido -->
+        <div class="overlay"></div>
+
+        <div id="login-dialog" class="login-dialog">
+            <div class="login-box">
+                <div class="topbar-login">
+                    <button id="btn-login-back" class="service-button">
+                        <img src="./img/arrow_back_24dp_FFFFFF.png" width="24" />
+                    </button>
+
+                    <span class="topbar-title">Login</span>
+
+                    <button
+                        id="btn-login-submit"
+                        class="service-button"
+                        form="form-login"
+                        type="submit"
+                    >
+                        <img src="./img/done_24dp_FFFFFF.png" width="24" />
+                    </button>
+                </div>
+
+                <div class="login-content">
+                    <form id="form-login">
+                        <div class="div-input">
+                            <label class="textview">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="input"
+                                required
+                                placeholder="Digite seu email"
+                            />
                         </div>
-                    </div>
 
-                </form>
+                        <div class="div-input">
+                            <label class="textview">Senha</label>
 
+                            <div class="password-container">
+                                <input
+                                    type="password"
+                                    id="senhaLogin"
+                                    name="senha"
+                                    class="input"
+                                    minlength="4"
+                                    required
+                                    placeholder="Digite sua senha"
+                                    autocomplete="off"
+                                />
+
+                                <span
+                                    id="toggleLogin"
+                                    class="toggle-password menu-visibility"
+                                ></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-
         </div>
 
-    </div>
+        <!-- Conteúdo principal -->
+        <main>
+            <div id="app-content"></div>
 
-
-    <!-- Conteúdo principal -->
-    <main>
-
-        <div id="app-content"></div>
-
-        <!-- <h2>Bem-vindo! </h2>
+            <!-- <h2>Bem-vindo! </h2>
         <p>Agora com a paleta personalizada que você escolheu. O menu lateral ainda funciona como slide.</p>
 
 
@@ -264,130 +303,120 @@
         </div>
 
         <button class="botao" type="button" onclick="aqui()">soma</button> -->
+        </main>
 
-    </main>
+        <script src="./js/core/jquery-3.6.0.min.js"></script>
+        <script src="./js/core/cropper.min.js"></script>
+        <script src="./js/core/util/Constantes.js"></script>
+        <script src="./js/services/UserService.js"></script>
+        <script src="./js/controllers/UserController.js"></script>
+        <script src="./js/core/StorageManager.js"></script>
+        <script src="./js/core/ApiClient.js"></script>
+        <script src="./js/core/Auth.js"></script>
 
+        <script src="./js/ui/componentes/topProgressBar.js"></script>
+        <script src="./js/ui/componentes/componentes.js"></script>
+        <script src="./js/ui/componentes/menu_lateral.js"></script>
+        <script src="./js/ui/Router.js"></script>
 
-    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/helpers/ErrorHelper.js"></script>
 
-    <script src="./js/util/Constantes.js"></script>
-    <script src="./js/ready.js"></script>
-    <script src="./js/storageManager.js"></script>
-    <script src="./js/topProgressBar.js"></script>
-    <script src="./js/componentes.js"></script>
-    <script src="./js/menu_lateral.js"></script>
-    <script src="./js/apiService.js"></script>
-    <script src="./js/router.js"></script>
-    <script src="./js/cropper.min.js"></script>
-    <script src="./js/errorHelper.js"></script>
+        <script src="./js/core/Ready.js"></script>
 
+        <script>
+            // $("#progress").on("click", function (e) {
 
+            //     TopProgressBar.start();
 
+            //     setTimeout(() => {
+            //         TopProgressBar.finish();
+            //     }, 5000);
+            // })
 
-    <script>
+            // $("#teste").on("click", function (e) {
+            //     login()
+            // })
 
+            // $("#start").on("click", function (e) {
+            //     startSerrionTable()
+            // })
 
-        // $("#progress").on("click", function (e) {
+            // async function startSerrionTable() {
+            //     const api = new ApiClient()
 
-        //     TopProgressBar.start();
+            //     try {
 
-        //     setTimeout(() => {
-        //         TopProgressBar.finish();
-        //     }, 5000);
-        // })
+            //         const response = await api.post("/table-sessions/start-qrcode", {
+            //             qrToken: "11AB7699-034F-4FFB-81DC-874E788ED86E"
+            //         });
 
-        // $("#teste").on("click", function (e) {
-        //     login()
-        // })
+            //         if (!response.Success) {
+            //             showAlert({ message: response.Message });
+            //             return;
+            //         }
 
-        // $("#start").on("click", function (e) {
-        //     startSerrionTable()
-        // })
+            //         showAlert({ message: JSON.stringify(response) });
 
-        // async function startSerrionTable() {
-        //     const api = new ApiService()
+            //     } catch (e) {
+            //         showAlert({ message: e.message });
+            //     }
+            // }
 
-        //     try {
+            // async function login() {
 
-        //         const response = await api.post("/table-sessions/start-qrcode", {
-        //             qrToken: "11AB7699-034F-4FFB-81DC-874E788ED86E"
-        //         });
+            //     const api = new ApiClient()
 
-        //         if (!response.Success) {
-        //             showAlert({ message: response.Message });
-        //             return;
-        //         }
+            //     try {
 
-        //         showAlert({ message: JSON.stringify(response) });
+            //         const response = await api.post("/user/login", {
+            //             email: "admin_pimenta_sapeka@system.local",
+            //             password: "admin"
+            //         });
 
-        //     } catch (e) {
-        //         showAlert({ message: e.message });
-        //     }
-        // }
+            //         console.log(response)
+            //         console.log(response.Timestamp)
 
+            //         if (!response.Success) {
+            //             showAlert({ message: response.Message });
+            //             return;
+            //         }
 
+            //         const token = response.Data.token;
+            //         const user = response.Data.user;
 
-        // async function login() {
+            //         TokenManager.set(token);
 
-        //     const api = new ApiService()
+            //         console.log("Usuário:", user);
+            //         console.log("Token:", token);
 
-        //     try {
+            //         showAlert({ message: token });
 
-        //         const response = await api.post("/user/login", {
-        //             email: "admin_pimenta_sapeka@system.local",
-        //             password: "admin"
-        //         });
+            //     } catch (e) {
+            //         showAlert({ message: e.message });
+            //     }
 
-        //         console.log(response)
-        //         console.log(response.Timestamp)
+            // }
 
-        //         if (!response.Success) {
-        //             showAlert({ message: response.Message });
-        //             return;
-        //         }
+            // function sendToken() {
+            //     const savedToken = localStorage.getItem('token');
+            //     if (savedToken) {
 
-        //         const token = response.Data.token;
-        //         const user = response.Data.user;
+            //         showAlert({
+            //             title: "Excluir item",
+            //             message: `Token salvo: ${savedToken}`,
+            //             type: "ok",
+            //         });
 
-        //         TokenManager.set(token);
+            //     } else {
+            //         showAlert({
+            //             title: "Excluir item",
+            //             message: 'Nenhum token salvo no localStorage.',
+            //             type: "ok",
+            //         });
+            //     }
+            // }
 
-        //         console.log("Usuário:", user);
-        //         console.log("Token:", token);
-
-        //         showAlert({ message: token });
-
-        //     } catch (e) {
-        //         showAlert({ message: e.message });
-        //     }
-
-        // }
-
-
-
-
-        // function sendToken() {
-        //     const savedToken = localStorage.getItem('token');
-        //     if (savedToken) {
-
-        //         showAlert({
-        //             title: "Excluir item",
-        //             message: `Token salvo: ${savedToken}`,
-        //             type: "ok",
-        //         });
-
-        //     } else {
-        //         showAlert({
-        //             title: "Excluir item",
-        //             message: 'Nenhum token salvo no localStorage.',
-        //             type: "ok",
-        //         });
-        //     }
-        // }
-
-        // document.getElementById('getTokenBtn').addEventListener('click', sendToken);
-
-    </script>
-
-</body>
-
+            // document.getElementById('getTokenBtn').addEventListener('click', sendToken);
+        </script>
+    </body>
 </html>

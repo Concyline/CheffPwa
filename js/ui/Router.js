@@ -99,7 +99,7 @@ class Router {
         if (oldJs) oldJs.remove();
 
         const script = document.createElement("script");
-        script.src = `./js/pages/${page}.js`;
+        script.src = `./js/ui/pages/${page}.js`;
         script.id = "page-js";
 
         document.body.appendChild(script);

@@ -50,51 +50,31 @@ $(function () {
 
     });
 
+
+    // LOGUIN NO SISTEMA
     $("#form-login").on("submit", async function (e) {
 
         e.preventDefault();
 
-        const api = new ApiService()
+        const formData = new FormData(this);
 
-        try {
+        const user = {
+            email: formData.get("email")?.trim(),
+            password: formData.get("senha")?.trim()
+        };
 
-            const formData = new FormData(this);
+        const response = await UserController.login(user);
 
-            const login = {
-                email: formData.get("email"),
-                password: formData.get("senha")
-            };
+        if (response.success) {
 
-            const response = await api.post("/user/login", login);
+            showToast(response.message);
+            renderUser()
 
-            if (!response.Success) {
-                showAlert({ message: response.Message });
-                return;
-            }
-
-            StorageManager.set(Constantes.Token, response.Data.token);
-            StorageManager.set(Constantes.User, response.Data.user);
-
-            showToast(response.Message)
-
-            clearForm()
-            App.showUserLocalStorage()
-            App.aplicarPermisoes()
-
-            $("#login-dialog").fadeOut(200).css("display", "none");
-
-        } catch (e) {
-            showAlert({ message: ErrorHelper.getMessage(e) });
+            $("#login-dialog").fadeOut(200);
+            this.reset();
         }
 
     });
-
-    function clearForm() {
-
-        const form = $("#form-login")[0]
-        form.reset()
-
-    }
 
 
     // ^^^^^^^^^^^^ LOGUIN NO SISTEMA
@@ -131,39 +111,81 @@ $(function () {
         }
     });
 
-    // LOGOUT DO SISTEMA
-    $('.menu-logout').on('click', function (e) {
-        e.preventDefault();
 
-        StorageManager.remove(Constantes.User)
-        StorageManager.remove(Constantes.Token)
+});
 
-        App.showUserLocalStorage()
-        App.aplicarPermisoes()
+function renderUser() {
 
-        if (window.matchMedia("(max-width: 768px)").matches) {
-            fecharMenu();
+    App.aplicarPermisoes()
+
+    var user = Auth.getUser()
+
+    if (user) {
+
+        if (user.AvatarBase64) {
+            $("#avatar-lateral").attr("src", user.AvatarBase64)
         }
 
-    });
+        $("#email-lateral").text(user.Email);
+        $('#email-lateral').removeClass('on-login')
+        $("#email-lateral").css('pointer-events', 'none')
+        $('.menu-logout').show()
+        return
+
+    }
+}
+
+function renderVisitor() {
+    $('#avatar-lateral').attr("src", "../img/avatar.png")
+    $('#email-lateral').text('Clique aqui para logar')
+    $('#email-lateral').addClass('on-login')
+    $("#email-lateral").css('pointer-events', 'auto')
+    $('.menu-logout').hide()
+}
+
+// LOGOUT DO SISTEMA
+$(".menu-logout").on("click", function (e) {
+
+    e.preventDefault();
+
+    UserController.logout();
+
+    renderVisitor()
+
+    showToast('Deslogado com sucesso!')
+
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        fecharMenu();
+    }
+});
 
 
-    $(".menu-navigate").on("click", function (e) {
+$(".menu-navigate").on("click", function (e) {
 
-        e.preventDefault();
+    e.preventDefault();
 
-        const route = $(this).data("route");
+    const route = $(this).data("route");
 
-        location.hash = "#/" + encodeURIComponent(route);
+    location.hash = "#/" + encodeURIComponent(route);
 
-        $(".menu-navigate").removeClass("active");
+    $(".menu-navigate").removeClass("active");
 
-        $(this).addClass("active");
+    $(this).addClass("active");
 
-        if (window.matchMedia("(max-width: 768px)").matches) {
-            fecharMenu();
-        }
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        fecharMenu();
+    }
 
-    });
+});
+
+$('#toggleLogin').click(function () {
+
+    const input = $('#senhaLogin');
+
+    if (input.attr('type') === 'password') {
+        input.attr('type', 'text');
+    } else {
+        input.attr('type', 'password');
+    }
 
 });
