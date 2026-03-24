@@ -11,6 +11,7 @@ const urlsToCache = [
     './pages/pratos.html',
     './pages/usuarios.html',
     './pages/pedido.html',
+    './pages/inicio.html',
 
     './img/avatar.png',
     './img/bedtime_24dp_49454F.png',
@@ -66,6 +67,7 @@ const urlsToCache = [
     './css/pages/pratos.css',
     './css/pages/usuarios.css',
     './css/pages/pedido.css',
+    './css/pages/inicio.css',
 
     './js/core/util/Constantes.js',
     './js/core/ApiClient.js',
@@ -79,12 +81,17 @@ const urlsToCache = [
     './js/core/cropper.min.js',
     './js/helpers/ErrorHelper.js',
     './js/services/UserService.js',
+    '/js/services/DishService.js',
+    './js/controllers/DishController.js',
     './js/core/Auth.js',
+    './js/services/RestaurantTablesService.js',
+    './js/controllers/RestaurantTablesController.js',
 
     './js/ui/pages/mesas.js',
     './js/ui/pages/pratos.js',
     './js/ui/pages/usuarios.js',
-    './js/ui/pages/pedido.js'
+    './js/ui/pages/pedido.js',
+    './js/ui/pages/inicio.js'
 ];
 
 // INSTALAÇÃO – armazena os arquivos no cache

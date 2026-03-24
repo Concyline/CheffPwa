@@ -150,6 +150,7 @@ $(".menu-logout").on("click", function (e) {
 
     UserController.logout();
 
+    App.aplicarPermisoes()
     renderVisitor()
 
     showToast('Deslogado com sucesso!')

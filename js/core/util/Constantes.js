@@ -3,6 +3,8 @@ class Constantes {
     static User = "user";
     static Token = "token";
     static Versao = "versao";
-    static TokenMesa = "tokenMesa";
+    static QrToken = "QrToken";
+    static RestautantTable = "restautantTable";
+    static RestaurantAdmin = 2;
 
 }

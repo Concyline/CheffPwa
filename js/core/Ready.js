@@ -5,16 +5,33 @@
 
 window.App = {
 
+
+    // INICIA TODO O SISTEMA 
+    async init() {
+        await this.getTokenUrl();
+        await this.obterCacheName();
+        await this.aplicarPermisoes();
+
+        await Router.init()
+        await UserController.init()
+    },
+
     aplicarPermisoes() {
 
         var user = Auth.getUser()
 
-        $('#div-role').hide();
+        var divRole = $('#div-role')
+        var menuFood = $('.menu-food')
+
+        divRole.hide(); // CAMPO NO CADASTRO DE USUARIOS PARA TIPOS DE USUARIOS
+        menuFood.hide(); // MENU LATERAL PRATOS 
 
         if (!user) return;
 
-        if (user.Role === "RestaurantAdmin") {
-            $('#div-role').show();
+        if (user.Role === Constantes.RestaurantAdmin) {
+            divRole.show();
+            menuFood.show();
+
         }
 
     },
@@ -44,12 +61,14 @@ window.App = {
         }
     },
 
-    getTokenUrl() {
+    async getTokenUrl() {
         const urlParams = new URLSearchParams(window.location.search);
-        var tokenMesa = urlParams.get(Constantes.TokenMesa);
+        var QrToken = urlParams.get(Constantes.QrToken);
 
-        if (tokenMesa) {
-            StorageManager.set(Constantes.TokenMesa, tokenMesa)
+        if (QrToken) {
+
+            var result = await RestaurantTablesController.getRestautrantTable(QrToken)
+            StorageManager.set(Constantes.RestautantTable, result.data)
         }
     }
 
@@ -61,13 +80,15 @@ window.App = {
 // ON READY
 // ON READY
 
-$(function () {
+$(async function () {
 
-    Router.init();
-    UserController.init();
+    await App.init()
 
-    App.obterCacheName()
-    App.getTokenUrl()
+    //Router.init()
+    //UserController.init()
+
+    //App.obterCacheName()
+    //App.getTokenUrl()
 
     if (localStorage.getItem('theme') === 'dark-mode') {
         $('html').addClass('dark-mode');

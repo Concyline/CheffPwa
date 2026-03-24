@@ -1,8 +1,8 @@
-$(function () {
-
-
+$(async function () {
 
 })
+
+
 
 function mostrarPedido() {
     console.log(Router.params.pedido)

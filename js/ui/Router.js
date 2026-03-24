@@ -17,7 +17,7 @@ class Router {
 
         console.log("Navegou")
 
-        const hash = location.hash || "#/pratos";
+        const hash = location.hash || "#/inicio";
 
         const parts = hash.replace("#/", "").split("/");
 
@@ -35,7 +35,7 @@ class Router {
 
         if (!hash) {
             // root da aplicacao
-            hash = "#/pratos?nav=Pratos"
+            hash = "#/inicio?nav=Inicio"
         }
 
         // decodifica url

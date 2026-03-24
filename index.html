@@ -92,7 +92,14 @@
             </div>
 
             <ul>
-                <li><a href="#" class="menu-home">Início</a></li>
+                <li>
+                    <a
+                        href="#"
+                        class="menu-home menu-navigate active"
+                        data-route="inicio?nav=Inicio"
+                        >Início</a
+                    >
+                </li>
 
                 <li class="has-submenu">
                     <a href="#" class="menu menu-adm">Administração</a>
@@ -113,6 +120,7 @@
                         >Mesas</a
                     >
                 </li>
+
                 <li>
                     <a href="#" class="menu-food menu-navigate" data-route="pratos?nav=Pratos"
                         >Pratos</a
@@ -307,12 +315,19 @@
 
         <script src="./js/core/jquery-3.6.0.min.js"></script>
         <script src="./js/core/cropper.min.js"></script>
+
         <script src="./js/core/util/Constantes.js"></script>
-        <script src="./js/services/UserService.js"></script>
-        <script src="./js/controllers/UserController.js"></script>
         <script src="./js/core/StorageManager.js"></script>
         <script src="./js/core/ApiClient.js"></script>
         <script src="./js/core/Auth.js"></script>
+
+        <script src="./js/services/UserService.js"></script>
+        <script src="./js/services/DishService.js"></script>
+        <script src="./js/services/RestaurantTablesService.js"></script>
+
+        <script src="./js/controllers/UserController.js"></script>
+        <script src="./js/controllers/DishController.js"></script>
+        <script src="./js/controllers/RestaurantTablesController.js"></script>
 
         <script src="./js/ui/componentes/topProgressBar.js"></script>
         <script src="./js/ui/componentes/componentes.js"></script>
