@@ -54,6 +54,7 @@ const urlsToCache = [
     './img/arrow_back_24dp_FFFFFF.png',
     './img/keyboard_arrow_down_24dp_49454F.png',
     './img/keyboard_arrow_down_24dp_CAC4D0.png',
+    './img/add_24dp_FFFFFF.png',
 
     './css/componentes.css',
     './css/geral.css',

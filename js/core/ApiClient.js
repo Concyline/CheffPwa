@@ -26,6 +26,8 @@ class ApiClient {
                 headers
             };
 
+           //console.log(`${this.baseURL}${endpoint}`)
+
             const response = await fetch(`${this.baseURL}${endpoint}`, config);
 
             return await response.json();

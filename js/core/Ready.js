@@ -22,15 +22,18 @@ window.App = {
 
         var divRole = $('#div-role')
         var menuFood = $('.menu-food')
+        var menuTables = $('.menu-tables')
 
         divRole.hide(); // CAMPO NO CADASTRO DE USUARIOS PARA TIPOS DE USUARIOS
         menuFood.hide(); // MENU LATERAL PRATOS 
+        menuTables.hide(); // MENU LATERAL MESAS
 
         if (!user) return;
 
         if (user.Role === Constantes.RestaurantAdmin) {
             divRole.show();
             menuFood.show();
+            menuTables.show();
 
         }
 
@@ -64,6 +67,8 @@ window.App = {
     async getTokenUrl() {
         const urlParams = new URLSearchParams(window.location.search);
         var QrToken = urlParams.get(Constantes.QrToken);
+
+        console.log('QrToken na URL ',QrToken)
 
         if (QrToken) {
 

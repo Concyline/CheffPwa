@@ -55,7 +55,7 @@
  /* Telas grandes - desktop (769px em diante)*/
  @media (min-width: 769px) {
      main {
-         padding: 15px 360px 40px 20px;
+         padding: 15px 360px 0 20px;
      }
  }
 

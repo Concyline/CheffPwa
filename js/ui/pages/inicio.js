@@ -1,6 +1,4 @@
 $(async function () {
-
-    console.log('carregarPratos')
     carregarPratos()
 
 })

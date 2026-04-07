@@ -1,8 +1,66 @@
-.teste {
-    background: olivedrab;
+#btn-add {
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
-.casa{
-    background-image: #ffffff;
-    display: block;
+#canvas {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: var(--color--background);
+  overflow: hidden;
+}
+
+.mesa {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #ff9800;
+  color: #423d44;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  flex-direction: column;
+
+  /* 🔥 ESSENCIAL PRA MOBILE */
+  touch-action: none;
+}
+
+.mesa span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mesa input {
+  width: 80%;
+  box-sizing: border-box;
+
+  padding: 0 10px;
+  min-height: 48px;
+  margin-bottom: 5px;
+
+  border-radius: var(--border--radius--component);
+  border: 2px solid var(--color--border);
+  color: var(--color--text);
+
+  font-size: var(--font--size);
+  font-weight: var(--font--weight);
+  letter-spacing: var(--font--letter--spacing);
+
+  background-color: var(--color--background--toast) !important;
+}
+
+/* .mesa input {
+  width: 80%;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+} */
+
+.mesa.selected {
+  outline: 2px solid var(--color--bar);
 }

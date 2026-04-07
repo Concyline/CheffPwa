@@ -284,7 +284,8 @@
 
      .login-box {
          width: 400px;
-         background: var(--color--background);
+         background: var(--color--background--menu--lateral);
+         box-shadow: 4px 4px 10px rgba(41, 41, 41, 0.2);
          border-radius: 10px;
          overflow: hidden;
      }

@@ -110,12 +110,15 @@ class Router {
 
         // esconde todos primeiro
         $('#btn-save').hide();
+        $('#btn-add').hide();
         $("#btn-imagem").hide();
         $("#btn-edit").hide();
         $("#btn-delet").hide();
 
         if (page === "mesas") {
 
+            $("#btn-save").show();
+            $('#btn-add').show();
 
         } else if (page === "pratos") {
 
